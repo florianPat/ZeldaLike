@@ -1,65 +1,130 @@
 #include "Physics.h"
 #include <assert.h>
+#include <math.h>
 
-void Physics::handleCollision(std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const std::string, std::shared_ptr<Body>>>>>& it,
-	std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const std::string, std::shared_ptr<Body>>>>>& collideElement,
-	sf::FloatRect & bodyRect, const sf::FloatRect & elementRect)
+void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Body>& collideElementBody, Collider & bodyCollider, 
+							  const Collider& elementCollider)
 {
-	if (bodyRect.intersects(elementRect))
+	if (bodyCollider.intersects(elementCollider))
 	{
-		if (it->second->isTrigger)
+		if (itBody->isTrigger)
 		{
-			it->second->triggered = true;
-			it->second->triggerInformation.triggerElementCollision = collideElement->second->physicsElement.id;
+			itBody->triggered = true;
+			itBody->triggerInformation.triggerElementCollision = collideElementBody->physicsElement.id;
 			return; //NOTE: Safty first...
 		}
-		else if (collideElement->second->isTrigger)
+		else if (collideElementBody->isTrigger)
 		{
-			it->second->triggered = true;
-			it->second->triggerInformation.triggerElementCollision = collideElement->second->physicsElement.id;
+			itBody->triggered = true;
+			itBody->triggerInformation.triggerElementCollision = collideElementBody->physicsElement.id;
 		}
-		
-		if (it->second->vel.x >= 0 && it->second->physicsElement.rightBody.intersects(elementRect))
+	
+		if (itBody->vel.x >= 0 && itBody->physicsElement.rightBody.intersects(elementCollider))
 		{
-			if (it->second->triggered)
+			if (itBody->triggered)
 			{
-				it->second->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::RIGHT;
+				itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::RIGHT;
 				return;
 			}
-			it->second->vel.x = 0;
-			it->second->pos.x = elementRect.left - bodyRect.width;
+			itBody->vel.x = 0;
+			//TODO: Add Minimum translation vector (#http://wiki.roblox.com/index.php?title=2D_Collision_Detection)
+			//itBody->pos.x = elementRect.left - bodyRect.width;
 		}
-		else if (it->second->vel.x < 0 && it->second->physicsElement.leftBody.intersects(elementRect))
+		else if (itBody->vel.x < 0 && itBody->physicsElement.leftBody.intersects(elementCollider))
 		{
-			if (it->second->triggered)
+			if (itBody->triggered)
 			{
-				it->second->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::LEFT;
+				itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::LEFT;
 				return;
 			}
-			it->second->vel.x = 0;
-			it->second->pos.x = elementRect.left + elementRect.width;
+			itBody->vel.x = 0;
+			//itBody->pos.x = elementRect.left + elementRect.width;
 		}
-		else if (it->second->vel.y >= 0 && it->second->physicsElement.shoes.intersects(elementRect))
+		else if (itBody->vel.y >= 0 && itBody->physicsElement.shoes.intersects(elementCollider))
 		{
-			if (it->second->triggered)
+			if (itBody->triggered)
 			{
-				it->second->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::SHOES;
+				itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::SHOES;
 				return;
 			}
-			it->second->pos.y = elementRect.top - bodyRect.height + 0.25f;
-			it->second->vel.y = 0.0f;
+			itBody->vel.y = 0.0f;
+			//itBody->pos.y = elementRect.top - bodyRect.height + 0.25f;
 		}
-		else if (it->second->vel.y < 0 && it->second->physicsElement.head.intersects(elementRect))
+		else if (itBody->vel.y < 0 && itBody->physicsElement.head.intersects(elementCollider))
 		{
-			if (it->second->triggered)
+			if (itBody->triggered)
 			{
-				it->second->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::HEAD;
+				itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::HEAD;
 				return;
 			}
-			it->second->pos.y = elementRect.top + elementRect.height - 0.25f;
-			it->second->vel.y = 0.0f;
+			itBody->vel.y = 0.0f;
+			//itBody->pos.y = elementRect.top + elementRect.height - 0.25f;
 		}
 	}
+}
+
+void Physics::Collider::getPointsAxis(sf::Vector2f * points, sf::Vector2f * axis) const
+{
+	if (type == Collider::Type::obb)
+	{
+		OBB bodyOBB = collider.obb;
+
+		points[0] = bodyOBB.origin;
+		points[1] = bodyOBB.origin + bodyOBB.width * bodyOBB.xAxis;
+		points[2] = bodyOBB.origin + bodyOBB.width * bodyOBB.xAxis + bodyOBB.height * bodyOBB.yAxis;
+		points[3] = bodyOBB.origin + bodyOBB.height * bodyOBB.yAxis;
+
+		axis[0] = bodyOBB.xAxis;
+		axis[1] = bodyOBB.yAxis;
+		axis[2] = -bodyOBB.xAxis;
+		axis[3] = -bodyOBB.yAxis;
+	}
+	else
+	{
+		sf::FloatRect bodyRect = collider.rect;
+
+		points[0] = { bodyRect.left, bodyRect.top };
+		points[1] = { bodyRect.left + bodyRect.width, bodyRect.top };
+		points[2] = { bodyRect.left + bodyRect.width, bodyRect.top + bodyRect.height };
+		points[3] = { bodyRect.left, bodyRect.top + bodyRect.height };
+
+		axis[0] = { 1.0f, 0.0f };
+		axis[1] = { 0.0f, 1.0f };
+		axis[2] = -axis[0];
+		axis[3] = -axis[1];
+	}
+}
+
+void Physics::Collider::getProjection(float * proj, const sf::Vector2f * points, const sf::Vector2f * axis1, const sf::Vector2f * axis2) const
+{
+	int projI = 0;
+	for (int i = 0; i < 4; ++i)
+	{
+		for (int j = 0; j < 4; ++j)
+		{
+			proj[projI++] = points[i].x * axis1[j].x + points[i].y * axis1[j].y;
+		}
+		for (int j = 0; j < 4; ++j)
+		{
+			proj[projI++] = points[i].x * axis2[j].x + points[i].y * axis2[j].y;
+		}
+	}
+}
+
+sf::Vector2f Physics::Collider::getMinMax(const float * proj) const
+{
+	float min = proj[0], max = proj[0];
+
+	for (int i = 1; i < 8; ++i)
+	{
+		if (min > proj[i])
+			min = proj[i];
+
+		if (max < proj[i])
+			max = proj[i];
+	}
+
+	return sf::Vector2f{ min, max };
 }
 
 Physics::Physics() : bodies()
@@ -78,50 +143,21 @@ void Physics::update(float dt)
 
 			if (!it->second->isTrigger)
 			{
-				it->second->updateShoes();
-				it->second->updateLeftRightBody();
-				it->second->updateHead();
+				it->second->physicsElement.updateBodyParts();
 			}
 
 			for (auto collisionIdIt = it->second->physicsElement.collisionIds->begin(); collisionIdIt != it->second->physicsElement.collisionIds->end(); ++collisionIdIt)
 			{
-				auto collideElement = bodies.find(*collisionIdIt);
-				if (collideElement != bodies.end())
+				auto collideElementIt = bodies.find(*collisionIdIt);
+				if (collideElementIt != bodies.end())
 				{
-					if (it->second->physicsElement.collidersInPointer)
-					{
-						sf::FloatRect& bodyRect = *it->second->physicsElement.colliders.collidersPointer;
+					auto collideElementBody = collideElementIt->second;
+					auto itBody = it->second;
 
-						if (collideElement->second->physicsElement.collidersInPointer)
-						{
-							sf::FloatRect elementRect = *collideElement->second->physicsElement.colliders.collidersPointer;
-							
-							handleCollision(it, collideElement, bodyRect, elementRect);
-						}
-						else
-						{
-							sf::FloatRect elementRect = collideElement->second->physicsElement.colliders.collidersValue;
-							
-							handleCollision(it, collideElement, bodyRect, elementRect);
-						}
-					}
-					else
-					{
-						sf::FloatRect& bodyRect = it->second->physicsElement.colliders.collidersValue;
+					Collider& bodyRect = *itBody->physicsElement.getCollider();
+					Collider& elementRect = *collideElementBody->physicsElement.getCollider();
 
-						if (collideElement->second->physicsElement.collidersInPointer)
-						{
-							sf::FloatRect elementRect = *collideElement->second->physicsElement.colliders.collidersPointer;
-							
-							handleCollision(it, collideElement, bodyRect, elementRect);
-						}
-						else
-						{
-							sf::FloatRect elementRect = collideElement->second->physicsElement.colliders.collidersValue;
-							
-							handleCollision(it, collideElement, bodyRect, elementRect);
-						}
-					}
+					handleCollision(itBody, collideElementBody, bodyRect, elementRect);
 				}
 
 				it->second->pos += it->second->vel * dt;
@@ -136,21 +172,24 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 	{
 		if (!it->second->isStatic)
 		{
-			sf::RectangleShape head, shoes, body;
-			head.setSize(sf::Vector2f(it->second->physicsElement.head.width, it->second->physicsElement.head.height));
-			head.setPosition(sf::Vector2f(it->second->physicsElement.head.left, it->second->physicsElement.head.top));
-			head.setFillColor(sf::Color::Red);
-			window.draw(head);
+			Collider* collider = it->second->physicsElement.getCollider();
 
-			shoes.setSize(sf::Vector2f(it->second->physicsElement.shoes.width, it->second->physicsElement.shoes.height));
-			shoes.setPosition(sf::Vector2f(it->second->physicsElement.shoes.left, it->second->physicsElement.shoes.top));
-			shoes.setFillColor(sf::Color::Blue);
-			window.draw(shoes);
+			switch (collider->type)
+			{
+				case Collider::Type::rect:
+				{
+					sf::FloatRect colliderRect = collider->collider.rect;
 
-			body.setSize(sf::Vector2f(it->second->physicsElement.leftBody.width, it->second->physicsElement.leftBody.height));
-			body.setPosition(sf::Vector2f(it->second->physicsElement.leftBody.left, it->second->physicsElement.leftBody.top));
-			body.setFillColor(sf::Color::Yellow);
-			window.draw(body);
+					sf::RectangleShape body;
+
+					body.setSize(sf::Vector2f(colliderRect.width, colliderRect.height));
+					body.setPosition(sf::Vector2f(colliderRect.left, colliderRect.top));
+					body.setFillColor(sf::Color::Yellow);
+					window.draw(body);
+
+					break;
+				}
+			}
 		}
 	}
 }
@@ -171,70 +210,31 @@ bool Physics::removeElementById(std::string & id)
 	return bodies.erase(id);
 }
 
-void Physics::Body::updateShoes()
-{
-	if (!isStatic)
-	{
-		physicsElement.shoes.left = physicsElement.colliders.collidersPointer->left + 5.0f;
-		physicsElement.shoes.top = physicsElement.colliders.collidersPointer->top + physicsElement.colliders.collidersPointer->height - 15.0f;
-		physicsElement.shoes.width = physicsElement.colliders.collidersPointer->width - 10.0f;
-		physicsElement.shoes.height = 15.0f;
-	}
-}
-
-void Physics::Body::updateLeftRightBody()
-{
-	if (!isStatic)
-	{
-		physicsElement.leftBody.left = physicsElement.colliders.collidersPointer->left;
-		physicsElement.leftBody.top = physicsElement.colliders.collidersPointer->top + 15.0f;
-		physicsElement.leftBody.width = physicsElement.colliders.collidersPointer->width / 2.0f;
-		physicsElement.leftBody.height = physicsElement.colliders.collidersPointer->height - 30.0f;
-
-		physicsElement.rightBody.left = physicsElement.colliders.collidersPointer->left + physicsElement.colliders.collidersPointer->width / 2.0f;
-		physicsElement.rightBody.top = physicsElement.colliders.collidersPointer->top + 15.0f;
-		physicsElement.rightBody.width = physicsElement.colliders.collidersPointer->width / 2.0f;
-		physicsElement.rightBody.height = physicsElement.colliders.collidersPointer->height - 30.0f;
-	}
-}
-
-void Physics::Body::updateHead()
-{
-	if (!isStatic)
-	{
-		physicsElement.head.left = physicsElement.colliders.collidersPointer->left + 5.0f;
-		physicsElement.head.top = physicsElement.colliders.collidersPointer->top;
-		physicsElement.head.width = physicsElement.colliders.collidersPointer->width - 10.0f;
-		physicsElement.head.height = 15.0f;
-	}
-}
-
-Physics::Body::Body(sf::Vector2f& pos, std::string name, sf::FloatRect* collider, std::vector<std::string>* collisionId, bool isTrigger, bool isStatic)
+Physics::Body::Body(sf::Vector2f& pos, std::string name, Collider* collider, std::vector<std::string>* collisionId, bool isTrigger, bool isStatic)
 	: isStatic(isStatic), isTrigger(isTrigger), pos(pos), physicsElement{}
 {
 	this->physicsElement.id = name;
-	this->physicsElement.collisionIdPointer = nullptr;
 	this->physicsElement.collisionIds = collisionId;
 	this->physicsElement.collidersInPointer = true;
 	this->physicsElement.colliders.collidersPointer = collider;
 }
 
-Physics::Body::Body(sf::Vector2f & pos, std::string name, sf::FloatRect * collider, bool isTrigger, bool isStatic, std::vector<std::string> collisionId)
+Physics::Body::Body(sf::Vector2f & pos, std::string name, Collider * collider, bool isTrigger, bool isStatic, std::vector<std::string> collisionId)
 	: isStatic(isStatic), isTrigger(isTrigger), pos(pos), physicsElement{}
 {
 	this->physicsElement.id = name;
-	this->physicsElement.collisionIdPointer = std::make_shared<std::vector<std::string>>(collisionId);
-	this->physicsElement.collisionIds = std::move(physicsElement.collisionIdPointer).get();
+	this->physicsElement.collisionIdPointer = collisionId;
+	this->physicsElement.collisionIds = &physicsElement.collisionIdPointer;
 	this->physicsElement.collidersInPointer = true;
 	this->physicsElement.colliders.collidersPointer = collider;
 }
 
-Physics::Body::Body(std::string name, sf::FloatRect collider, bool isTrigger, bool isStatic, std::vector<std::string> collisionId)
+Physics::Body::Body(std::string name, Collider collider, bool isTrigger, bool isStatic, std::vector<std::string> collisionId)
 	: isStatic(isStatic), isTrigger(isTrigger), pos(0.0f, 0.0f), physicsElement{}
 {
 	this->physicsElement.id = name;
-	this->physicsElement.collisionIdPointer = std::make_shared<std::vector<std::string>>(collisionId);
-	this->physicsElement.collisionIds = std::move(physicsElement.collisionIdPointer).get();
+	this->physicsElement.collisionIdPointer = collisionId;
+	this->physicsElement.collisionIds = &physicsElement.collisionIdPointer;
 	this->physicsElement.collidersInPointer = false;
 	this->physicsElement.colliders.collidersValue = collider;
 }
@@ -271,4 +271,90 @@ Physics::Body::TriggerInformation & Physics::Body::getTriggerInformation()
 std::string & Physics::Body::getId()
 {
 	return physicsElement.id;
+}
+
+Physics::Collider * Physics::PhysicElement::getCollider() const
+{
+	if (collidersInPointer)
+		return colliders.collidersPointer;
+	else
+		return (Collider *) &colliders.collidersValue;
+}
+
+void Physics::PhysicElement::initBodyParts()
+{
+	if (getCollider()->type == Collider::Type::rect)
+	{
+		head = Collider(sf::FloatRect());
+		shoes = Collider(sf::FloatRect());
+		leftBody = Collider(sf::FloatRect());
+		rightBody = Collider(sf::FloatRect());
+	}
+	else
+	{
+		head = Collider(OBB());
+		shoes = Collider(OBB());
+		leftBody = Collider(OBB());
+		rightBody = Collider(OBB());
+	}
+}
+
+//TODO: Implement!
+void Physics::PhysicElement::updateBodyParts()
+{
+}
+
+Physics::Collider::Collider() : type(Type::rect), collider{ {} }
+{
+}
+
+Physics::Collider::Collider(sf::FloatRect & rect) : type(Type::rect), collider{ {rect.left, rect.top, rect.width, rect.height} }
+{
+}
+
+Physics::Collider::Collider(OBB & obb) : type(Type::obb), collider{ {} }
+{
+	collider.obb = obb;
+}
+
+bool Physics::Collider::intersects(const Collider & other) const
+{
+	if (other.type == Type::rect && type == Type::rect)
+	{
+		return collider.rect.intersects(other.collider.rect);
+	}
+	else
+	{
+		sf::Vector2f s1Points[4] = {};
+		sf::Vector2f s1Axis[4] = {};
+
+		sf::Vector2f s2Points[4] = {};
+		sf::Vector2f s2Axis[4] = {};
+
+		getPointsAxis(s1Points, s1Axis);
+		other.getPointsAxis(s2Points, s2Axis);
+
+		float s1Proj[8] = {};
+		getProjection(s1Proj, s1Points, s1Axis, s2Axis);
+		sf::Vector2f s1MinMax = getMinMax(s1Proj);
+
+		float s2Proj[8] = {};
+		getProjection(s2Proj, s2Points, s1Axis, s2Axis);
+		sf::Vector2f s2MinMax = getMinMax(s2Proj);
+
+		if (s2MinMax.x > s1MinMax.y || s2MinMax.y < s1MinMax.x)
+			return true;
+		else
+			return false;
+	}
+}
+
+Physics::OBB::OBB(float left, float top, float width, float height, float angle) : angle(angle), origin(sf::Vector2f{ left, top }), width(width), height(height),
+																				   xAxis(cosf(angle), sinf(angle)), yAxis((-sinf(angle)), cosf(angle))
+{
+}
+
+Physics::OBB::OBB(sf::Vector2f & topLeft, float width, float height, float angle) : angle(angle), origin(topLeft), width(width), height(height),
+																					xAxis(cosf(angle), sinf(angle)), yAxis((-sinf(angle)), cosf(angle))
+{
 }
