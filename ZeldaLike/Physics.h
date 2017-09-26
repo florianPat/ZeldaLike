@@ -19,6 +19,7 @@ public:
 		sf::Vector2f xAxis, yAxis;
 		sf::Vector2f origin;
 
+		//TODO: Make pivit point the middle?
 		OBB(float left, float top, float width, float height, float angle);
 		OBB(sf::Vector2f& topLeft, float width, float height, float angle);
 	private:
@@ -45,12 +46,12 @@ public:
 		Collider(OBB& obb);
 
 		bool intersects(const Collider& other) const;
+		bool collide(const Collider& other, sf::Vector2f* minTransVec, sf::Vector2f *triggerBodyPartVec) const;
 	private:
 		Collider();
 
 		void getPointsAxis(sf::Vector2f* points, sf::Vector2f* axis) const;
-		void getProjection(float* proj, const sf::Vector2f* points, const sf::Vector2f* axis1, const sf::Vector2f* axis2) const;
-		sf::Vector2f getMinMax(const float* proj) const;
+		sf::Vector2f getProjectionMinMax(const sf::Vector2f* points, const sf::Vector2f& axis) const;
 	};
 private:
 	struct PhysicElement
@@ -59,7 +60,6 @@ private:
 		std::vector<std::string> collisionIdPointer;
 		std::vector<std::string>* collisionIds;
 		bool collidersInPointer;
-		Collider head, leftBody, rightBody, shoes;
 		union
 		{
 				Collider* collidersPointer;
@@ -67,9 +67,6 @@ private:
 		} colliders;
 
 		Collider* getCollider() const;
-
-		void initBodyParts();
-		void updateBodyParts();
 	};
 public:
 	class Body
