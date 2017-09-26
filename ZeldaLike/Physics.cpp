@@ -51,47 +51,6 @@ void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Bod
 
 		itBody->pos += minTransVec;
 	}
-
-	//if (itBody->vel.x >= 0 && itBody->physicsElement.rightBody.intersects(elementCollider))
-	//{
-	//	if (itBody->triggered)
-	//	{
-	//		itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::RIGHT;
-	//		return;
-	//	}
-	//	itBody->vel.x = 0;
-	//	//itBody->pos.x = elementRect.left - bodyRect.width;
-	//}
-	//else if (itBody->vel.x < 0 && itBody->physicsElement.leftBody.intersects(elementCollider))
-	//{
-	//	if (itBody->triggered)
-	//	{
-	//		itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::LEFT;
-	//		return;
-	//	}
-	//	itBody->vel.x = 0;
-	//	//itBody->pos.x = elementRect.left + elementRect.width;
-	//}
-	//else if (itBody->vel.y >= 0 && itBody->physicsElement.shoes.intersects(elementCollider))
-	//{
-	//	if (itBody->triggered)
-	//	{
-	//		itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::SHOES;
-	//		return;
-	//	}
-	//	itBody->vel.y = 0.0f;
-	//	//itBody->pos.y = elementRect.top - bodyRect.height + 0.25f;
-	//}
-	//else if (itBody->vel.y < 0 && itBody->physicsElement.head.intersects(elementCollider))
-	//{
-	//	if (itBody->triggered)
-	//	{
-	//		itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::HEAD;
-	//		return;
-	//	}
-	//	itBody->vel.y = 0.0f;
-	//	//itBody->pos.y = elementRect.top + elementRect.height - 0.25f;
-	//}
 }
 
 void Physics::Collider::getPointsAxis(sf::Vector2f * points, sf::Vector2f * axis) const
@@ -188,17 +147,31 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 		{
 			Collider* collider = it->second->physicsElement.getCollider();
 
+			sf::RectangleShape body;
+
 			switch (collider->type)
 			{
 				case Collider::Type::rect:
 				{
 					sf::FloatRect colliderRect = collider->collider.rect;
 
-					sf::RectangleShape body;
-
 					body.setSize(sf::Vector2f(colliderRect.width, colliderRect.height));
 					body.setPosition(sf::Vector2f(colliderRect.left, colliderRect.top));
 					body.setFillColor(sf::Color::Yellow);
+					
+					window.draw(body);
+
+					break;
+				}
+				case Collider::Type::obb:
+				{
+					OBB collideOBB = collider->collider.obb;
+
+					body.setRotation(collideOBB.angle);
+					body.setSize(sf::Vector2f{ collideOBB.width, collideOBB.height });
+					body.setPosition(collideOBB.origin);
+					body.setFillColor(sf::Color::Yellow);
+					
 					window.draw(body);
 
 					break;
