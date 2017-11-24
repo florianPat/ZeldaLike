@@ -326,7 +326,7 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 			sf::FloatRect otherRect = other.collider.rect;
 			
 			*minTransVec = { rect.left - (otherRect.left + otherRect.width), 0 };
-			std::vector<sf::Vector2f> corners(4);
+			std::vector<sf::Vector2f> corners;
 			corners.emplace_back(sf::Vector2f{ (rect.left + rect.width) - otherRect.left, 0 });
 			corners.emplace_back(sf::Vector2f{ 0, rect.top - (otherRect.top + otherRect.height) });
 			corners.emplace_back(sf::Vector2f{ 0, (rect.top + rect.height) - otherRect.top });
@@ -339,6 +339,9 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 				}
 			}
 		}
+
+		minTransVec->x *= -1;
+		minTransVec->y *= -1;
 
 		*triggerBodyPartVec = *minTransVec;
 
@@ -366,7 +369,7 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 			else
 			{
 				float overlap = s1MinMax.y > s2MinMax.y ? -(s1MinMax.x - s2MinMax.y) : (s1MinMax.y - s2MinMax.x);
-				if (std::fabsf(overlap) < std::sqrtf(minTransVec->x * minTransVec->x + minTransVec->y * minTransVec->y))
+				if ((std::fabsf(overlap) < std::sqrtf(minTransVec->x * minTransVec->x + minTransVec->y * minTransVec->y)) || (minTransVec->x == 0 && minTransVec->y == 0))
 				{
 					*minTransVec = axis[i] * overlap;
 					if (i < 4)

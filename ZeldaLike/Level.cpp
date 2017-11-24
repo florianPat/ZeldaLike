@@ -18,6 +18,9 @@ void Level::updateModel()
 
 	gom.updateActors(dt);
 
+	body1->vel.x = 50.0f;
+	collider1.collider.rect.left = body1->getPos().x + body1->vel.x * dt;
+
 	physics.update(dt);
 }
 
@@ -27,6 +30,8 @@ void Level::composeFrame()
 
 	map.draw(*window);
 	gom.drawActors();
+
+	collider1.collider.obb.origin = body1->getPos();
 
 	physics.debugRenderBodies(*window);
 
@@ -39,6 +44,9 @@ map(tiledMapName), clock(), gom(), eventManager()
 	auto objects = map.getObjectGroups();
 
 	eventManager.addListener(EventLevelReload::EVENT_LEVEL_RELOAD_ID, delegateLevelReload);
+
+	physics.addElementPointer(body1);
+	physics.addElementPointer(body2);
 }
 
 std::string Level::Go()
