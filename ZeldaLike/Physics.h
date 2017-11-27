@@ -18,9 +18,10 @@ public:
 		static constexpr float PI = 3.1415927f;
 
 		float angle;
+		sf::Vector2f xAxis, yAxis;
 	public:
 		float width, height;
-		sf::Vector2f xAxis, yAxis;
+		//TODO: This is top-left "world" coordinate, make a real origin-system!
 		sf::Vector2f origin;
 	public:
 		//TODO: Make pivit point the middle?
@@ -36,16 +37,18 @@ public:
 
 	class Collider
 	{
-		friend class Physics;
-	private:
-		//TODO: Get rid of PI here!!
-		static constexpr float PI = 3.1415927f;
-
+	public:
 		enum class Type
 		{
 			rect,
 			obb
-		} type;
+		};
+	private:
+		friend class Physics;
+		//TODO: Get rid of PI here!!
+		static constexpr float PI = 3.1415927f;
+
+		Type type;
 	public:
 		union
 		{
@@ -55,11 +58,12 @@ public:
 
 		Collider(sf::FloatRect& rect);
 		Collider(OBB& obb);
+		Type GetType() const;
+	private:
+		Collider();
 
 		bool intersects(const Collider& other) const;
 		bool collide(const Collider& other, sf::Vector2f* minTransVec) const;
-	private:
-		Collider();
 
 		void getPointsAxis(sf::Vector2f* points, sf::Vector2f* axis) const;
 		sf::Vector2f getProjectionMinMax(const sf::Vector2f* points, const sf::Vector2f& axis) const;

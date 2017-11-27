@@ -288,6 +288,11 @@ Physics::Collider::Collider(OBB & obb) : type(Type::obb), collider{ {} }
 	collider.obb = obb;
 }
 
+Physics::Collider::Type Physics::Collider::GetType() const
+{
+	return type;
+}
+
 bool Physics::Collider::intersects(const Collider & other) const
 {
 	if (other.type == Type::rect && type == Type::rect)
