@@ -10,18 +10,26 @@
 class Physics
 {
 public:
-	struct OBB
+	class OBB
 	{
+	private:
 		friend class Physics;
 
+		static constexpr float PI = 3.1415927f;
+
 		float angle;
+	public:
 		float width, height;
 		sf::Vector2f xAxis, yAxis;
 		sf::Vector2f origin;
-
+	public:
 		//TODO: Make pivit point the middle?
+		//angle has to be in degrees!
 		OBB(float left, float top, float width, float height, float angle);
 		OBB(sf::Vector2f& topLeft, float width, float height, float angle);
+		//angle has to be in degrees!
+		void setAngle(float newAngle);
+		float getAngle() const;
 	private:
 		OBB() = default;
 	};
@@ -30,6 +38,9 @@ public:
 	{
 		friend class Physics;
 	private:
+		//TODO: Get rid of PI here!!
+		static constexpr float PI = 3.1415927f;
+
 		enum class Type
 		{
 			rect,
@@ -46,7 +57,7 @@ public:
 		Collider(OBB& obb);
 
 		bool intersects(const Collider& other) const;
-		bool collide(const Collider& other, sf::Vector2f* minTransVec, sf::Vector2f *triggerBodyPartVec) const;
+		bool collide(const Collider& other, sf::Vector2f* minTransVec) const;
 	private:
 		Collider();
 

@@ -18,8 +18,36 @@ void Level::updateModel()
 
 	gom.updateActors(dt);
 
-	body1->vel.x = 50.0f;
-	collider1.collider.rect.left = body1->getPos().x + body1->vel.x * dt;
+	body1->vel.x = 0.0f;
+	body1->vel.y = 0.0f;
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		body1->vel.x = 1.0f;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		body1->vel.x = -1.0f;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		body1->vel.y = -1.0f;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		body1->vel.y = 1.0f;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+	{
+		collider1.collider.obb.setAngle(collider1.collider.obb.getAngle() + 1.0f);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+	{
+		collider1.collider.obb.setAngle(collider1.collider.obb.getAngle() - 1.0f);
+	}
+	collider1.collider.obb.origin.x = body1->getPos().x + body1->vel.x /** dt*/;
 
 	physics.update(dt);
 }
@@ -39,7 +67,8 @@ void Level::composeFrame()
 }
 
 Level::Level(sf::RenderWindow * window, std::string tiledMapName) : window(window), physics(), levelName(tiledMapName),
-map(tiledMapName), clock(), gom(), eventManager()
+map(tiledMapName), clock(), gom(), eventManager(), collider1(Physics::Collider(Physics::OBB(0.0f, 30.0f, 20.0f, 20.0f, 40.0f))), 
+body1(std::make_shared<Physics::Body>(sf::Vector2f(0.0f, 30.0f), std::string("one"), &collider1, false, false, std::vector<std::string>{ "two" }))
 {
 	auto objects = map.getObjectGroups();
 

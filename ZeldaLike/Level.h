@@ -30,8 +30,8 @@ private:
 	void eventLevelReloadHandler(EventData* eventData);
 	void eventWinHandler(EventData* eventData);
 private:
-	Physics::Collider collider1 = Physics::Collider(sf::FloatRect(0.0f, 30.0f, 20.0f, 20.0f));
-	std::shared_ptr<Physics::Body> body1 = std::make_shared<Physics::Body>(sf::Vector2f(0.0f, 30.0f), std::string("one"), &collider1, false, false, std::vector<std::string>{ "two" } );
+	Physics::Collider collider1;
+	std::shared_ptr<Physics::Body> body1;
 	Physics::Collider collider2 = Physics::Collider(sf::FloatRect(100.0f, 30.0f, 20.0f, 20.0f));
 	std::shared_ptr<Physics::Body> body2 = std::make_shared<Physics::Body>(sf::Vector2f(100.0f, 30.0f), std::string("two"), &collider2, false, false);
 private:

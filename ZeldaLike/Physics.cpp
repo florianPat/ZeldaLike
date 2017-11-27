@@ -1,6 +1,7 @@
 #include "Physics.h"
 #include <assert.h>
 #include <math.h>
+#include <limits>
 
 void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Body>& collideElementBody, Collider & bodyCollider,
 	const Collider& elementCollider)
@@ -25,25 +26,24 @@ void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Bod
 	}
 
 	sf::Vector2f minTransVec = {};
-	sf::Vector2f triggerBodyPartVec = {};
-	if (bodyCollider.collide(elementCollider, &minTransVec, &triggerBodyPartVec))
+	if (bodyCollider.collide(elementCollider, &minTransVec))
 	{
-		if (triggerBodyPartVec.x > 0.0f)
+		if (minTransVec.x > 0.0f)
 		{
 			itBody->vel.x = 0;
 			itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::LEFT;
 		}
-		else if (triggerBodyPartVec.x < 0.0f)
+		else if (minTransVec.x < 0.0f)
 		{
 			itBody->vel.x = 0;
 			itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::RIGHT;
 		}
-		if (triggerBodyPartVec.y > 0.0f)
+		if (minTransVec.y > 0.0f)
 		{
 			itBody->vel.y = 0;
 			itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::HEAD;
 		}
-		else if (triggerBodyPartVec.y < 0.0f)
+		else if (minTransVec.y < 0.0f)
 		{
 			itBody->vel.y = 0;
 			itBody->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::SHOES;
@@ -64,13 +64,8 @@ void Physics::Collider::getPointsAxis(sf::Vector2f * points, sf::Vector2f * axis
 		points[2] = bodyOBB.origin + bodyOBB.width * bodyOBB.xAxis + bodyOBB.height * bodyOBB.yAxis;
 		points[3] = bodyOBB.origin + bodyOBB.height * bodyOBB.yAxis;
 
-		//NOTE: Axis has to be normalied!
-		float xAxisLength = std::sqrtf(bodyOBB.xAxis.x * bodyOBB.xAxis.x + bodyOBB.xAxis.y * bodyOBB.xAxis.y);
-		float yAxisLenght = std::sqrtf(bodyOBB.yAxis.x * bodyOBB.yAxis.x + bodyOBB.yAxis.y * bodyOBB.yAxis.y);
-		axis[0] = sf::Vector2f{ bodyOBB.xAxis.x / xAxisLength, bodyOBB.xAxis.y / xAxisLength };
-		axis[1] = sf::Vector2f{ bodyOBB.yAxis.x / yAxisLenght, bodyOBB.yAxis.y / yAxisLenght };
-		axis[2] = -axis[0];
-		axis[3] = -axis[1];
+		axis[0] = bodyOBB.xAxis;
+		axis[1] = bodyOBB.yAxis;
 	}
 	else
 	{
@@ -83,8 +78,6 @@ void Physics::Collider::getPointsAxis(sf::Vector2f * points, sf::Vector2f * axis
 
 		axis[0] = { 1.0f, 0.0f };
 		axis[1] = { 0.0f, 1.0f };
-		axis[2] = -axis[0];
-		axis[3] = -axis[1];
 	}
 }
 
@@ -133,7 +126,7 @@ void Physics::update(float dt)
 					handleCollision(itBody, collideElementBody, bodyRect, elementRect);
 				}
 
-				it->second->pos += it->second->vel * dt;
+				it->second->pos += it->second->vel /** dt*/;
 			}
 		}
 	}
@@ -167,11 +160,25 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 				{
 					OBB collideOBB = collider->collider.obb;
 
-					body.setRotation(collideOBB.angle);
-					body.setSize(sf::Vector2f{ collideOBB.width, collideOBB.height });
 					body.setPosition(collideOBB.origin);
+					body.setSize(sf::Vector2f{ collideOBB.width, collideOBB.height });
+					body.setRotation(collideOBB.angle*180/collideOBB.PI);
 					body.setFillColor(sf::Color::Yellow);
 					
+					/*sf::Vector2f points[] = { {collideOBB.origin}, {collideOBB.origin + collideOBB.width * collideOBB.xAxis }, 
+											  {collideOBB.origin + collideOBB.width * collideOBB.xAxis + collideOBB.height * collideOBB.yAxis},
+											  {collideOBB.origin + collideOBB.height * collideOBB.yAxis} };
+
+					for (unsigned int i = 0; i < body.getPointCount(); ++i)
+					{
+						sf::Vector2f myPoint = points[i];
+						sf::Vector2f point = body.getPoint(i);
+						point = body.getTransform().transformPoint(point);
+						sf::Transform transform = body.getTransform();
+
+						std::cout << myPoint.x << " " << myPoint.y << "---" << point.x << " " << point.y << std::endl;
+					}*/
+
 					window.draw(body);
 
 					break;
@@ -289,13 +296,13 @@ bool Physics::Collider::intersects(const Collider & other) const
 	}
 	else
 	{
-		sf::Vector2f axis[8] = {};
+		sf::Vector2f axis[4] = {};
 
 		sf::Vector2f s1Points[4] = {};
 		sf::Vector2f s2Points[4] = {};
 
 		getPointsAxis(s1Points, axis);
-		other.getPointsAxis(s2Points, axis + 4);
+		other.getPointsAxis(s2Points, axis + 2);
 
 		for (int i = 0; i < 8; ++i)
 		{
@@ -314,7 +321,7 @@ bool Physics::Collider::intersects(const Collider & other) const
 	}
 }
 
-bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVec, sf::Vector2f *triggerBodyPartVec) const
+bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVec) const
 {
 	if (other.type == Type::rect && type == Type::rect)
 	{
@@ -343,23 +350,24 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 		minTransVec->x *= -1;
 		minTransVec->y *= -1;
 
-		*triggerBodyPartVec = *minTransVec;
-
 		return result;
 	}
 	else
 	{
-		sf::Vector2f axis[8] = {};
+		sf::Vector2f axis[4] = {};
 
 		sf::Vector2f s1Points[4] = {};
 		sf::Vector2f s2Points[4] = {};
 
 		float angle = 0.0f;
 
-		getPointsAxis(s1Points, axis);
-		other.getPointsAxis(s2Points, axis + 4);
+		float o = std::numeric_limits<float>::max();
+		sf::Vector2f minAxis = { 0.0f, 0.0f };
 
-		for (int i = 0; i < 8; ++i)
+		getPointsAxis(s1Points, axis);
+		other.getPointsAxis(s2Points, axis + 2);
+
+		for (int i = 0; i < 4; ++i)
 		{
 			sf::Vector2f s1MinMax = getProjectionMinMax(s1Points, axis[i]);
 			sf::Vector2f s2MinMax = getProjectionMinMax(s2Points, axis[i]);
@@ -368,32 +376,55 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 				return false;
 			else
 			{
-				float overlap = s1MinMax.y > s2MinMax.y ? -(s1MinMax.x - s2MinMax.y) : (s1MinMax.y - s2MinMax.x);
-				if ((std::fabsf(overlap) < std::sqrtf(minTransVec->x * minTransVec->x + minTransVec->y * minTransVec->y)) || (minTransVec->x == 0 && minTransVec->y == 0))
+				float overlap = s1MinMax.y > s2MinMax.y ? -(s2MinMax.y - s1MinMax.x) : (s1MinMax.y - s2MinMax.x);
+				if (std::fabsf(overlap) < std::fabsf(o))
 				{
-					*minTransVec = axis[i] * overlap;
-					if (i < 4)
-						angle = -collider.obb.angle;
+					o = overlap;
+					minAxis = axis[i];
+					if (i < 2)
+					{
+						if (type == Type::obb)
+							angle = collider.obb.angle;
+						else
+							angle = 0.0f;
+					}
 					else
-						angle = -other.collider.obb.angle;
+					{
+						if (other.type == Type::obb)
+							angle = other.collider.obb.angle;
+						else
+							angle = 0.0f;
+					}
 				}
 			}
 		}
 
-		OBB obb(0.0f, 0.0f, minTransVec->x, minTransVec->y, angle);
-
-		*triggerBodyPartVec = obb.origin + obb.width * obb.xAxis + obb.height * obb.yAxis;
+		*minTransVec = -sf::Vector2f(o * minAxis.x, o * minAxis.y);
 
 		return true;
 	}
 }
 
-Physics::OBB::OBB(float left, float top, float width, float height, float angle) : angle(angle), origin(sf::Vector2f{ left, top }), width(width), height(height),
-																				   xAxis(cosf(angle), sinf(angle)), yAxis((-sinf(angle)), cosf(angle))
+//NOTE: angle from degrees in radians, because cosf uses radians, but in matrix of SFML in Shape it uses degrees, so you have to convert back and forth...
+//TODO: Do I have to think about going over 360 degree here?
+Physics::OBB::OBB(float left, float top, float width, float height, float angle) : angle(angle*PI/180), origin(sf::Vector2f{ left, top }), width(width), height(height),
+																				   xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle))
 {
 }
 
-Physics::OBB::OBB(sf::Vector2f & topLeft, float width, float height, float angle) : angle(angle), origin(topLeft), width(width), height(height),
-																					xAxis(cosf(angle), sinf(angle)), yAxis((-sinf(angle)), cosf(angle))
+Physics::OBB::OBB(sf::Vector2f & topLeft, float width, float height, float angle) : angle(angle*PI/180), origin(topLeft), width(width), height(height),
+																					xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle))
 {
+}
+
+void Physics::OBB::setAngle(float newAngle)
+{
+	angle = newAngle*PI/180;
+	xAxis = sf::Vector2f(cosf(angle), sinf(angle));
+	yAxis = sf::Vector2f(-sinf(angle), cosf(angle));
+}
+
+float Physics::OBB::getAngle() const
+{
+	return angle;
 }
