@@ -349,6 +349,7 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 {
 	if (other.type == Type::rect && type == Type::rect)
 	{
+		//TODO: Find that bug!!! (if you go form right side, "jump" to left -> no good)
 		bool result = collider.rect.intersects(other.collider.rect);
 		
 		if (result)
@@ -356,7 +357,7 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 			sf::FloatRect rect = collider.rect;
 			sf::FloatRect otherRect = other.collider.rect;
 			
-			*minTransVec = { rect.left - (otherRect.left + otherRect.width), 0 };
+			*minTransVec = { -(rect.left - (otherRect.left + otherRect.width)), -0 };
 			std::vector<sf::Vector2f> corners;
 			corners.emplace_back(sf::Vector2f{ (rect.left + rect.width) - otherRect.left, 0 });
 			corners.emplace_back(sf::Vector2f{ 0, rect.top - (otherRect.top + otherRect.height) });
@@ -364,15 +365,12 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 
 			for (auto it = corners.begin(); it != corners.end(); ++it)
 			{
-				if (std::sqrtf(minTransVec->x * minTransVec->x + minTransVec->y * minTransVec->y) > std::sqrtf(it->x * it->x + it->y * it->y))
+				if (std::fabsf(minTransVec->x * minTransVec->x + minTransVec->y * minTransVec->y) > std::fabsf(it->x * it->x + it->y * it->y))
 				{
-					*minTransVec = *it;
+					*minTransVec = -*it;
 				}
 			}
 		}
-
-		minTransVec->x *= -1;
-		minTransVec->y *= -1;
 
 		return result;
 	}
@@ -430,7 +428,6 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 }
 
 //NOTE: angle from degrees in radians, because cosf uses radians, but in matrix of SFML in Shape it uses degrees, so you have to convert back and forth...
-//TODO: Do I have to think about going over 360 degree here?
 Physics::OBB::OBB(float left, float top, float width, float height, float angle) : angle(angle*PI/180), pos(sf::Vector2f{ left, top }), width(width), height(height),
 																				   xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle)),
 																				   origin(0.0f, 0.0f)
