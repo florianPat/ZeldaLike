@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <memory>
 
-//TODO: Add PhysicsElementGroup
+//TODO: Add PhysicsElementGroup, Circle
 
 class Physics
 {
@@ -24,7 +24,6 @@ public:
 		sf::Vector2f pos;
 		sf::Vector2f origin;
 	public:
-		//TODO: Make pivit point the middle?
 		//angle has to be in degrees!
 		OBB(float left, float top, float width, float height, float angle);
 		OBB(sf::Vector2f& topLeft, float width, float height, float angle);
@@ -48,8 +47,6 @@ public:
 		};
 	private:
 		friend class Physics;
-		//TODO: Get rid of PI here!!
-		static constexpr float PI = 3.1415927f;
 
 		Type type;
 	public:
