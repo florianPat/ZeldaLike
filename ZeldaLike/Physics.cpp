@@ -464,5 +464,5 @@ void Physics::OBB::setAngle(float newAngle)
 
 float Physics::OBB::getAngle() const
 {
-	return angle;
+	return angle * 180 / PI;
 }

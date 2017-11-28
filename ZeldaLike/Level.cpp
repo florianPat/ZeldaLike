@@ -39,14 +39,8 @@ void Level::updateModel()
 		body1->vel.y = 1.0f;
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-	{
-		collider1.collider.obb.setAngle(collider1.collider.obb.getAngle() + 1.0f);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-	{
-		collider1.collider.obb.setAngle(collider1.collider.obb.getAngle() - 1.0f);
-	}
+	collider1.collider.obb.setAngle(collider1.collider.obb.getAngle() + 1);
+
 	collider1.collider.obb.pos = body1->getPos() + body1->vel /** dt*/;
 
 	physics.update(dt);
