@@ -47,7 +47,7 @@ void Level::updateModel()
 	{
 		collider1.collider.obb.setAngle(collider1.collider.obb.getAngle() - 1.0f);
 	}
-	collider1.collider.obb.origin.x = body1->getPos().x + body1->vel.x /** dt*/;
+	collider1.collider.obb.pos = body1->getPos() + body1->vel /** dt*/;
 
 	physics.update(dt);
 }
@@ -59,7 +59,7 @@ void Level::composeFrame()
 	map.draw(*window);
 	gom.drawActors();
 
-	collider1.collider.obb.origin = body1->getPos();
+	collider1.collider.obb.pos = body1->getPos();
 
 	physics.debugRenderBodies(*window);
 
@@ -67,7 +67,7 @@ void Level::composeFrame()
 }
 
 Level::Level(sf::RenderWindow * window, std::string tiledMapName) : window(window), physics(), levelName(tiledMapName),
-map(tiledMapName), clock(), gom(), eventManager(), collider1(Physics::Collider(Physics::OBB(0.0f, 30.0f, 20.0f, 20.0f, 40.0f))), 
+map(tiledMapName), clock(), gom(), eventManager(), collider1(Physics::Collider(Physics::OBB(0.0f, 30.0f, 20.0f, 20.0f, 30.0f, { 10.0f, 10.0f }))),
 body1(std::make_shared<Physics::Body>(sf::Vector2f(0.0f, 30.0f), std::string("one"), &collider1, false, false, std::vector<std::string>{ "two" }))
 {
 	auto objects = map.getObjectGroups();

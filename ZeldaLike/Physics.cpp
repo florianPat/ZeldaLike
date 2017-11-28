@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <math.h>
 #include <limits>
+#include <iostream>
 
 void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Body>& collideElementBody, Collider & bodyCollider,
 	const Collider& elementCollider)
@@ -59,10 +60,18 @@ void Physics::Collider::getPointsAxis(sf::Vector2f * points, sf::Vector2f * axis
 	{
 		OBB bodyOBB = collider.obb;
 
-		points[0] = bodyOBB.origin;
-		points[1] = bodyOBB.origin + bodyOBB.width * bodyOBB.xAxis;
-		points[2] = bodyOBB.origin + bodyOBB.width * bodyOBB.xAxis + bodyOBB.height * bodyOBB.yAxis;
-		points[3] = bodyOBB.origin + bodyOBB.height * bodyOBB.yAxis;
+		points[0] = { bodyOBB.pos };
+		points[1] = { bodyOBB.pos.x + bodyOBB.width, bodyOBB.pos.y };
+		points[2] = { bodyOBB.pos.x + bodyOBB.width, bodyOBB.pos.y + bodyOBB.height };
+		points[3] = { bodyOBB.pos.x, bodyOBB.pos.y + bodyOBB.height };
+
+		//Global origin
+		sf::Vector2f origin = bodyOBB.pos + bodyOBB.origin;
+
+		for (int i = 0; i < 4; ++i)
+		{
+			points[i] = sf::Vector2f(bodyOBB.pos + (points[i].x - origin.x) * bodyOBB.xAxis + (points[i].y - origin.y) * bodyOBB.yAxis);
+		}
 
 		axis[0] = bodyOBB.xAxis;
 		axis[1] = bodyOBB.yAxis;
@@ -160,15 +169,24 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 				{
 					OBB collideOBB = collider->collider.obb;
 
-					body.setPosition(collideOBB.origin);
+					body.setPosition(collideOBB.pos);
 					body.setSize(sf::Vector2f{ collideOBB.width, collideOBB.height });
+					body.setOrigin(collideOBB.origin);
 					body.setRotation(collideOBB.angle*180/collideOBB.PI);
 					body.setFillColor(sf::Color::Yellow);
-					
-					/*sf::Vector2f points[] = { {collideOBB.origin}, {collideOBB.origin + collideOBB.width * collideOBB.xAxis }, 
-											  {collideOBB.origin + collideOBB.width * collideOBB.xAxis + collideOBB.height * collideOBB.yAxis},
-											  {collideOBB.origin + collideOBB.height * collideOBB.yAxis} };
+#if 0
+					sf::Vector2f points[4] = { { collideOBB.pos },{ collideOBB.pos.x + collideOBB.width, collideOBB.pos.y },
+											 { collideOBB.pos.x + collideOBB.width, collideOBB.pos.y + collideOBB.height },
+											 { collideOBB.pos.x, collideOBB.pos.y + collideOBB.height } };
 
+					//Global origin
+					sf::Vector2f origin = collideOBB.pos + collideOBB.origin;
+
+					for (int i = 0; i < 4; ++i)
+					{
+						points[i] = sf::Vector2f(collideOBB.pos + (points[i].x - origin.x) * collideOBB.xAxis + (points[i].y - origin.y) * collideOBB.yAxis);
+					}
+					
 					for (unsigned int i = 0; i < body.getPointCount(); ++i)
 					{
 						sf::Vector2f myPoint = points[i];
@@ -177,7 +195,8 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 						sf::Transform transform = body.getTransform();
 
 						std::cout << myPoint.x << " " << myPoint.y << "---" << point.x << " " << point.y << std::endl;
-					}*/
+					}
+#endif
 
 					window.draw(body);
 
@@ -412,13 +431,27 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 
 //NOTE: angle from degrees in radians, because cosf uses radians, but in matrix of SFML in Shape it uses degrees, so you have to convert back and forth...
 //TODO: Do I have to think about going over 360 degree here?
-Physics::OBB::OBB(float left, float top, float width, float height, float angle) : angle(angle*PI/180), origin(sf::Vector2f{ left, top }), width(width), height(height),
-																				   xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle))
+Physics::OBB::OBB(float left, float top, float width, float height, float angle) : angle(angle*PI/180), pos(sf::Vector2f{ left, top }), width(width), height(height),
+																				   xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle)),
+																				   origin(0.0f, 0.0f)
 {
 }
 
-Physics::OBB::OBB(sf::Vector2f & topLeft, float width, float height, float angle) : angle(angle*PI/180), origin(topLeft), width(width), height(height),
-																					xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle))
+Physics::OBB::OBB(sf::Vector2f & topLeft, float width, float height, float angle) : angle(angle*PI/180), pos(topLeft), width(width), height(height),
+																					xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle)),
+																					origin(0.0f, 0.0f)
+{
+}
+
+Physics::OBB::OBB(float left, float top, float width, float height, float angle, sf::Vector2f origin) : angle(angle*PI / 180), pos(sf::Vector2f{ left, top }), width(width), height(height),
+																										xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle)),
+																										origin(origin)
+{
+}
+
+Physics::OBB::OBB(sf::Vector2f & topLeft, float width, float height, float angle, sf::Vector2f origin) : angle(angle*PI / 180), pos(topLeft), width(width), height(height),
+																										 xAxis(cosf(this->angle), sinf(this->angle)), yAxis((-sinf(this->angle)), cosf(this->angle)),
+																										 origin(origin)
 {
 }
 

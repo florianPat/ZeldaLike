@@ -21,13 +21,16 @@ public:
 		sf::Vector2f xAxis, yAxis;
 	public:
 		float width, height;
-		//TODO: This is top-left "world" coordinate, make a real origin-system!
+		sf::Vector2f pos;
 		sf::Vector2f origin;
 	public:
 		//TODO: Make pivit point the middle?
 		//angle has to be in degrees!
 		OBB(float left, float top, float width, float height, float angle);
 		OBB(sf::Vector2f& topLeft, float width, float height, float angle);
+		//Local origin
+		OBB(float left, float top, float width, float height, float angle, sf::Vector2f origin);
+		OBB(sf::Vector2f& topLeft, float width, float height, float angle, sf::Vector2f origin);
 		//angle has to be in degrees!
 		void setAngle(float newAngle);
 		float getAngle() const;
