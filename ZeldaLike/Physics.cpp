@@ -202,6 +202,20 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 
 					break;
 				}
+				case Collider::Type::circle:
+				{
+					sf::CircleShape body;
+
+					FloatCircle circle = collider->collider.circle;
+
+					body.setPosition(circle.center);
+					body.setRadius(circle.radius);
+					body.setFillColor(sf::Color::Yellow);
+
+					window.draw(body);
+
+					break;
+				}
 			}
 		}
 	}
@@ -307,6 +321,11 @@ Physics::Collider::Collider(OBB & obb) : type(Type::obb), collider{ {} }
 	collider.obb = obb;
 }
 
+Physics::Collider::Collider(FloatCircle & circle) : type(Type::circle), collider{ {} }
+{
+	collider.circle = circle;
+}
+
 Physics::Collider::Type Physics::Collider::GetType() const
 {
 	return type;
@@ -317,6 +336,14 @@ bool Physics::Collider::intersects(const Collider & other) const
 	if (other.type == Type::rect && type == Type::rect)
 	{
 		return collider.rect.intersects(other.collider.rect);
+	}
+	else if (other.type == Type::circle && type == Type::circle)
+	{
+		sf::Vector2f vec = collider.circle.center - other.collider.circle.center;
+		if (std::sqrtf(vec.x * vec.x + vec.y * vec.y) < collider.circle.radius + other.collider.circle.radius)
+			return true;
+		else
+			return false;
 	}
 	else
 	{
@@ -349,7 +376,6 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 {
 	if (other.type == Type::rect && type == Type::rect)
 	{
-		//TODO: Find that bug!!! (if you go form right side, "jump" to left -> no good)
 		bool result = collider.rect.intersects(other.collider.rect);
 		
 		if (result)
@@ -373,6 +399,21 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 		}
 
 		return result;
+	}
+	else if (other.type == Type::circle && type == Type::circle)
+	{
+		sf::Vector2f vec = collider.circle.center - other.collider.circle.center;
+		float lenght = std::sqrtf(vec.x * vec.x + vec.y * vec.y);
+		if (lenght < collider.circle.radius + other.collider.circle.radius)
+		{
+			sf::Vector2f normalizedVec = { vec.x / lenght, vec.y / lenght };
+			float overlap = lenght - (collider.circle.radius + other.collider.circle.radius);
+			*minTransVec = -(normalizedVec * overlap);
+
+			return true;
+		}
+		else
+			return false;
 	}
 	else
 	{
@@ -462,4 +503,12 @@ void Physics::OBB::setAngle(float newAngle)
 float Physics::OBB::getAngle() const
 {
 	return angle * 180 / PI;
+}
+
+Physics::FloatCircle::FloatCircle(const sf::Vector2f & center, float radius) : center(center), radius(radius)
+{
+}
+
+Physics::FloatCircle::FloatCircle(float centerX, float centerY, float radius) : center(centerX, centerY), radius(radius)
+{
 }

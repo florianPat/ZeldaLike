@@ -5,11 +5,25 @@
 #include <unordered_map>
 #include <memory>
 
-//TODO: Add PhysicsElementGroup, Circle
+//TODO: Add PhysicsElementGroup
 
 class Physics
 {
 public:
+	class FloatCircle
+	{
+	private:
+		friend class Physics;
+	public:
+		float radius;
+		sf::Vector2f center;
+	public:
+		FloatCircle(const sf::Vector2f& center, float radius);
+		FloatCircle(float centerX, float centerY, float radius);
+	private:
+		FloatCircle() = default;
+	};
+
 	class OBB
 	{
 	private:
@@ -43,7 +57,8 @@ public:
 		enum class Type
 		{
 			rect,
-			obb
+			obb,
+			circle
 		};
 	private:
 		friend class Physics;
@@ -54,10 +69,12 @@ public:
 		{
 			sf::FloatRect rect;
 			OBB obb;
+			FloatCircle circle;
 		} collider;
 
 		Collider(sf::FloatRect& rect);
 		Collider(OBB& obb);
+		Collider(FloatCircle& circle);
 		Type GetType() const;
 	private:
 		Collider();
