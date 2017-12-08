@@ -83,7 +83,7 @@ public:
 		bool collide(const Collider& other, sf::Vector2f* minTransVec) const;
 
 		void getPointsAxis(sf::Vector2f* points, sf::Vector2f* axis) const;
-		sf::Vector2f getProjectionMinMax(const sf::Vector2f* points, const sf::Vector2f& axis) const;
+		sf::Vector2f getProjectionMinMax(const sf::Vector2f* points, const sf::Vector2f& axis, bool isXAxis) const;
 	};
 private:
 	struct PhysicElement

@@ -56,47 +56,90 @@ void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Bod
 
 void Physics::Collider::getPointsAxis(sf::Vector2f * points, sf::Vector2f * axis) const
 {
-	if (type == Collider::Type::obb)
+	switch (type)
 	{
-		OBB bodyOBB = collider.obb;
-
-		points[0] = { bodyOBB.pos };
-		points[1] = { bodyOBB.pos.x + bodyOBB.width, bodyOBB.pos.y };
-		points[2] = { bodyOBB.pos.x + bodyOBB.width, bodyOBB.pos.y + bodyOBB.height };
-		points[3] = { bodyOBB.pos.x, bodyOBB.pos.y + bodyOBB.height };
-
-		//Global origin
-		sf::Vector2f origin = bodyOBB.pos + bodyOBB.origin;
-
-		for (int i = 0; i < 4; ++i)
+		case Collider::Type::obb:
 		{
-			points[i] = sf::Vector2f(bodyOBB.pos + (points[i].x - origin.x) * bodyOBB.xAxis + (points[i].y - origin.y) * bodyOBB.yAxis);
+			OBB bodyOBB = collider.obb;
+
+			points[0] = { bodyOBB.pos };
+			points[1] = { bodyOBB.pos.x + bodyOBB.width, bodyOBB.pos.y };
+			points[2] = { bodyOBB.pos.x + bodyOBB.width, bodyOBB.pos.y + bodyOBB.height };
+			points[3] = { bodyOBB.pos.x, bodyOBB.pos.y + bodyOBB.height };
+
+			//Global origin
+			sf::Vector2f origin = bodyOBB.pos + bodyOBB.origin;
+
+			for (int i = 0; i < 4; ++i)
+			{
+				points[i] = sf::Vector2f(bodyOBB.pos + (points[i].x - origin.x) * bodyOBB.xAxis + (points[i].y - origin.y) * bodyOBB.yAxis);
+			}
+
+			axis[0] = bodyOBB.xAxis;
+			axis[1] = bodyOBB.yAxis;
+
+			break;
 		}
+		case Collider::Type::rect:
+		{
+			sf::FloatRect bodyRect = collider.rect;
 
-		axis[0] = bodyOBB.xAxis;
-		axis[1] = bodyOBB.yAxis;
-	}
-	else
-	{
-		sf::FloatRect bodyRect = collider.rect;
+			points[0] = { bodyRect.left, bodyRect.top };
+			points[1] = { bodyRect.left + bodyRect.width, bodyRect.top };
+			points[2] = { bodyRect.left + bodyRect.width, bodyRect.top + bodyRect.height };
+			points[3] = { bodyRect.left, bodyRect.top + bodyRect.height };
 
-		points[0] = { bodyRect.left, bodyRect.top };
-		points[1] = { bodyRect.left + bodyRect.width, bodyRect.top };
-		points[2] = { bodyRect.left + bodyRect.width, bodyRect.top + bodyRect.height };
-		points[3] = { bodyRect.left, bodyRect.top + bodyRect.height };
+			axis[0] = { 1.0f, 0.0f };
+			axis[1] = { 0.0f, 1.0f };
+			break;
+		}
+		case Collider::Type::circle:
+		{
+			FloatCircle bodyCircle = collider.circle;
 
-		axis[0] = { 1.0f, 0.0f };
-		axis[1] = { 0.0f, 1.0f };
+			points[0] = bodyCircle.center;
+
+			axis[0] = { 0.0f, 0.0f };
+			axis[1] = { 0.0f, 0.0f };
+
+			break;
+		}
+		default:
+		{
+			assert(!"InvalidCodePath!");
+		}
 	}
 }
 
-sf::Vector2f Physics::Collider::getProjectionMinMax(const sf::Vector2f * points, const sf::Vector2f & axis) const
+sf::Vector2f Physics::Collider::getProjectionMinMax(const sf::Vector2f * points, const sf::Vector2f & axis, bool isXAxis) const
 {
 	sf::Vector2f result = { points[0].x * axis.x + points[0].y * axis.y, points[0].x * axis.x + points[0].y * axis.y };
 
-	for (int i = 1; i < 4; ++i)
+	if (type != Type::circle)
 	{
-		float proj = points[i].x * axis.x + points[i].y * axis.y;
+		for (int i = 1; i < 4; ++i)
+		{
+			float proj = points[i].x * axis.x + points[i].y * axis.y;
+
+			if (proj < result.x)
+				result.x = proj;
+			else if (proj > result.y)
+				result.y = proj;
+		}
+	}
+	else
+	{
+		//TODO: I need isXAxis, but can I get rid of it in some way??!!
+		//TODO: Also, the circle goes a bit into the obb... See if I can fix this ;)
+		float proj = (points[0].x + (isXAxis ? collider.circle.radius : 0)) * axis.x + (points[0].y + (isXAxis ? 0 : collider.circle.radius)) * axis.y;
+		
+		if (proj < result.x)
+			result.x = proj;
+		else if (proj > result.y)
+			result.y = proj;
+
+
+		proj = (points[0].x - (isXAxis ? collider.circle.radius : 0)) * axis.x + (points[0].y - (isXAxis ? 0 : collider.circle.radius)) * axis.y;
 
 		if (proj < result.x)
 			result.x = proj;
@@ -208,7 +251,7 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 
 					FloatCircle circle = collider->collider.circle;
 
-					body.setPosition(circle.center);
+					body.setPosition(circle.center.x - circle.radius, circle.center.y - circle.radius);
 					body.setRadius(circle.radius);
 					body.setFillColor(sf::Color::Yellow);
 
@@ -355,10 +398,10 @@ bool Physics::Collider::intersects(const Collider & other) const
 		getPointsAxis(s1Points, axis);
 		other.getPointsAxis(s2Points, axis + 2);
 
-		for (int i = 0; i < 8; ++i)
+		for (int i = 0; i < 4; ++i)
 		{
-			sf::Vector2f s1MinMax = getProjectionMinMax(s1Points, axis[i]);
-			sf::Vector2f s2MinMax = getProjectionMinMax(s2Points, axis[i]);
+			sf::Vector2f s1MinMax = getProjectionMinMax(s1Points, axis[i], i % 2 == 0);
+			sf::Vector2f s2MinMax = getProjectionMinMax(s2Points, axis[i], i % 2 == 0);
 
 			if ((s2MinMax.x > s1MinMax.y || s2MinMax.y < s1MinMax.x))
 				return false;
@@ -417,6 +460,7 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 	}
 	else
 	{
+		//NOTE: xAxis goes first!!
 		sf::Vector2f axis[4] = {};
 
 		sf::Vector2f s1Points[4] = {};
@@ -432,8 +476,11 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 
 		for (int i = 0; i < 4; ++i)
 		{
-			sf::Vector2f s1MinMax = getProjectionMinMax(s1Points, axis[i]);
-			sf::Vector2f s2MinMax = getProjectionMinMax(s2Points, axis[i]);
+			if (axis[i].x == 0.0f && axis[i].y == 0.0f)
+				continue;
+
+			sf::Vector2f s1MinMax = getProjectionMinMax(s1Points, axis[i], i % 2 == 0);
+			sf::Vector2f s2MinMax = other.getProjectionMinMax(s2Points, axis[i], i % 2 == 0);
 
 			if ((s2MinMax.x > s1MinMax.y || s2MinMax.y < s1MinMax.x))
 				return false;

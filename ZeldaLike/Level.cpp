@@ -21,7 +21,7 @@ void Level::updateModel()
 	body1->vel.x = 0.0f;
 	body1->vel.y = 0.0f;
 
-	//body1->vel.x = 1.0f;
+	//body1->vel.x = -1.0f;
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
@@ -61,8 +61,8 @@ void Level::composeFrame()
 }
 
 Level::Level(sf::RenderWindow * window, std::string tiledMapName) : window(window), physics(), levelName(tiledMapName),
-map(tiledMapName), clock(), gom(), eventManager(), collider1(Physics::Collider(Physics::FloatCircle(0.0f, 30.0f, 20.0f))),
-body1(std::make_shared<Physics::Body>(sf::Vector2f(0.0f, 30.0f), std::string("one"), &collider1, false, false, std::vector<std::string>{ "two" }))
+map(tiledMapName), clock(), gom(), eventManager(), collider1(Physics::Collider(Physics::FloatCircle(150.0f, 30.0f, 20.0f))),
+body1(std::make_shared<Physics::Body>(sf::Vector2f(150.0f, 30.0f), std::string("one"), &collider1, false, false, std::vector<std::string>{ "two" }))
 {
 	auto objects = map.getObjectGroups();
 
