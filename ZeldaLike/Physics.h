@@ -6,6 +6,7 @@
 #include <memory>
 
 //TODO: Add PhysicsElementGroup
+//TODO: Add GJK just for implementatin ;)
 
 class Physics
 {
@@ -137,7 +138,7 @@ public:
 		bool getIsTriggerd();
 		sf::Vector2f& getPos();
 		void setPos(sf::Vector2f newPos);
-		TriggerInformation& getTriggerInformation(); //TODO: Make this a callback thing and therefore then remove triggered
+		TriggerInformation& getTriggerInformation(); //NOTE: Should I make this a callback thing and therefore then remove triggered?
 		std::string& getId();
 	};
 private:

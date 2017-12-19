@@ -144,15 +144,13 @@ std::vector<TextureRegion> TextureAtlas::getRegions()
 	for (auto it = textureAtlas.begin(); it != textureAtlas.end(); ++it, ++i)
 	{
 		result.push_back(it->second);
-		result[i].initSprite(); //TODO: Better done in copy constructor??
+		result[i].initSprite();
 	}
 	return result;
 }
 
 void TextureAtlas::addRegion(const TextureRegion & adder)
 {
-	/*if (adder.filename == "" || adder.textureAtlasFileName != fileHeader.name) //Do we really need this??
-		return;*/																 //It also works without it and is maybe better...
 	textureAtlas.insert({ adder.filename, adder });
 }
 

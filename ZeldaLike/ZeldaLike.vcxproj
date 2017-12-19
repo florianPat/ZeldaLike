@@ -123,6 +123,7 @@
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Physics.h" />
+    <ClInclude Include="gomSort.h" />
     <ClInclude Include="TextureAtlas.h" />
     <ClInclude Include="TiledMap.h" />
     <ClInclude Include="Utils.h" />

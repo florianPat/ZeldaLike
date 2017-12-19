@@ -3,6 +3,7 @@
 #include <math.h>
 #include <limits>
 #include <iostream>
+#include "Utils.h"
 
 void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Body>& collideElementBody, Collider & bodyCollider,
 	const Collider& elementCollider)
@@ -131,6 +132,7 @@ sf::Vector2f Physics::Collider::getProjectionMinMax(const sf::Vector2f * points,
 	{
 		//TODO: I need isXAxis, but can I get rid of it in some way??!!
 		//TODO: Also, the circle goes a bit into the obb... See if I can fix this ;)
+		//TODO: Use vohoo regions (or how its called) to make "corner collision" nicer
 		float proj = (points[0].x + (isXAxis ? collider.circle.radius : 0)) * axis.x + (points[0].y + (isXAxis ? 0 : collider.circle.radius)) * axis.y;
 		
 		if (proj < result.x)
@@ -178,7 +180,7 @@ void Physics::update(float dt)
 					handleCollision(itBody, collideElementBody, bodyRect, elementRect);
 				}
 
-				it->second->pos += it->second->vel /** dt*/;
+				it->second->pos += it->second->vel * dt;
 			}
 		}
 	}
@@ -316,21 +318,27 @@ bool Physics::Body::getIsTriggerd()
 
 sf::Vector2f& Physics::Body::getPos()
 {
-	assert(!isStatic); //For now, see TODO below
+	assert(!isStatic);
 
 	if (!isStatic)
 		return pos;
 	else
-		return pos; //TODO: Throw exeption...
+	{
+		InvalidCodePath;
+		return pos;
+	}
 }
 
 void Physics::Body::setPos(sf::Vector2f newPos)
 {
-	assert(!isStatic); //For now, see TODO below
+	assert(!isStatic);
 
 	if (!isStatic)
 		pos = newPos;
-	//TODO: else Throw exeption;
+	else
+	{
+		InvalidCodePath;
+	}
 }
 
 Physics::Body::TriggerInformation & Physics::Body::getTriggerInformation()

@@ -31,7 +31,7 @@ TiledMap::TiledMap(const std::string & filepath) : tiles(), layers(), objectGrou
 			utilsLog("Maps render-order has to be right-down!");
 
 
-		mapWidth = atoi(getLineContentBetween(lineContent, "width", '"').c_str()); // Maybe make this nicer??
+		mapWidth = atoi(getLineContentBetween(lineContent, "width", '"').c_str());
 		mapHeight = atoi(getLineContentBetween(lineContent, "height", '"').c_str());
 
 		tileWidth = atoi(getLineContentBetween(lineContent, "tilewidth", '"').c_str());
@@ -60,7 +60,8 @@ std::vector<sf::FloatRect> TiledMap::getObjectGroup(const std::string& objectGro
 	else
 	{
 		std::vector<sf::FloatRect> result;
-		return result; //TODO: Handle this and other cases better, maybe exception????
+		InvalidCodePath;
+		return result;
 	}
 }
 

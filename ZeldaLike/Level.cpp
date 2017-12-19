@@ -21,27 +21,27 @@ void Level::updateModel()
 	body1->vel.x = 0.0f;
 	body1->vel.y = 0.0f;
 
-	//body1->vel.x = -1.0f;
+	//body1->vel.x = -50.0f;
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		body1->vel.x = 1.0f;
+		body1->vel.x = 50.0f;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		body1->vel.x = -1.0f;
+		body1->vel.x = -50.0f;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		body1->vel.y = -1.0f;
+		body1->vel.y = -50.0f;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		body1->vel.y = 1.0f;
+		body1->vel.y = 50.0f;
 	}
 
-	collider1.collider.circle.center = body1->getPos() + body1->vel /** dt*/;
+	collider1.collider.circle.center = body1->getPos() + body1->vel * dt;
 
 	physics.update(dt);
 }
@@ -51,6 +51,7 @@ void Level::composeFrame()
 	window->clear();
 
 	map.draw(*window);
+	gom.sortActors();
 	gom.drawActors();
 
 	collider1.collider.obb.pos = body1->getPos();
