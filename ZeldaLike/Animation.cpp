@@ -1,5 +1,6 @@
 #include "Animation.h"
 #include <assert.h>
+#include "Utils.h"
 
 Animation::Animation(std::vector<TextureRegion>& keyFrames, sf::Int64 frameDuration, PlayMode type) : keyFrames(),
 	frameDuration(frameDuration), playMode(type), clock(), keyFrameIt(), keyFrameItReverse()
@@ -77,7 +78,10 @@ bool Animation::isAnimationFinished()
 			return false;
 		}
 		else
-			return false; //TODO: Exeption?!
+		{
+			InvalidCodePath;
+			return false;
+		}
 	}
 	else
 	{
@@ -102,7 +106,10 @@ bool Animation::isAnimationFinished()
 				return false;
 		}
 		else
-			return false; //TODO: Exeption?!
+		{
+			InvalidCodePath;
+			return false;
+		}
 	}
 }
 
@@ -172,7 +179,17 @@ sf::Sprite Animation::getKeyFrame()
 		}
 	}
 	else
-		return keyFrames[0]; //TODO: Handle this better!
+	{
+		if (playMode == Animation::PlayMode::NORMAL || playMode == Animation::PlayMode::LOOPED)
+			return *keyFrameIt;
+		else if (playMode == Animation::PlayMode::REVERSED || playMode == Animation::PlayMode::LOOP_REVERSED)
+			return *keyFrameItReverse;
+		else
+		{
+			InvalidCodePath;
+			return keyFrames[0];
+		}
+	}
 }
 
 void Animation::setPlayMode(PlayMode & newPlayMode)

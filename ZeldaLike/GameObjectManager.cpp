@@ -1,16 +1,18 @@
 #include "GameObjectManager.h"
+#include <iostream>
+#include "Utils.h"
 
-GameObjectManager::GameObjectManager() : actors(), destroyActorQueue()
+GameObjectManager::GameObjectManager() : actors(), destroyActorQueue(), sortedActors()
 {
 }
 
-Actor* GameObjectManager::addActor(const int& id)
+Actor* GameObjectManager::addActor(const unsigned int& id)
 {
 	auto result = actors.emplace(id, std::make_unique<Actor>(id));
 	return result.first->second.get();
 }
 
-void GameObjectManager::destroyActor(int actorId)
+void GameObjectManager::destroyActor(unsigned int actorId)
 {
 	destroyActorQueue.push_back(actorId);
 }
@@ -25,11 +27,29 @@ void GameObjectManager::updateActors(float dt)
 
 void GameObjectManager::drawActors()
 {
-	for (auto it = actors.begin(); it != actors.end(); ++it)
-		it->second->draw();
+	for (auto it = sortedActors.begin(); it != sortedActors.end(); ++it)
+	{
+		int actorId = getActorId(it->second);
+		int componentId = getComponentId(it->second);
+		auto actor = actors.find(actorId);
+		if (actor != actors.end())
+			actor->second->draw(componentId);
+		else
+		{
+			InvalidCodePath;
+		}
+	}
 }
 
-Actor* GameObjectManager::getActor(int actorId)
+void GameObjectManager::sortActors()
+{
+	for (auto it = actors.begin(); it != actors.end(); ++it)
+	{
+		it->second->sort(sortedActors);
+	}
+}
+
+Actor* GameObjectManager::getActor(unsigned int actorId)
 {
 	auto it = actors.find(actorId);
 	if (it != actors.end())
@@ -56,4 +76,14 @@ void GameObjectManager::destroyActors()
 		}
 		destroyActorQueue.clear();
 	}
+}
+
+unsigned int GameObjectManager::getActorId(unsigned long long id)
+{
+	return (id >> 32);
+}
+
+unsigned int GameObjectManager::getComponentId(unsigned long long id)
+{
+	return (id & 0xffffffff);
 }

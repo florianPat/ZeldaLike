@@ -1,6 +1,8 @@
 #include "Actor.h"
+#include "GameObjectManager.h"
+#include "Utils.h"
 
-Actor::Actor(const int& id) : components(), id(id)
+Actor::Actor(const unsigned int& id) : components(), id(id)
 {
 }
 
@@ -12,7 +14,7 @@ void Actor::addComponent(std::shared_ptr<Component> component)
 	}
 }
 
-void Actor::removeComponent(int componentId)
+void Actor::removeComponent(unsigned int componentId)
 {
 	auto it = components.find(componentId);
 
@@ -28,10 +30,30 @@ void Actor::update(float dt)
 	}
 }
 
-void Actor::draw()
+void Actor::draw(unsigned int componentId)
 {
-	for (auto it = components.begin(); it != components.end(); ++it)
+	auto it = components.find(componentId);
+	if (it != components.end())
 	{
 		it->second->draw();
 	}
+	else
+	{
+		InvalidCodePath;
+	}
+}
+
+void Actor::sort(std::map<gomSort::SortKey, unsigned long long, gomSort::SortCompare>& sortedActors)
+{
+	for (auto it = components.begin(); it != components.end(); ++it)
+	{
+		gomSort::SortKey sortKey = it->second->sort();
+		unsigned long long actorComponentId = GetActorComponentId(it->second->id);
+		sortedActors.emplace(sortKey, actorComponentId);
+	}
+}
+
+unsigned long long Actor::GetActorComponentId(unsigned int componentId)
+{
+	return ((unsigned long long)id << 32llu) || (unsigned long long)componentId;
 }

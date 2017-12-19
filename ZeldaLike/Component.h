@@ -2,6 +2,7 @@
 
 #include <memory>
 #include "EventManager.h"
+#include "gomSort.h"
 
 class Actor;
 
@@ -10,12 +11,13 @@ class Component
 	friend class Actor;
 
 protected:
-	const int id;
+	const unsigned int id;
 	EventManager* eventManager;
 	Actor* owner;
 public:
-	Component(int id, EventManager* eventManager, Actor* owner) : id(id), eventManager(eventManager), owner(owner) {};
+	Component(unsigned int id, EventManager* eventManager, Actor* owner) : id(id), eventManager(eventManager), owner(owner) {};
 	virtual void update(float dt) {};
 	virtual void draw() {};
-	int getId() const { return id; };
+	virtual gomSort::SortKey sort() { return gomSort::SortKey{ 0, 0.0f }; };
+	unsigned int getId() const { return id; };
 };
