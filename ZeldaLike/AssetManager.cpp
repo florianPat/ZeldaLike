@@ -11,10 +11,23 @@ std::shared_ptr<sf::Texture> TextureAssetManager::getOrAddRes(const std::string 
 		std::shared_ptr<sf::Texture> texture = std::make_shared<sf::Texture>();
 		if(!texture->loadFromFile(filename))
 		{
-			utilsLog("Could not load texture!");
+			utilsLogBreak("Could not load texture!");
 			return nullptr;
 		}
-		ressourceCache.insert({ filename, texture});
+
+		currentSize += texture->getSize().x * texture->getSize().y * sizeof(int); //One pixel is one int also in SFML, right?
+		if (currentSize > maxSize)
+		{
+			do
+			{
+				//TODO: Check if emplace does do its job at the back...
+				auto it = ressourceCache.begin();
+				currentSize -= it->second->getSize().x * it->second->getSize().y * sizeof(int);
+				ressourceCache.erase(it);
+			} while (currentSize > maxSize);
+		}
+
+		ressourceCache.emplace(std::pair<std::string, std::shared_ptr<sf::Texture>>{ filename, texture});
 		return texture;
 	}
 }
@@ -24,22 +37,9 @@ bool TextureAssetManager::unloadNotUsedRes(const std::string & filename)
 	auto res = ressourceCache.find(filename);
 	if (res != ressourceCache.end())
 	{
-#if 0
-		if (res->second.unique())
-		{
-			ressourceCache.erase(res);
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-#else
-		//TOOD: Do I want that behaviour?
 		res->second.reset();
 		ressourceCache.erase(res);
 		return true;
-#endif
 	}
 	else
 		return false;
@@ -47,17 +47,7 @@ bool TextureAssetManager::unloadNotUsedRes(const std::string & filename)
 
 void TextureAssetManager::clear()
 {
-	for (auto i = ressourceCache.begin(); i != ressourceCache.end(); )
-	{
-		if (i->second.unique())
-		{
-			i = ressourceCache.erase(i);
-		}
-		else
-		{
-			++i;
-		}
-	}
+	ressourceCache.clear();
 }
 
 bool TextureAssetManager::isLoaded(const std::string & filename)
