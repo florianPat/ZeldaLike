@@ -3,10 +3,10 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(900, 600), "gppcc9-Game");
+	sf::RenderWindow window(sf::VideoMode(900, 600), "Zelda-Like");
 	window.setFramerateLimit(60);
 
-	Game game(&window, "");
+	Game game(&window, "TestLevel.tmx");
 
 	return 0;
 }

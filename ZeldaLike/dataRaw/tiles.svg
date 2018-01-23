@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5028"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="tiles.svg">
+  <defs
+     id="defs5022" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="315.02083"
+     inkscape:cy="516.22634"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5025">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g5679"
+       transform="matrix(2.1968681,0,0,2.1968686,-97.568683,-158.12983)"
+       inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\Ground\stone.png"
+       inkscape:export-xdpi="25.4"
+       inkscape:export-ydpi="25.4">
+      <rect
+         y="106.30319"
+         x="31.938707"
+         height="14.566189"
+         width="14.566189"
+         id="rect5032"
+         style="fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.26458332" />
+      <rect
+         y="120.86938"
+         x="31.938707"
+         height="14.56619"
+         width="14.56619"
+         id="rect5034"
+         style="fill:#808080;fill-rule:evenodd;stroke-width:0.26458332" />
+      <rect
+         y="106.30319"
+         x="46.504898"
+         height="14.566191"
+         width="14.566191"
+         id="rect5034-3"
+         style="fill:#808080;fill-rule:evenodd;stroke-width:0.26458332" />
+      <rect
+         y="120.86938"
+         x="46.504898"
+         height="14.56619"
+         width="14.56619"
+         id="rect5032-5"
+         style="fill:#b3b3b3;fill-rule:evenodd;stroke-width:0.26458332" />
+    </g>
+    <g
+       id="g5683"
+       transform="matrix(2.1600807,0,0,2.1768968,-114.01573,-155.99189)"
+       inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\Ground\grass.png"
+       inkscape:export-xdpi="25.43"
+       inkscape:export-ydpi="25.43">
+      <rect
+         y="106.03592"
+         x="73.766388"
+         height="29.399649"
+         width="29.399649"
+         id="rect5066"
+         style="fill:#71c837;fill-rule:evenodd;stroke-width:0.26458332" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5617"
+         d="m 73.900024,121.00301 7.817633,-4.00904 8.753078,1.20271 12.628485,-6.61492 0.0668,8.68626 -5.144941,-1.20271 -16.036173,13.02939 z"
+         style="fill:#aade87;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:0" />
+    </g>
+    <g
+       id="g5687"
+       transform="matrix(2.1600804,0,0,2.1768968,-118.09645,-159.96065)"
+       inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\Ground\water.png"
+       inkscape:export-xdpi="25.43"
+       inkscape:export-ydpi="25.43">
+      <rect
+         y="106.03593"
+         x="115.89359"
+         height="29.399649"
+         width="29.399649"
+         id="rect5066-5"
+         style="fill:#00aad4;fill-rule:evenodd;stroke-width:0.26458332" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5617-8"
+         d="m 116.02721,121.00301 7.81764,-4.00904 8.75307,1.20271 12.62849,-6.61492 0.0668,8.68626 -5.14494,-1.20271 -16.03617,13.02939 z"
+         style="fill:#80e5ff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:0" />
+    </g>
+    <g
+       id="g5673"
+       inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\Ground\Pilze.png"
+       inkscape:export-xdpi="25.4"
+       inkscape:export-ydpi="25.4">
+      <g
+         transform="matrix(2.8417094,0,0,3.9320258,-76.520616,-404.96335)"
+         id="g5644">
+        <rect
+           style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.26458332"
+           id="rect5637"
+           width="5.6696429"
+           height="1.8898809"
+           x="34.017857"
+           y="154.59747" />
+        <path
+           style="fill:#e9c6af;fill-rule:evenodd;stroke-width:0.26458332"
+           d="m 32.883927,149.02233 3.732517,-1.18117 3.938395,1.18117 2.551339,5.57515 H 30.568823 Z"
+           id="rect5639"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cccccc" />
+      </g>
+      <g
+         id="g5644-4"
+         transform="matrix(2.8417094,0,0,3.9320258,-48.148136,-434.96629)">
+        <rect
+           style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.26458332"
+           id="rect5637-3"
+           width="5.6696429"
+           height="1.8898809"
+           x="34.017857"
+           y="154.59747" />
+        <path
+           style="fill:#e9c6af;fill-rule:evenodd;stroke-width:0.26458332"
+           d="m 32.883927,149.02233 3.732517,-1.18117 3.938395,1.18117 2.551339,5.57515 H 30.568823 Z"
+           id="rect5639-2"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cccccc" />
+      </g>
+    </g>
+    <g
+       id="g936"
+       transform="matrix(3.0785971,0,0,2.841596,-270.54163,-387.85244)"
+       inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\Ground\Baumstumpf.png"
+       inkscape:export-xdpi="25.4"
+       inkscape:export-ydpi="25.4">
+      <ellipse
+         ry="2.6605649"
+         rx="10.332434"
+         cy="209.43581"
+         cx="129.62573"
+         id="path848-7"
+         style="fill:#803300;fill-opacity:1;stroke:none;stroke-width:0.1975375;stroke-opacity:0" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect833"
+         d="m 126.90551,189.93824 5.28201,-0.0416 4.51389,1.82827 3.24428,2.37102 0.0945,15.68601 H 119.2515 l 0.62207,-15.0885 3.30122,-3.12158 z"
+         style="fill:#803300;fill-rule:evenodd;stroke-width:0.26458332" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path836"
+         d="m 122.46428,194.47395 -0.37797,12.37873"
+         style="fill:#2b1100;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0" />
+      <ellipse
+         ry="4.9657645"
+         rx="10.049646"
+         cy="194.53958"
+         cx="129.94279"
+         id="path848"
+         style="fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.26615202;stroke-opacity:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path914"
+         d="m 124.71464,198.87867 -3.14041,12.16076 c 0,0 0.63476,-0.0334 0.63476,-0.16704 0,-0.13363 2.47224,-10.65737 2.47224,-10.65737 l -0.0334,-1.23612 z"
+         style="fill:#552200;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path916"
+         d="m 131.42979,199.48003 1.70384,12.32781 -0.73499,-0.10023 z"
+         style="fill:#552200;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path918"
+         d="m 127.28711,197.10801 c 0,0 0.30068,-0.56795 0.43431,-0.56795 0.13364,0 0.90204,0.40091 0.90204,0.40091 l -0.26727,1.26953 -1.20271,-0.40091 0.36749,-0.70158 z"
+         style="fill:#552200;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path920"
+         d="m 133.33408,196.90756 c 0.16705,0.16704 1.93771,1.87088 1.93771,1.87088 l 1.06908,12.59508 0.66817,-0.26727 -1.23612,-12.56167 -1.97111,-1.9377 z"
+         style="fill:#552200;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path922"
+         d="m 130.6948,189.7581 -2.50566,1.5368 0.33409,0.33409 2.93997,-1.97112 -0.86863,0.0334 z"
+         style="fill:#552200;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path924"
+         d="m 122.46428,194.47395 2.04991,1.2309 1.87089,-0.60136 0.70158,0.53454 -3.60814,1.1693 -2.33861,-3.44109 z"
+         style="fill:#552200;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

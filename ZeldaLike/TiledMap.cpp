@@ -231,6 +231,9 @@ std::string TiledMap::ParseTiles(std::ifstream & file)
 	std::string lineContent;
 	std::getline(file, lineContent);
 
+	std::string temp;
+	std::getline(file, temp); // <grid...
+
 	while (utils::isWordInLine("<tileset", lineContent))
 	{
 		int firstgrid = atoi(getLineContentBetween(lineContent, "firstgid", '"').c_str());

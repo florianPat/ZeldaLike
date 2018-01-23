@@ -30,11 +30,6 @@ private:
 	void eventLevelReloadHandler(EventData* eventData);
 	void eventWinHandler(EventData* eventData);
 private:
-	Physics::Collider collider1;
-	std::shared_ptr<Physics::Body> body1;
-	Physics::Collider collider2 = Physics::Collider(Physics::OBB(100.0f, 30.0f, 20.0f, 20.0f, 30.0f));
-	std::shared_ptr<Physics::Body> body2 = std::make_shared<Physics::Body>(sf::Vector2f(100.0f, 30.0f), std::string("two"), &collider2, false, false);
-private:
 	virtual void updateModel();
 	virtual void composeFrame();
 public:

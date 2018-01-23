@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="Woodsword.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-187.03329"
+     inkscape:cy="516.22712"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2676"
+       transform="matrix(1.0742312,0,0,0.69730257,-1.8815675,61.002186)"
+       inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\Items\woodsword.png"
+       inkscape:export-xdpi="25.4"
+       inkscape:export-ydpi="25.4">
+      <rect
+         style="fill:#c87137;stroke-width:0.28221032"
+         y="179.16772"
+         x="39.355377"
+         height="22.360867"
+         width="31.802073"
+         id="rect3699" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect3701-3"
+         d="m 55.057522,168.71063 h 26.459682 l 3.407686,6.88219 -3.407686,6.74857 H 55.057522 Z"
+         style="fill:#c87137;stroke-width:0.26458332" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect3735"
+         d="M 42.896759,121.84158 55.5625,109.74634 67.843187,121.84158 v 51.40477 H 42.896759 Z"
+         style="fill:#c87137;stroke-width:0.26066336" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect3738"
+         d="m 46.026307,183.83288 9.188451,-2.02586 9.394587,2.02586 v 4.57922 H 46.026307 Z"
+         style="fill:#552200;stroke-width:0.19404024" />
+      <rect
+         y="177.43047"
+         x="39.355377"
+         height="10.98163"
+         width="7.0718341"
+         id="rect3741"
+         style="fill:#552200;stroke-width:0.35305077" />
+      <rect
+         y="181.87383"
+         x="64.074806"
+         height="6.5382748"
+         width="7.0826421"
+         id="rect3743"
+         style="fill:#552200;stroke-width:0.2751708" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect3701-3-4"
+         d="m 55.214758,181.80702 h -26.45968 l -3.40768,-6.88219 3.40768,-6.74857 h 26.45968 z"
+         style="fill:#c87137;stroke-width:0.26458332" />
+    </g>
+  </g>
+</svg>
