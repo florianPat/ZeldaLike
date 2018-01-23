@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <memory>
 
-//TODO: Add PhysicsElementGroup
 //TODO: Add GJK just for implementatin ;)
 
 class Physics
@@ -87,19 +86,22 @@ public:
 		sf::Vector2f getProjectionMinMax(const sf::Vector2f* points, const sf::Vector2f& axis, bool isXAxis) const;
 	};
 private:
+	//NOTE: All is public, but really you should only use the two methods, could make a constructor for that and therefore make it a class but yeah ;)
 	struct PhysicElement
 	{
-		std::string id;
-		std::vector<std::string> collisionIdPointer;
-		std::vector<std::string>* collisionIds;
+		bool collisionIdInPointer;
+		std::vector<std::string> collisionIdValue;
+		std::vector<std::string>* collisionIdPointer;
+
 		bool collidersInPointer;
 		union
 		{
 				Collider* collidersPointer;
 				Collider collidersValue;
 		} colliders;
-
+	public:
 		Collider* getCollider() const;
+		std::vector<std::string>* getCollisionIds() const;
 	};
 public:
 	class Body
@@ -126,7 +128,8 @@ public:
 		bool triggered = false;
 		TriggerInformation triggerInformation = {};
 		sf::Vector2f pos;
-		PhysicElement physicsElement;
+		std::string id;
+		std::vector<PhysicElement> physicsElements;
 	public:
 		sf::Vector2f vel = { 0.0f, 0.0f };
 	public:
@@ -135,6 +138,9 @@ public:
 		Body(sf::Vector2f& pos, std::string name, Collider* collider, bool isTrigger = false, bool isStatic = false, std::vector<std::string> collisionId = {});
 		//Should be called if the object, is a static one
 		Body(std::string name, Collider collider, bool isTrigger = false, bool isStatic = true, std::vector<std::string> collisionId = {});
+		//To have one name for a lot of Colliders. The body you have to pass by value, because pos and that does not make sense to manipulate here!
+		Body(std::string name, std::vector<Collider> colliders, bool isTrigger = false);
+	public:
 		bool getIsTriggerd();
 		sf::Vector2f& getPos();
 		void setPos(sf::Vector2f newPos);

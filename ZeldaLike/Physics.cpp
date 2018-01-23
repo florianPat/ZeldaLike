@@ -15,13 +15,13 @@ void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Bod
 			if (itBody->isTrigger)
 			{
 				itBody->triggered = true;
-				itBody->triggerInformation.triggerElementCollision = collideElementBody->physicsElement.id;
+				itBody->triggerInformation.triggerElementCollision = collideElementBody->id;
 				return;
 			}
 			else if (collideElementBody->isTrigger)
 			{
 				itBody->triggered = true;
-				itBody->triggerInformation.triggerElementCollision = collideElementBody->physicsElement.id;
+				itBody->triggerInformation.triggerElementCollision = collideElementBody->id;
 				return;
 			}
 		}
@@ -166,7 +166,7 @@ void Physics::update(float dt)
 			it->second->triggerInformation.triggerElementCollision = "";
 			it->second->triggerInformation.triggerBodyPart = Body::TriggerBodyPart::NONE;
 
-			for (auto collisionIdIt = it->second->physicsElement.collisionIds->begin(); collisionIdIt != it->second->physicsElement.collisionIds->end(); ++collisionIdIt)
+			for (auto collisionIdIt = it->second->physicsElements[0].getCollisionIds()->begin(); collisionIdIt != it->second->physicsElements[0].getCollisionIds()->end(); ++collisionIdIt)
 			{
 				auto collideElementIt = bodies.find(*collisionIdIt);
 				if (collideElementIt != bodies.end())
@@ -174,10 +174,19 @@ void Physics::update(float dt)
 					auto collideElementBody = collideElementIt->second;
 					auto itBody = it->second;
 
-					Collider& bodyRect = *itBody->physicsElement.getCollider();
-					Collider& elementRect = *collideElementBody->physicsElement.getCollider();
+					Collider& bodyRect = *itBody->physicsElements[0].getCollider();
+					Collider& elementRect = *collideElementBody->physicsElements[0].getCollider();
+					if (collideElementBody->isStatic)
+					{
+						for (auto collideElementPhysicsElementIt = collideElementBody->physicsElements.begin(); collideElementPhysicsElementIt != collideElementBody->physicsElements.end(); ++collideElementPhysicsElementIt)
+						{
+							elementRect = *collideElementPhysicsElementIt->getCollider();
 
-					handleCollision(itBody, collideElementBody, bodyRect, elementRect);
+							handleCollision(itBody, collideElementBody, bodyRect, elementRect);
+						}
+					}
+					else
+						handleCollision(itBody, collideElementBody, bodyRect, elementRect);
 				}
 
 				it->second->pos += it->second->vel * dt;
@@ -192,7 +201,7 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 	{
 		if (!it->second->isStatic)
 		{
-			Collider* collider = it->second->physicsElement.getCollider();
+			Collider* collider = it->second->physicsElements[0].getCollider();
 
 			sf::RectangleShape body;
 
@@ -205,7 +214,7 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 					body.setSize(sf::Vector2f(colliderRect.width, colliderRect.height));
 					body.setPosition(sf::Vector2f(colliderRect.left, colliderRect.top));
 					body.setFillColor(sf::Color::Yellow);
-					
+
 					window.draw(body);
 
 					break;
@@ -217,7 +226,7 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 					body.setPosition(collideOBB.pos);
 					body.setSize(sf::Vector2f{ collideOBB.width, collideOBB.height });
 					body.setOrigin(collideOBB.origin);
-					body.setRotation(collideOBB.angle*180/collideOBB.PI);
+					body.setRotation(collideOBB.angle * 180 / collideOBB.PI);
 					body.setFillColor(sf::Color::Yellow);
 #if 0
 					sf::Vector2f points[4] = { { collideOBB.pos },{ collideOBB.pos.x + collideOBB.width, collideOBB.pos.y },
@@ -231,7 +240,7 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 					{
 						points[i] = sf::Vector2f(collideOBB.pos + (points[i].x - origin.x) * collideOBB.xAxis + (points[i].y - origin.y) * collideOBB.yAxis);
 					}
-					
+
 					for (unsigned int i = 0; i < body.getPointCount(); ++i)
 					{
 						sf::Vector2f myPoint = points[i];
@@ -268,13 +277,14 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 
 void Physics::addElementPointer(std::shared_ptr<Body> body)
 {
-	bodies.emplace(body->physicsElement.id, body);
+	//TODO: Think about if you want that... But really yeah or??
+	assert(body->physicsElements.size() < 2);
+	bodies.emplace(body->id, body);
 }
 
 void Physics::addElementValue(Body body)
 {
-	std::shared_ptr<Body> bodyPtr = std::make_shared<Body>(Body(body.physicsElement.id, body.physicsElement.colliders.collidersValue, false, true, {}));
-	bodies.emplace(body.physicsElement.id, bodyPtr);
+	bodies.emplace(body.id, std::make_shared<Body>(body));
 }
 
 bool Physics::removeElementById(std::string & id)
@@ -283,32 +293,56 @@ bool Physics::removeElementById(std::string & id)
 }
 
 Physics::Body::Body(sf::Vector2f& pos, std::string name, Collider* collider, std::vector<std::string>* collisionId, bool isTrigger, bool isStatic)
-	: isStatic(isStatic), isTrigger(isTrigger), pos(pos), physicsElement{}
+	: isStatic(isStatic), isTrigger(isTrigger), pos(pos), id(name), physicsElements{}
 {
-	this->physicsElement.id = name;
-	this->physicsElement.collisionIds = collisionId;
-	this->physicsElement.collidersInPointer = true;
-	this->physicsElement.colliders.collidersPointer = collider;
+	PhysicElement physicsElement = {};
+	physicsElement.collisionIdInPointer = true;
+	physicsElement.collisionIdPointer = collisionId;
+	physicsElement.collidersInPointer = true;
+	physicsElement.colliders.collidersPointer = collider;
+
+	this->physicsElements.push_back(physicsElement);
 }
 
 Physics::Body::Body(sf::Vector2f & pos, std::string name, Collider * collider, bool isTrigger, bool isStatic, std::vector<std::string> collisionId)
-	: isStatic(isStatic), isTrigger(isTrigger), pos(pos), physicsElement{}
+	: isStatic(isStatic), isTrigger(isTrigger), pos(pos), id(name), physicsElements{}
 {
-	this->physicsElement.id = name;
-	this->physicsElement.collisionIdPointer = collisionId;
-	this->physicsElement.collisionIds = &physicsElement.collisionIdPointer;
-	this->physicsElement.collidersInPointer = true;
-	this->physicsElement.colliders.collidersPointer = collider;
+	PhysicElement physicsElement = {};
+	physicsElement.collisionIdInPointer = false;
+	physicsElement.collisionIdValue = collisionId;
+	physicsElement.collidersInPointer = true;
+	physicsElement.colliders.collidersPointer = collider;
+
+	this->physicsElements.push_back(physicsElement);
 }
 
 Physics::Body::Body(std::string name, Collider collider, bool isTrigger, bool isStatic, std::vector<std::string> collisionId)
-	: isStatic(isStatic), isTrigger(isTrigger), pos(0.0f, 0.0f), physicsElement{}
+	: isStatic(isStatic), isTrigger(isTrigger), pos(0.0f, 0.0f), id(name), physicsElements{}
 {
-	this->physicsElement.id = name;
-	this->physicsElement.collisionIdPointer = collisionId;
-	this->physicsElement.collisionIds = &physicsElement.collisionIdPointer;
-	this->physicsElement.collidersInPointer = false;
-	this->physicsElement.colliders.collidersValue = collider;
+	PhysicElement physicsElement = {};
+
+	physicsElement.collisionIdInPointer = false;
+	physicsElement.collisionIdValue = collisionId;
+	physicsElement.collidersInPointer = false;
+	physicsElement.colliders.collidersValue = collider;
+
+	this->physicsElements.push_back(physicsElement);
+}
+
+Physics::Body::Body(std::string name, std::vector<Collider> colliders, bool isTrigger) : id(name), 
+	isStatic(true), isTrigger(isTrigger), pos(0.0f, 0.0f), physicsElements{}
+{
+	for (auto it = colliders.begin(); it != colliders.end(); ++it)
+	{
+		PhysicElement physicsElement = {};
+
+		physicsElement.collisionIdInPointer = false;
+		physicsElement.collisionIdValue = std::vector<std::string>();
+		physicsElement.collidersInPointer = false;
+		physicsElement.colliders.collidersValue = *it;
+
+		this->physicsElements.push_back(physicsElement);
+	}
 }
 
 bool Physics::Body::getIsTriggerd()
@@ -348,7 +382,7 @@ Physics::Body::TriggerInformation & Physics::Body::getTriggerInformation()
 
 std::string & Physics::Body::getId()
 {
-	return physicsElement.id;
+	return id;
 }
 
 Physics::Collider * Physics::PhysicElement::getCollider() const
@@ -357,6 +391,14 @@ Physics::Collider * Physics::PhysicElement::getCollider() const
 		return colliders.collidersPointer;
 	else
 		return (Collider *) &colliders.collidersValue;
+}
+
+std::vector<std::string>* Physics::PhysicElement::getCollisionIds() const
+{
+	if (collisionIdInPointer)
+		return collisionIdPointer;
+	else
+		return (std::vector<std::string>*) &collisionIdValue;
 }
 
 Physics::Collider::Collider() : type(Type::rect), collider{ {} }

@@ -52,14 +52,14 @@ TiledMap::TiledMap(const std::string & filepath) : tiles(), layers(), objectGrou
 	}
 }
 
-std::vector<sf::FloatRect> TiledMap::getObjectGroup(const std::string& objectGroupName)
+std::vector<Physics::Collider> TiledMap::getObjectGroup(const std::string& objectGroupName)
 {
 	auto result = objectGroups.find(objectGroupName);
 	if (result != objectGroups.end())
 		return result->second.objects;
 	else
 	{
-		std::vector<sf::FloatRect> result;
+		std::vector<Physics::Collider> result;
 		InvalidCodePath;
 		return result;
 	}
@@ -178,7 +178,7 @@ void TiledMap::ParseObjectGroups(std::ifstream & file, std::string & lineContent
 		std::string objectGroupName = getLineContentBetween(lineContent, "name", '"');
 		std::getline(file, lineContent);
 
-		std::vector<sf::FloatRect> objectVector;
+		std::vector<Physics::Collider> objectVector;
 		while (!utils::isWordInLine("</objectgroup>", lineContent))
 		{
 			int x = atoi(getLineContentBetween(lineContent, "x", '"').c_str());

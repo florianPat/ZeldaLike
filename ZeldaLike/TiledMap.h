@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include "SFML\Graphics.hpp"
 #include <memory>
+#include "Physics.h"
 
 class TiledMap
 {
@@ -21,7 +22,7 @@ class TiledMap
 	struct ObjectGroup
 	{
 		std::string name;
-		std::vector<sf::FloatRect> objects;
+		std::vector<Physics::Collider> objects;
 	};
 	std::unordered_map<int, Tile> tiles;
 	std::unordered_map<std::string, Layer> layers;
@@ -32,7 +33,7 @@ class TiledMap
 	sf::Sprite textureSprite;
 public:
 	TiledMap(const std::string& filepath);
-	std::vector<sf::FloatRect> getObjectGroup(const std::string& objectGroupName);
+	std::vector<Physics::Collider> getObjectGroup(const std::string& objectGroupName);
 	std::vector<ObjectGroup> getObjectGroups();
 	void draw(sf::RenderWindow& renderWindow);
 private:
