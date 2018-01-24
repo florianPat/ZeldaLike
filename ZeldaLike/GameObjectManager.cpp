@@ -8,7 +8,7 @@ GameObjectManager::GameObjectManager() : actors(), destroyActorQueue(), sortedAc
 
 Actor* GameObjectManager::addActor()
 {
-	unsigned int id = utils::getGUID();
+	unsigned int id = getGUID();
 
 	auto result = actors.emplace(id, std::make_unique<Actor>(id));
 	return result.first->second.get();

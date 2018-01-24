@@ -17,10 +17,11 @@
 #define Megabyte(x) Kilobyte(x) * 1024ll
 #define Gigabyte(x) Megabyte(x) * 1024ll
 
+#define getGUID() __COUNTER__
+
 namespace utils
 {
 	bool isWordInLine(const std::string & word, const std::string & lineContent);
 	void addAnimation(std::vector<std::string> regionNames, std::string animationName, TextureAtlas& atlas, std::map<std::string, Animation>& animations);
 	DelegateFunction getDelegateFromFunction(std::function<void(EventData*)>& function);
-	const unsigned int getGUID();
 }

@@ -50,13 +50,3 @@ DelegateFunction utils::getDelegateFromFunction(std::function<void(EventData*)>&
 {
 	return DelegateFunction(std::pair<int, std::function<void(EventData*)>>(getGUID(), function));
 }
-
-#pragma comment(lib, "rpcrt4.lib")  // UuidCreate
-#include <Windows.h>
-
-const unsigned int utils::getGUID()
-{
-	UUID result;
-	UuidCreate(&result);
-	return result.Data3;
-}
