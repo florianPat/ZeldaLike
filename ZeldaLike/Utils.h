@@ -6,6 +6,7 @@
 #include "Animation.h"
 #include <iostream>
 #include <assert.h>
+#include "EventManager.h"
 
 #define utilsLog(string) std::cerr << "Log: Function: " << __FUNCTION__ << ", Line: " << __LINE__ << ", Message: " << string << std::endl
 #define utilsLogBreak(string) utilsLog(string); __debugbreak
@@ -20,4 +21,6 @@ namespace utils
 {
 	bool isWordInLine(const std::string & word, const std::string & lineContent);
 	void addAnimation(std::vector<std::string> regionNames, std::string animationName, TextureAtlas& atlas, std::map<std::string, Animation>& animations);
+	DelegateFunction getDelegateFromFunction(std::function<void(EventData*)>& function);
+	const unsigned int getGUID();
 }

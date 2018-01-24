@@ -2,7 +2,7 @@
 #include "GameObjectManager.h"
 #include "Utils.h"
 
-Actor::Actor(const unsigned int& id) : components(), id(id)
+Actor::Actor(unsigned int id) : components(), id(id)
 {
 }
 

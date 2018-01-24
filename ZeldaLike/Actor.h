@@ -18,7 +18,7 @@ private:
 	void sort(std::map<gomSort::SortKey, unsigned long long, gomSort::SortCompare>& sortedActors);
 	unsigned long long GetActorComponentId(unsigned int componentId);
 public:
-	Actor(const unsigned int& id);
+	Actor(unsigned int id);
 	void addComponent(std::shared_ptr<Component> component);
 	void removeComponent(unsigned int componentId);
 	template <typename T> T* getComponent(unsigned int componentId);

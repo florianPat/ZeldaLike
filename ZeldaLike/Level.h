@@ -7,6 +7,7 @@
 #include <iostream>
 #include "GameObjectManager.h"
 #include "EventManager.h"
+#include "Utils.h"
 
 class Level
 {
@@ -24,14 +25,10 @@ private:
 	bool endLevel = false;
 private:
 	std::function<void(EventData*)> eventLevelReloadFunction = std::bind(&Level::eventLevelReloadHandler, this, std::placeholders::_1);
-	static constexpr int delegateLevelReloadId = 0;
-	DelegateFunction delegateLevelReload = std::make_pair(delegateLevelReloadId, eventLevelReloadFunction);
+	DelegateFunction delegateLevelReload = utils::getDelegateFromFunction(eventLevelReloadFunction);
 private:
 	void eventLevelReloadHandler(EventData* eventData);
 	void eventWinHandler(EventData* eventData);
-private:
-	Physics::Collider collider;
-	std::shared_ptr<Physics::Body> body;
 private:
 	virtual void updateModel();
 	virtual void composeFrame();

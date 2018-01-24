@@ -45,3 +45,18 @@ void utils::addAnimation(std::vector<std::string> regionNames, std::string anima
 
 	animations.emplace(animationName, Animation(regions, sf::seconds(0.2f).asMicroseconds(), Animation::PlayMode::LOOPED));
 }
+
+DelegateFunction utils::getDelegateFromFunction(std::function<void(EventData*)>& function)
+{
+	return DelegateFunction(std::pair<int, std::function<void(EventData*)>>(getGUID(), function));
+}
+
+#pragma comment(lib, "rpcrt4.lib")  // UuidCreate
+#include <Windows.h>
+
+const unsigned int utils::getGUID()
+{
+	UUID result;
+	UuidCreate(&result);
+	return result.Data3;
+}

@@ -4,6 +4,8 @@
 
 struct EventLevelReload : public EventData
 {
-	static constexpr int EVENT_LEVEL_RELOAD_ID = 0xbf88343e;
-	EventLevelReload() : EventData(EVENT_LEVEL_RELOAD_ID) {};
+	//TODO: Automate this! 
+	//Test the changes!
+	static const unsigned int eventId = 0xd7885633;
+	EventLevelReload() : EventData(eventId) {};
 };

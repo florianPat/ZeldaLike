@@ -13,7 +13,7 @@ class GameObjectManager
 
 public:
 	GameObjectManager();
-	Actor* addActor(const unsigned int& id);
+	Actor* addActor();
 	void destroyActor(unsigned int actorId);
 	void updateActors(float dt);
 	void drawActors();
