@@ -6,11 +6,11 @@ Actor::Actor(unsigned int id) : components(), id(id)
 {
 }
 
-void Actor::addComponent(std::shared_ptr<Component> component)
+void Actor::addComponent(std::unique_ptr<Component> component)
 {
 	if (components.find(component->getId()) == components.end())
 	{
-		components.emplace(component->getId(), component);
+		components.emplace(component->getId(), std::move(component));
 	}
 }
 

@@ -11,7 +11,7 @@ class Actor
 	friend class GameObjectManager;
 
 	const unsigned int id;
-	std::unordered_map<int, std::shared_ptr<Component>> components;
+	std::unordered_map<int, std::unique_ptr<Component>> components;
 private:
 	void update(float dt);
 	void draw(unsigned int componentId);
@@ -19,7 +19,7 @@ private:
 	unsigned long long GetActorComponentId(unsigned int componentId);
 public:
 	Actor(unsigned int id);
-	void addComponent(std::shared_ptr<Component> component);
+	void addComponent(std::unique_ptr<Component> component);
 	void removeComponent(unsigned int componentId);
 	template <typename T> T* getComponent(unsigned int componentId);
 	int getId() const { return id; };

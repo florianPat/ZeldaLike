@@ -209,7 +209,7 @@ void TiledMap::MakeRenderTexture()
 				for (int x = 0; x < mapWidth; ++x)
 				{
 					Layer currentLayer = it->second;
-					std::shared_ptr<sf::Texture> source = currentLayer.tiles[mapWidth * y + x].source;
+					sf::Texture* source = currentLayer.tiles[mapWidth * y + x].source;
 					if (source == nullptr)
 						continue;
 					sf::Sprite sprite(*source);

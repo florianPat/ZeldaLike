@@ -15,7 +15,7 @@ class TextureRegion
 	sf::Vector2i xy;
 	sf::Vector2i size;
 
-	std::shared_ptr<sf::Texture> atlasTexture;
+	sf::Texture* atlasTexture;
 	sf::Sprite regionSprite;
 private:
 	TextureRegion() = default;

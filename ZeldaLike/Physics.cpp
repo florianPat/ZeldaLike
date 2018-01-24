@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Utils.h"
 
-void Physics::handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Body>& collideElementBody, Collider & bodyCollider,
+void Physics::handleCollision(Body* itBody, Body* collideElementBody, Collider & bodyCollider,
 	const Collider& elementCollider)
 {
 	if (itBody->isTrigger || collideElementBody->isTrigger)
@@ -171,8 +171,8 @@ void Physics::update(float dt)
 				auto collideElementIt = bodies.find(*collisionIdIt);
 				if (collideElementIt != bodies.end())
 				{
-					auto collideElementBody = collideElementIt->second;
-					auto itBody = it->second;
+					auto collideElementBody = collideElementIt->second.get();
+					auto itBody = it->second.get();
 
 					Collider& bodyRect = *itBody->physicsElements[0].getCollider();
 					Collider& elementRect = *collideElementBody->physicsElements[0].getCollider();
@@ -275,16 +275,18 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 	}
 }
 
-void Physics::addElementPointer(std::shared_ptr<Body> body)
+Physics::Body* Physics::addElementPointer(std::unique_ptr<Body> body)
 {
 	//TODO: Think about if you want that... But really yeah or??
 	assert(body->physicsElements.size() < 2);
-	bodies.emplace(body->id, body);
+	auto result = bodies.emplace(body->id, std::move(body));
+	assert(result.second);
+	return result.first->second.get();
 }
 
 void Physics::addElementValue(Body body)
 {
-	bodies.emplace(body.id, std::make_shared<Body>(body));
+	bodies.emplace(body.id, std::make_unique<Body>(body));
 }
 
 bool Physics::removeElementById(std::string & id)

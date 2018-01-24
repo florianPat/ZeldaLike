@@ -11,7 +11,7 @@ class TiledMap
 	{
 		int id;
 		int width, height;
-		std::shared_ptr<sf::Texture> source;
+		sf::Texture* source;
 	};
 	struct Layer
 	{

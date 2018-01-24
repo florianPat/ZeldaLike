@@ -149,16 +149,16 @@ public:
 	};
 private:
 	static constexpr float gravity = 9.81f;
-	std::unordered_map<std::string, std::shared_ptr<Body>> bodies;
+	std::unordered_map<std::string, std::unique_ptr<Body>> bodies;
 private:
-	void handleCollision(std::shared_ptr<Body>& itBody, std::shared_ptr<Body>& collideElementBody, Collider & bodyCollider,
+	void handleCollision(Body* itBody, Body* collideElementBody, Collider & bodyCollider,
 						 const Collider& elementCollider);
 public:
 	Physics();
 	void update(float dt);
 	void debugRenderBodies(sf::RenderWindow& window);
 	//Use if you need a reference to the body, to get back triggerInformation etc.
-	void addElementPointer(std::shared_ptr<Body> body);
+	Body* addElementPointer(std::unique_ptr<Body> body);
 	//Use this otherwise
 	void addElementValue(Body body);
 	bool removeElementById(std::string& id);
