@@ -277,7 +277,6 @@ void Physics::debugRenderBodies(sf::RenderWindow & window)
 
 Physics::Body* Physics::addElementPointer(std::unique_ptr<Body> body)
 {
-	//TODO: Think about if you want that... But really yeah or??
 	assert(body->physicsElements.size() < 2);
 	auto result = bodies.emplace(body->id, std::move(body));
 	assert(result.second);

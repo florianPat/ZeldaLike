@@ -12,7 +12,7 @@
 class Level
 {
 private:
-	sf::RenderWindow* window;
+	sf::RenderWindow& window;
 	Physics physics;
 	TiledMap map;
 	sf::Clock clock;
@@ -33,6 +33,6 @@ private:
 	virtual void updateModel();
 	virtual void composeFrame();
 public:
-	Level(sf::RenderWindow* window, std::string tiledMapName);
+	Level(sf::RenderWindow& window, std::string tiledMapName);
 	std::string Go();
 };

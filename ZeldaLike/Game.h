@@ -5,8 +5,8 @@
 
 class Game
 {
-	sf::RenderWindow* window;
+	sf::RenderWindow& window;
 	std::unique_ptr<Level> currentLevel;
 public:
-	Game(sf::RenderWindow* window, std::string levelName);
+	Game(sf::RenderWindow& window, std::string levelName);
 };

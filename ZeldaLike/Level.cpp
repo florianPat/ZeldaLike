@@ -1,5 +1,6 @@
 #include "Level.h"
 #include "EventLevelReload.h"
+#include "PlayerComponent.h"
 
 void Level::eventLevelReloadHandler(EventData* eventData)
 {
@@ -23,18 +24,18 @@ void Level::updateModel()
 
 void Level::composeFrame()
 {
-	window->clear();
+	window.clear();
 
-	map.draw(*window);
+	map.draw(window);
 	gom.sortActors();
 	gom.drawActors();
 
-	physics.debugRenderBodies(*window);
+	//physics.debugRenderBodies(window);
 
-	window->display();
+	window.display();
 }
 
-Level::Level(sf::RenderWindow * window, std::string tiledMapName) : window(window), physics(), levelName(tiledMapName),
+Level::Level(sf::RenderWindow & window, std::string tiledMapName) : window(window), physics(), levelName(tiledMapName),
 map(tiledMapName), clock(), gom(), eventManager()
 {
 	auto objectGroups = map.getObjectGroups();
@@ -44,6 +45,11 @@ map(tiledMapName), clock(), gom(), eventManager()
 		{
 			physics.addElementValue(Physics::Body(std::string("Blocked"), it->objects));
 		}
+		else if (it->name == "PlayerStart")
+		{
+			Actor* playerP = gom.addActor();
+			playerP->addComponent(std::make_unique<PlayerComponent>(sf::Vector2f(it->objects[0].collider.rect.left, it->objects[0].collider.rect.top), TextureAtlas("Player.atlas"), physics, window, &eventManager, playerP));
+		}
 	}
 
 	eventManager.addListener(EventLevelReload::eventId, delegateLevelReload);
@@ -51,14 +57,14 @@ map(tiledMapName), clock(), gom(), eventManager()
 
 std::string Level::Go()
 {
-	while (!endLevel && window->isOpen())
+	while (!endLevel && window.isOpen())
 	{
 		sf::Event event;
-		while (window->pollEvent(event))
+		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				window->close();
+				window.close();
 			}
 		}
 

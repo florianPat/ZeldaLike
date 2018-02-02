@@ -124,7 +124,7 @@ TextureAtlas::TextureAtlas(const std::string& filepath) : textureAtlas(), fileHe
 	}
 }
 
-std::unique_ptr<TextureRegion> TextureAtlas::findRegion(const std::string& name)
+std::unique_ptr<TextureRegion> TextureAtlas::findRegion(const std::string& name) const
 {
 	auto result = textureAtlas.find(name);
 	if (result != textureAtlas.end())

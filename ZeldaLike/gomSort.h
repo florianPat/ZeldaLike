@@ -10,7 +10,6 @@ namespace gomSort
 
 	struct SortCompare
 	{
-		//TODO: Bulletproof
 		bool operator()(const SortKey& lhs, const SortKey& rhs) const
 		{
 			if (lhs.layer < rhs.layer)

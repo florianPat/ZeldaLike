@@ -55,5 +55,5 @@ void Actor::sort(std::map<gomSort::SortKey, unsigned long long, gomSort::SortCom
 
 unsigned long long Actor::GetActorComponentId(unsigned int componentId)
 {
-	return ((unsigned long long)id << 32llu) || (unsigned long long)componentId;
+	return ((unsigned long long)id << 32llu) | (unsigned long long)componentId;
 }

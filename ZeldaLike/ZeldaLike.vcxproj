@@ -121,9 +121,12 @@
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="InkscapeAnimation.h" />
+    <ClInclude Include="InscapeAnimationElement.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="gomSort.h" />
+    <ClInclude Include="PlayerComponent.h" />
     <ClInclude Include="TextureAtlas.h" />
     <ClInclude Include="TiledMap.h" />
     <ClInclude Include="Utils.h" />
@@ -136,9 +139,12 @@
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="InkscapeAnimation.cpp" />
+    <ClCompile Include="InscapeAnimationElement.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="PlayerComponent.cpp" />
     <ClCompile Include="TextureAtlas.cpp" />
     <ClCompile Include="TiledMap.cpp" />
     <ClCompile Include="Utils.cpp" />
