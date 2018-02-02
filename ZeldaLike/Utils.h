@@ -22,6 +22,6 @@
 namespace utils
 {
 	bool isWordInLine(const std::string & word, const std::string & lineContent);
-	void addAnimation(std::vector<std::string> regionNames, std::string animationName, TextureAtlas& atlas, std::map<std::string, Animation>& animations);
 	DelegateFunction getDelegateFromFunction(std::function<void(EventData*)>& function);
+	std::string getWordBetweenChars(const std::string& lineContent, char first, char last);
 }

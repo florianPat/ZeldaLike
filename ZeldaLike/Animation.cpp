@@ -1,10 +1,34 @@
 #include "Animation.h"
 #include <assert.h>
 #include "Utils.h"
+#include <fstream>
 
-Animation::Animation(std::vector<TextureRegion>& keyFrames, sf::Int64 frameDuration, PlayMode type) : keyFrames(),
-	frameDuration(frameDuration), playMode(type), clock(), keyFrameIt(), keyFrameItReverse()
+Animation::Animation(std::vector<TextureRegion>& keyFrames, sf::Int64 frameDuration, PlayMode type)
+	: keyFrames(), frameDuration(frameDuration), playMode(type), clock(), keyFrameIt(), keyFrameItReverse()
 {
+	for (auto it = keyFrames.begin(); it != keyFrames.end(); ++it)
+	{
+		this->keyFrames.push_back(it->getRegion());
+	}
+
+	keyFrameIt = this->keyFrames.begin();
+	keyFrameItReverse = this->keyFrames.rbegin();
+}
+
+Animation::Animation(const std::vector<std::string>& regionNames, const TextureAtlas & atlas, sf::Int64 frameDuration, PlayMode type)
+{
+	std::vector<TextureRegion> keyFrames;
+	for (auto it = regionNames.begin(); it != regionNames.end(); ++it)
+	{
+		auto region = atlas.findRegion(*it);
+		if (region == nullptr)
+			continue;
+		else
+		{
+			keyFrames.push_back(*region);
+		}
+	}
+
 	for (auto it = keyFrames.begin(); it != keyFrames.end(); ++it)
 	{
 		this->keyFrames.push_back(it->getRegion());

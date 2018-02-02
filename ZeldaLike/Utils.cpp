@@ -29,24 +29,17 @@ bool utils::isWordInLine(const std::string & word, const std::string & lineConte
 	return result;
 }
 
-void utils::addAnimation(std::vector<std::string> regionNames, std::string animationName, TextureAtlas& atlas, std::map<std::string, Animation>& animations)
-{
-	std::vector<TextureRegion> regions;
-	for (auto it = regionNames.begin(); it != regionNames.end(); ++it)
-	{
-		auto region = atlas.findRegion(*it);
-		if (region == nullptr)
-			continue;
-		else
-		{
-			regions.push_back(*region);
-		}
-	}
-
-	animations.emplace(animationName, Animation(regions, sf::seconds(0.2f).asMicroseconds(), Animation::PlayMode::LOOPED));
-}
-
 DelegateFunction utils::getDelegateFromFunction(std::function<void(EventData*)>& function)
 {
 	return DelegateFunction(std::pair<int, std::function<void(EventData*)>>(getGUID(), function));
+}
+
+std::string utils::getWordBetweenChars(const std::string& lineContent, char firstChar, char lastChar)
+{
+	std::string result;
+	size_t first = lineContent.find_first_of(firstChar);
+	++first;
+	size_t last = lineContent.find_last_of(lastChar);
+	result = lineContent.substr(first, last - first);
+	return result;
 }

@@ -13,7 +13,7 @@ public:
 		NORMAL,
 		REVERSED
 	};
-private:
+protected:
 	std::vector<sf::Sprite> keyFrames;
 	std::_Vector_iterator<std::_Vector_val<std::_Simple_types<sf::Sprite>>> keyFrameIt;
 	std::reverse_iterator<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<sf::Sprite>>>> keyFrameItReverse;
@@ -26,6 +26,7 @@ private:
 	bool paused = false;
 public:
 	Animation(std::vector<TextureRegion>& keyFrames, sf::Int64 frameDuration, PlayMode type);
+	Animation(const std::vector<std::string>& regionNames, const TextureAtlas& atlas, sf::Int64 frameDuration = sf::seconds(0.2f).asMicroseconds(), PlayMode type = PlayMode::LOOPED);
 	PlayMode getPlayMode();
 	sf::Int64 getFrameDuration();
 	void setFrameDuration(sf::Int64 frameDuration);
