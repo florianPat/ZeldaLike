@@ -43,13 +43,13 @@ void Actor::draw(unsigned int componentId)
 	}
 }
 
-void Actor::sort(std::map<gomSort::SortKey, unsigned long long, gomSort::SortCompare>& sortedActors)
+void Actor::sort(std::multimap<gomSort::SortKey, unsigned long long, gomSort::SortCompare>& sortedActors)
 {
 	for (auto it = components.begin(); it != components.end(); ++it)
 	{
 		gomSort::SortKey sortKey = it->second->sort();
 		unsigned long long actorComponentId = GetActorComponentId(it->second->id);
-		sortedActors.emplace(sortKey, actorComponentId);
+		auto returned = sortedActors.emplace(sortKey, actorComponentId);
 	}
 }
 

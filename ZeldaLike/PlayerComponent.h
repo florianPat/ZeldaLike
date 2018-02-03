@@ -6,6 +6,7 @@
 #include "TextureAtlas.h"
 #include "SFML\Graphics.hpp"
 #include "InkscapeAnimation.h"
+#include "Utils.h"
 
 class PlayerComponent : public Component
 {
@@ -19,9 +20,13 @@ class PlayerComponent : public Component
 	Physics::Collider boundingBox;
 	Physics::Body* body = nullptr;
 	sf::View view;
-	sf::RectangleShape swordTest;
+	sf::IntRect swordPosRect;
+public:
+	static constexpr int id = getGUID();
 public:
 	PlayerComponent(sf::Vector2f& startingPos, TextureAtlas& textureAtlas, Physics& physics, sf::RenderWindow& renderTarget, EventManager* eventManager, Actor* owner);
 	void update(float dt) override;
 	void draw() override;
+	const sf::IntRect* getSwordPosRect() const;
+	gomSort::SortKey sort() override { return gomSort::SortKey{ 0, body->getPos().y }; }
 };

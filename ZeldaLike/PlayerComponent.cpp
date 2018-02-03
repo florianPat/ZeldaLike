@@ -3,7 +3,7 @@
 
 PlayerComponent::PlayerComponent(sf::Vector2f & startingPos, TextureAtlas & textureAtlas, Physics & physics, sf::RenderWindow & renderTarget, EventManager * eventManager, Actor * owner)
 	: startingPos(startingPos), atlas(textureAtlas), physics(physics), renderTarget(renderTarget), view(renderTarget.getDefaultView()),
-	currentFrame(), boundingBox(sf::FloatRect()), Component(eventManager, owner)
+	currentFrame(), boundingBox(sf::FloatRect()), swordPosRect(), Component(id, eventManager, owner)
 {
 	std::unique_ptr<Physics::Body> bodyUni = std::make_unique<Physics::Body>(startingPos, "Player", &boundingBox, false, false, std::vector<std::string>{"Blocked"});
 	body = physics.addElementPointer(std::move(bodyUni));
@@ -18,8 +18,6 @@ PlayerComponent::PlayerComponent(sf::Vector2f & startingPos, TextureAtlas & text
 	animations.emplace("backWalk", InkscapeAnimation{ { "back1", "back2", "back3" }, atlas, iae });
 	animations.emplace("leftWalk", InkscapeAnimation{ { "left1", "left2", "left3" }, atlas, iae });
 	animations.emplace("rightWalk", InkscapeAnimation{ { "right1", "right2", "right3" }, atlas, iae });
-
-	swordTest.setFillColor(sf::Color::Black);
 }
 
 void PlayerComponent::update(float dt)
@@ -40,40 +38,40 @@ void PlayerComponent::update(float dt)
 		auto anim = animations.find("rightWalk")->second;
 
 		currentFrame = anim.getKeyFrame();
-		auto rect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
-		swordTest.setPosition({ (float)rect.left + body->getPos().x, (float)rect.top + body->getPos().y });
-		swordTest.setSize({ (float)rect.width, (float)rect.height });
+		swordPosRect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
 	}
 	else if (body->vel.x < 0)
 	{
 		auto anim = animations.find("leftWalk")->second;
 
 		currentFrame = anim.getKeyFrame();
-		auto rect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
-		swordTest.setPosition({ (float)rect.left + body->getPos().x, (float)rect.top + body->getPos().y });
-		swordTest.setSize({ (float)rect.width, (float)rect.height });
+		swordPosRect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
 	}
 	else if (body->vel.y > 0)
 	{
 		auto anim = animations.find("frontWalk")->second;
 
 		currentFrame = anim.getKeyFrame();
-		auto rect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
-		swordTest.setPosition({ (float)rect.left + body->getPos().x, (float)rect.top + body->getPos().y });
-		swordTest.setSize({ (float)rect.width, (float)rect.height });
+		swordPosRect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
 	}
 	else if (body->vel.y < 0)
 	{
 		currentFrame = animations.find("backWalk")->second.getKeyFrame();
+
+		swordPosRect = sf::IntRect();
 	}
 	else
 	{
 		auto anim = animations.find("frontIdel")->second;
 		
 		currentFrame = anim.getKeyFrame();
-		auto rect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
-		swordTest.setPosition({ (float)rect.left + body->getPos().x, (float)rect.top + body->getPos().y });
-		swordTest.setSize({ (float)rect.width, (float)rect.height });
+		swordPosRect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
+	}
+
+	if (swordPosRect.left != 0 || swordPosRect.top != 0)
+	{
+		swordPosRect.left += (int)body->getPos().x;
+		swordPosRect.top += (int)body->getPos().y;
 	}
 
 	currentFrame.setPosition(body->getPos() + body->vel * dt);
@@ -88,9 +86,12 @@ void PlayerComponent::draw()
 {
 	currentFrame.setPosition(body->getPos());
 	renderTarget.draw(currentFrame);
-	
-	renderTarget.draw(swordTest);
 
 	view.setCenter(body->getPos());
 	renderTarget.setView(view);
+}
+
+const sf::IntRect* PlayerComponent::getSwordPosRect() const
+{
+	return &swordPosRect;
 }

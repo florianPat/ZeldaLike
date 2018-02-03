@@ -1,6 +1,7 @@
 #include "Level.h"
 #include "EventLevelReload.h"
 #include "PlayerComponent.h"
+#include "SwordComponent.h"
 
 void Level::eventLevelReloadHandler(EventData* eventData)
 {
@@ -49,6 +50,7 @@ map(tiledMapName), clock(), gom(), eventManager()
 		{
 			Actor* playerP = gom.addActor();
 			playerP->addComponent(std::make_unique<PlayerComponent>(sf::Vector2f(it->objects[0].collider.rect.left, it->objects[0].collider.rect.top), TextureAtlas("Player.atlas"), physics, window, &eventManager, playerP));
+			playerP->addComponent(std::make_unique<SwordComponent>(TextureAtlas("Items.atlas"), physics, window, &eventManager, playerP));
 		}
 	}
 

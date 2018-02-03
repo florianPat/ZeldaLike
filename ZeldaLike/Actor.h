@@ -15,7 +15,7 @@ class Actor
 private:
 	void update(float dt);
 	void draw(unsigned int componentId);
-	void sort(std::map<gomSort::SortKey, unsigned long long, gomSort::SortCompare>& sortedActors);
+	void sort(std::multimap<gomSort::SortKey, unsigned long long, gomSort::SortCompare>& sortedActors);
 	unsigned long long GetActorComponentId(unsigned int componentId);
 public:
 	Actor(unsigned int id);

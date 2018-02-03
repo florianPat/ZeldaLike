@@ -8,7 +8,7 @@
 class GameObjectManager
 {
 	std::unordered_map<unsigned int, std::unique_ptr<Actor>> actors;
-	std::map<gomSort::SortKey, unsigned long long, gomSort::SortCompare> sortedActors; //TODO: Think about not making this a long long?
+	std::multimap<gomSort::SortKey, unsigned long long, gomSort::SortCompare> sortedActors; //TODO: Think about not making this a long long?
 	std::vector<int> destroyActorQueue;
 public:
 	GameObjectManager();
