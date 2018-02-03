@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.4533"
-     inkscape:cx="-257.9"
-     inkscape:cy="522.1"
+     inkscape:zoom="0.9066"
+     inkscape:cx="329"
+     inkscape:cy="251.2"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,243 +53,6 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <g
-       id="front2"
-       inkscape:label="#g316"
-       transform="translate(-42.44,-83)">
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-6"
-         d="M 142.4,112.6 147.7,111.5 H 180.9 L 186.1,112.3 197.5,144.7 193.3,143.9 136.3,143.8 133.5,144.7 Z"
-         style="fill:#165016;stroke-width:0.3273" />
-      <rect
-         y="141.5"
-         x="148.4"
-         height="6.971"
-         width="11.63"
-         id="rect4058-5"
-         style="fill:#a05a2c;stroke-width:0.2915" />
-      <rect
-         y="143.5"
-         x="169.3"
-         height="6.971"
-         width="11.63"
-         id="rect4058-4-6"
-         style="fill:#a05a2c;stroke-width:0.2915" />
-      <rect
-         ry="2.03"
-         y="111.5"
-         x="145.5"
-         height="32.09"
-         width="38.97"
-         id="rect4932-0"
-         style="fill:#338000;stroke-width:0.3157" />
-      <rect
-         y="108.6"
-         x="157.8"
-         height="2.87"
-         width="11.2"
-         id="rect4062-5"
-         style="fill:#deaa87;stroke-width:0.3273" />
-      <ellipse
-         ry="11.67"
-         rx="15.17"
-         cy="99.53"
-         cx="163.5"
-         id="path4081-4"
-         style="fill:#deaa87;stroke-width:0.3273" />
-      <rect
-         y="127.2"
-         x="169.9"
-         height="4.408"
-         width="9.273"
-         id="rect4092-4-39"
-         style="fill:#ffb380;stroke-width:0.3273" />
-      <path
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-4"
-         d="M 178.6,111.5 H 182.4 L 186.5,112.3 187.7,117.1 H 178.6 Z"
-         style="fill:#447821;stroke-width:0.2892" />
-      <rect
-         y="125.1"
-         x="150.5"
-         height="4.408"
-         width="9.273"
-         id="rect4092-4-3-5"
-         style="fill:#ffb380;stroke-width:0.3273" />
-      <path
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-7-2"
-         d="M 150.3,111.9 146.5,111.8 142.4,112.6 141.1,117.4 H 150.3 Z"
-         style="fill:#447821;stroke-width:0.2892" />
-      <ellipse
-         ry="1.543"
-         rx="2.006"
-         cy="95.83"
-         cx="157.5"
-         id="path4964-1"
-         style="fill:#ffffff;stroke-width:0.3273" />
-      <ellipse
-         ry="0.7817"
-         rx="1.016"
-         cy="95.89"
-         cx="157.7"
-         id="path4964-6-4"
-         style="fill:#aaccff;stroke-width:0.1658" />
-      <ellipse
-         ry="1.543"
-         rx="2.006"
-         cy="95.79"
-         cx="169"
-         id="path4964-9-8"
-         style="fill:#ffffff;stroke-width:0.3273" />
-      <ellipse
-         ry="0.7817"
-         rx="1.016"
-         cy="95.86"
-         cx="168.7"
-         id="path4964-6-1-8"
-         style="fill:#aaccff;stroke-width:0.1658" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path4999-5"
-         d="M 163.5,99.17 165.2,101.7 H 162.5"
-         style="fill:#a05a2c;fill-opacity:0;stroke:#8d5228;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.9883" />
-      <path
-         sodipodi:nodetypes="cscsc"
-         inkscape:connector-curvature="0"
-         id="path5009-5"
-         d="M 168.7,104.7 C 168.7,104.7 166.3,106.2 163.4,106.2 160.4,106.2 158,104.7 158,104.7 158,104.7 160.2,106.2 163.2,106.2 166.1,106.2 168.7,104.7 168.7,104.7 Z"
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3278;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path5020-6"
-         d="M 149,91.51 149.2,96.38 155.1,93.08 159.8,93.28 163.5,91.66 167.5,93.33 171.4,92.52 176.1,93.28 175.7,89.88 170.4,87.24 164.5,86.74 157.9,86.64 C 157.9,86.64 152.3,88.27 152,88.42 151.8,88.57 149,91.47 149,91.47 Z"
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    </g>
-    <g
-       id="front3"
-       inkscape:label="#g335"
-       transform="translate(-42.44,-83)">
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\front3.png"
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-6-2"
-         d="M 219.1,112.8 224.4,111.6 H 257.6 L 262.8,112.5 274.2,144.9 270,144 H 213 L 210.2,144.8 Z"
-         style="fill:#165016;stroke-width:0.3273" />
-      <rect
-         y="143.9"
-         x="224.9"
-         height="6.971"
-         width="11.63"
-         id="rect4058-5-1"
-         style="fill:#a05a2c;stroke-width:0.2915" />
-      <rect
-         y="141.2"
-         x="246"
-         height="6.971"
-         width="11.63"
-         id="rect4058-4-6-3"
-         style="fill:#a05a2c;stroke-width:0.2915" />
-      <rect
-         ry="2.03"
-         y="111.6"
-         x="222.2"
-         height="32.09"
-         width="38.97"
-         id="rect4932-0-1"
-         style="fill:#338000;stroke-width:0.3157" />
-      <rect
-         y="108.8"
-         x="234.5"
-         height="2.87"
-         width="11.2"
-         id="rect4062-5-3"
-         style="fill:#deaa87;stroke-width:0.3273" />
-      <ellipse
-         ry="11.67"
-         rx="15.17"
-         cy="99.69"
-         cx="240.2"
-         id="path4081-4-0"
-         style="fill:#deaa87;stroke-width:0.3273" />
-      <rect
-         y="127"
-         x="247.3"
-         height="4.408"
-         width="9.273"
-         id="rect4092-4-39-4"
-         style="fill:#ffb380;stroke-width:0.3273" />
-      <path
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-4-3"
-         d="M 255.2,111.7 259.1,111.6 263.2,112.5 264.4,117.3 H 255.2 Z"
-         style="fill:#447821;stroke-width:0.2892" />
-      <rect
-         y="129.4"
-         x="227.2"
-         height="4.408"
-         width="9.273"
-         id="rect4092-4-3-5-1"
-         style="fill:#ffb380;stroke-width:0.3273" />
-      <path
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-7-2-4"
-         d="M 227,112 H 223.2 L 219.1,112.8 217.8,117.6 H 227 Z"
-         style="fill:#447821;stroke-width:0.2892" />
-      <ellipse
-         ry="1.543"
-         rx="2.006"
-         cy="95.99"
-         cx="234.2"
-         id="path4964-1-2"
-         style="fill:#ffffff;stroke-width:0.3273" />
-      <ellipse
-         ry="0.7817"
-         rx="1.016"
-         cy="96.05"
-         cx="234.4"
-         id="path4964-6-4-5"
-         style="fill:#aaccff;stroke-width:0.1658" />
-      <ellipse
-         ry="1.543"
-         rx="2.006"
-         cy="95.95"
-         cx="245.6"
-         id="path4964-9-8-0"
-         style="fill:#ffffff;stroke-width:0.3273" />
-      <ellipse
-         ry="0.7817"
-         rx="1.016"
-         cy="96.01"
-         cx="245.4"
-         id="path4964-6-1-8-0"
-         style="fill:#aaccff;stroke-width:0.1658" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path4999-5-7"
-         d="M 240.2,99.32 241.9,101.8 H 239.1"
-         style="fill:#a05a2c;fill-opacity:0;stroke:#8d5228;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.9883" />
-      <path
-         sodipodi:nodetypes="cscsc"
-         inkscape:connector-curvature="0"
-         id="path5009-5-2"
-         d="M 245.4,104.9 C 245.4,104.9 243,106.3 240.1,106.3 237.1,106.3 234.7,104.9 234.7,104.9 234.7,104.9 236.9,106.3 239.9,106.3 242.8,106.3 245.4,104.9 245.4,104.9 Z"
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3278;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path5020-6-9"
-         d="M 225.7,91.66 225.9,96.53 231.8,93.23 236.5,93.44 240.2,91.81 244.2,93.49 248.1,92.67 252.8,93.44 252.3,90.04 247.1,87.4 241.2,86.89 H 234.6 C 234.6,86.89 229,88.51 228.7,88.67 228.5,88.82 225.7,91.71 225.7,91.71 Z"
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    </g>
     <g
        id="back2"
        inkscape:label="#g345"
@@ -451,546 +214,40 @@
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.2836;stroke-opacity:1" />
     </g>
     <g
-       id="right1"
-       inkscape:label="#g367"
-       transform="translate(154.2,-75.41)">
-      <rect
-         ry="2.124"
-         y="243.9"
-         x="-140.3"
-         height="44.72"
-         width="22.72"
-         id="rect1194"
-         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4358" />
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0-3"
-         d="M -142.3,245.6 -138.3,244 -117,244.2 V 244.2 L -137.7,288.6 -144.6,288.8 -149.7,289 -153.2,290.2 Z"
-         style="fill:#165016;stroke-width:0.4384" />
-      <rect
-         ry="0.675"
-         y="288.7"
-         x="-132.9"
-         height="4.616"
-         width="10.14"
-         id="rect4058-6-6"
-         style="fill:#a05a2c;stroke-width:0.2214" />
-      <rect
-         ry="0"
-         y="243.1"
-         x="-125.1"
-         height="0.9319"
-         width="4.785"
-         id="rect1196"
-         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4262" />
-      <ellipse
-         ry="7.005"
-         rx="9.381"
-         cy="236.6"
-         cx="-122.5"
-         id="path1198"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <rect
-         ry="0"
-         y="259.5"
-         x="-121.3"
-         height="3.377"
-         width="7.317"
-         id="rect1200"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <ellipse
-         ry="1.15"
-         rx="1.539"
-         cy="235.1"
-         cx="-117.7"
-         id="path1206"
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path1208"
-         d="M -132.2,236.8 C -131.2,236.7 -123,231.8 -123,231.8 L -119.6,232.5 C -119.6,232.5 -118.2,231.9 -117.9,231.9 -117.7,231.9 -115.4,232.4 -115.4,232.4 L -115,231.9 -120,229.3 H -124.6 L -130.1,231.5 -132.1,234.7 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <ellipse
-         ry="0.4311"
-         rx="0.5773"
-         cy="235.1"
-         cx="-117.2"
-         id="path1210"
-         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="cscsc"
-         inkscape:connector-curvature="0"
-         id="path1214"
-         d="M -114.1,239.6 V 239.7 C -114.1,240.2 -115.4,239.2 -115.4,239.2 L -114.2,239.7 Z"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-    </g>
-    <g
-       id="right2"
-       inkscape:label="#g380"
-       transform="translate(154.2,-75.41)">
-      <rect
-         ry="0.9384"
-         y="290"
-         x="-78.8"
-         height="4.706"
-         width="10.33"
-         id="rect4058-6-6-0-3"
-         style="fill:#784421;stroke-width:0.2257" />
-      <rect
-         ry="1.147"
-         y="288.1"
-         x="-69.79"
-         height="4.793"
-         width="10.52"
-         id="rect4058-6-6-0"
-         style="fill:#a05a2c;stroke-width:0.2299" />
-      <rect
-         ry="2.125"
-         y="245.4"
-         x="-81.39"
-         height="44.74"
-         width="22.72"
-         id="rect1194-6"
-         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4359" />
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0-3-6"
-         d="M -83.36,247.1 -79.42,245.4 -58.09,245.7 V 245.7 L -78.8,290 -85.71,290.3 -90.75,290.4 -94.25,291.7 Z"
-         style="fill:#165016;stroke-width:0.4385" />
-      <rect
-         ry="0"
-         y="244.6"
-         x="-66.15"
-         height="0.9323"
-         width="4.785"
-         id="rect1196-0"
-         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4263" />
-      <ellipse
-         ry="7.008"
-         rx="9.381"
-         cy="238.1"
-         cx="-63.63"
-         id="path1198-2"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <rect
-         ry="0"
-         y="259.4"
-         x="-62.56"
-         height="3.378"
-         width="7.317"
-         id="rect1200-8"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <ellipse
-         ry="1.15"
-         rx="1.539"
-         cy="236.6"
-         cx="-58.82"
-         id="path1206-1"
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path1208-7"
-         d="M -73.3,238.3 C -72.24,238.1 -64.06,233.3 -64.06,233.3 L -60.7,233.9 C -60.7,233.9 -59.25,233.4 -59.01,233.4 -58.77,233.4 -56.51,233.8 -56.51,233.8 L -56.12,233.3 -61.08,230.8 H -65.7 L -71.23,232.9 -73.2,236.2 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <ellipse
-         ry="0.4313"
-         rx="0.5773"
-         cy="236.6"
-         cx="-58.31"
-         id="path1210-4"
-         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="cscsc"
-         inkscape:connector-curvature="0"
-         id="path1214-3"
-         d="M -55.18,241.1 V 241.1 C -55.18,241.7 -56.51,240.6 -56.51,240.6 L -55.25,241.2 Z"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-    </g>
-    <g
-       id="right3"
-       inkscape:label="#g393"
-       transform="translate(154.2,-75.41)">
-      <rect
-         ry="1.482"
-         y="290.8"
-         x="-15.09"
-         height="4.646"
-         width="10.23"
-         id="rect4058-6-6-0-3-6"
-         style="fill:#784421;stroke-width:0.2232" />
-      <rect
-         ry="0.8482"
-         y="292.9"
-         x="-24.67"
-         height="4.908"
-         width="10.81"
-         id="rect4058-6-6-0-2"
-         style="fill:#a05a2c;stroke-width:0.2358" />
-      <rect
-         ry="2.118"
-         y="248.4"
-         x="-27.25"
-         height="44.59"
-         width="22.72"
-         id="rect1194-6-3"
-         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4352" />
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0-3-6-7"
-         d="M -29.22,250.1 -25.29,248.5 -3.953,248.8 V 248.8 L -24.67,292.9 -31.58,293.2 -36.61,293.3 -40.11,294.6 Z"
-         style="fill:#165016;stroke-width:0.4377" />
-      <rect
-         ry="0"
-         y="247.6"
-         x="-12.02"
-         height="0.9291"
-         width="4.785"
-         id="rect1196-0-8"
-         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4256" />
-      <ellipse
-         ry="6.985"
-         rx="9.381"
-         cy="241.2"
-         cx="-9.495"
-         id="path1198-2-0"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <rect
-         ry="0"
-         y="266.6"
-         x="-8.428"
-         height="3.367"
-         width="7.317"
-         id="rect1200-8-9"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <ellipse
-         ry="1.146"
-         rx="1.539"
-         cy="239.7"
-         cx="-4.684"
-         id="path1206-1-8"
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path1208-7-5"
-         d="M -19.16,241.4 C -18.11,241.2 -9.927,236.4 -9.927,236.4 L -6.56,237 C -6.56,237 -5.117,236.5 -4.876,236.5 -4.636,236.5 -2.375,236.9 -2.375,236.9 L -1.99,236.4 -6.945,233.9 H -11.56 L -17.1,236 -19.07,239.3 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <ellipse
-         ry="0.4298"
-         rx="0.5773"
-         cy="239.6"
-         cx="-4.179"
-         id="path1210-4-6"
-         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="cscsc"
-         inkscape:connector-curvature="0"
-         id="path1214-3-1"
-         d="M -1.044,244.2 V 244.2 C -1.044,244.7 -2.371,243.7 -2.371,243.7 L -1.112,244.3 Z"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-    </g>
-    <g
-       id="left3"
-       inkscape:label="#g431"
-       transform="translate(154.2,-75.41)">
-      <rect
-         transform="scale(-1,1)"
-         ry="2.124"
-         y="318"
-         x="-8.634"
-         height="44.72"
-         width="22.72"
-         id="rect1194-1"
-         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4358" />
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0-3-3"
-         d="M 10.6,319.7 6.668,318.1 -14.67,318.3 V 318.3 L 6.049,362.7 12.96,362.9 17.99,363.1 21.49,364.3 Z"
-         style="fill:#165016;stroke-width:0.4384" />
-      <rect
-         transform="scale(-1,1)"
-         ry="0.675"
-         y="362.8"
-         x="-1.188"
-         height="4.616"
-         width="10.14"
-         id="rect4058-6-6-9"
-         style="fill:#a05a2c;stroke-width:0.2214" />
-      <rect
-         transform="scale(-1,1)"
-         ry="0"
-         y="317.2"
-         x="6.602"
-         height="0.9319"
-         width="4.785"
-         id="rect1196-4"
-         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4262" />
-      <ellipse
-         ry="7.005"
-         rx="9.381"
-         transform="scale(-1,1)"
-         cy="310.7"
-         cx="9.126"
-         id="path1198-5"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <rect
-         transform="scale(-1,1)"
-         ry="0"
-         y="333.7"
-         x="10.33"
-         height="3.377"
-         width="7.317"
-         id="rect1200-6"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <ellipse
-         ry="1.15"
-         rx="1.539"
-         transform="scale(-1,1)"
-         cy="309.2"
-         cx="13.94"
-         id="path1206-6"
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path1208-5"
-         d="M 0.5439,310.9 C -0.5144,310.8 -8.693,306 -8.693,306 L -12.06,306.6 C -12.06,306.6 -13.5,306 -13.74,306 -13.98,306 -16.25,306.5 -16.25,306.5 L -16.63,306 -11.68,303.4 H -7.057 L -1.525,305.6 0.4477,308.8 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <ellipse
-         ry="0.4311"
-         rx="0.5773"
-         transform="scale(-1,1)"
-         cy="309.2"
-         cx="14.44"
-         id="path1210-6"
-         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="cscsc"
-         inkscape:connector-curvature="0"
-         id="path1214-7"
-         d="M -17.58,313.8 V 313.8 C -17.58,314.3 -16.25,313.3 -16.25,313.3 L -17.51,313.8 Z"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
-    </g>
-    <g
-       id="left2"
-       inkscape:label="#g419"
-       transform="translate(154.2,-75.41)">
-      <rect
-         transform="scale(-1,1)"
-         ry="0.9384"
-         y="367.7"
-         x="53.07"
-         height="4.706"
-         width="10.33"
-         id="rect4058-6-6-0-3-0"
-         style="fill:#784421;stroke-width:0.2257" />
-      <rect
-         transform="scale(-1,1)"
-         ry="1.147"
-         y="365.7"
-         x="62.09"
-         height="4.793"
-         width="10.52"
-         id="rect4058-6-6-0-9"
-         style="fill:#a05a2c;stroke-width:0.2299" />
-      <rect
-         transform="scale(-1,1)"
-         ry="2.125"
-         y="323"
-         x="50.49"
-         height="44.74"
-         width="22.72"
-         id="rect1194-6-0"
-         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4359" />
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0-3-6-6"
-         d="M -48.52,324.7 -52.45,323 -73.79,323.3 V 323.3 L -53.07,367.7 -46.17,367.9 -41.13,368 -37.63,369.3 Z"
-         style="fill:#165016;stroke-width:0.4385" />
-      <rect
-         transform="scale(-1,1)"
-         ry="0"
-         y="322.2"
-         x="65.72"
-         height="0.9323"
-         width="4.785"
-         id="rect1196-0-0"
-         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4263" />
-      <ellipse
-         ry="7.008"
-         rx="9.381"
-         transform="scale(-1,1)"
-         cy="315.7"
-         cx="68.25"
-         id="path1198-2-2"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <rect
-         transform="scale(-1,1)"
-         ry="0"
-         y="337"
-         x="69.31"
-         height="3.378"
-         width="7.317"
-         id="rect1200-8-7"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <ellipse
-         ry="1.15"
-         rx="1.539"
-         transform="scale(-1,1)"
-         cy="314.2"
-         cx="73.06"
-         id="path1206-1-0"
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path1208-7-8"
-         d="M -58.58,315.9 C -59.64,315.7 -67.81,310.9 -67.81,310.9 L -71.18,311.5 C -71.18,311.5 -72.63,311 -72.87,311 -73.11,311 -75.37,311.5 -75.37,311.5 L -75.75,311 -70.8,308.4 H -66.18 L -60.65,310.6 -58.67,313.8 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <ellipse
-         ry="0.4313"
-         rx="0.5773"
-         transform="scale(-1,1)"
-         cy="314.2"
-         cx="73.56"
-         id="path1210-4-5"
-         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="cscsc"
-         inkscape:connector-curvature="0"
-         id="path1214-3-7"
-         d="M -76.7,318.7 V 318.7 C -76.7,319.3 -75.37,318.2 -75.37,318.2 L -76.63,318.8 Z"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
-    </g>
-    <g
-       id="left1"
-       inkscape:label="#g406"
-       transform="translate(154.2,-75.41)">
-      <rect
-         transform="scale(-1,1)"
-         ry="1.482"
-         y="360.9"
-         x="137.4"
-         height="4.646"
-         width="10.23"
-         id="rect4058-6-6-0-3-6-4"
-         style="fill:#784421;stroke-width:0.2232" />
-      <rect
-         transform="scale(-1,1)"
-         ry="0.8482"
-         y="363"
-         x="127.9"
-         height="4.908"
-         width="10.81"
-         id="rect4058-6-6-0-2-7"
-         style="fill:#a05a2c;stroke-width:0.2358" />
-      <rect
-         transform="scale(-1,1)"
-         ry="2.118"
-         y="318.5"
-         x="125.3"
-         height="44.59"
-         width="22.72"
-         id="rect1194-6-3-5"
-         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4352" />
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0-3-6-7-4"
-         d="M -123.3,320.2 -127.2,318.6 -148.6,318.8 V 318.8 L -127.9,363 -120.9,363.2 -115.9,363.4 -112.4,364.7 Z"
-         style="fill:#165016;stroke-width:0.4377" />
-      <rect
-         transform="scale(-1,1)"
-         ry="0"
-         y="317.7"
-         x="140.5"
-         height="0.9291"
-         width="4.785"
-         id="rect1196-0-8-6"
-         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4256" />
-      <ellipse
-         ry="6.985"
-         rx="9.381"
-         transform="scale(-1,1)"
-         cy="311.3"
-         cx="143"
-         id="path1198-2-0-9"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <rect
-         transform="scale(-1,1)"
-         ry="0"
-         y="336.7"
-         x="144.1"
-         height="3.367"
-         width="7.317"
-         id="rect1200-8-9-6"
-         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <ellipse
-         ry="1.146"
-         rx="1.539"
-         transform="scale(-1,1)"
-         cy="309.8"
-         cx="147.8"
-         id="path1206-1-8-0"
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path1208-7-5-3"
-         d="M -133.4,311.5 C -134.4,311.3 -142.6,306.5 -142.6,306.5 L -146,307.1 C -146,307.1 -147.4,306.6 -147.6,306.6 -147.9,306.6 -150.1,307 -150.1,307 L -150.5,306.5 -145.6,304 -141,303.9 -135.4,306.1 -133.5,309.4 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <ellipse
-         ry="0.4298"
-         rx="0.5773"
-         transform="scale(-1,1)"
-         cy="309.7"
-         cx="148.3"
-         id="path1210-4-6-1"
-         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="cscsc"
-         inkscape:connector-curvature="0"
-         id="path1214-3-1-7"
-         d="M -151.5,314.3 V 314.3 C -151.5,314.8 -150.2,313.8 -150.2,313.8 L -151.4,314.3 Z"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
-    </g>
-    <g
        id="front1"
-       inkscape:label="#g196"
-       transform="translate(-2.152,7.004)">
+       inkscape:label="#g502">
       <path
          sodipodi:nodetypes="ccccccccc"
          inkscape:connector-curvature="0"
          id="rect4054"
-         d="M 16.4,22.9 21.7,21.8 H 54.9 L 60.1,22.6 71.4,55 67.3,54.2 10.3,54.1 7.4,54.9 Z"
+         d="M 14.25,29.9 19.55,28.8 H 52.75 L 57.95,29.6 69.25,62 65.15,61.2 8.148,61.1 5.248,61.9 Z"
          style="fill:#165016;stroke-width:0.3273" />
       <rect
          ry="2.03"
-         y="21.8"
-         x="19.4"
+         y="28.8"
+         x="17.25"
          height="32.09"
          width="38.97"
          id="rect4932"
          style="fill:#338000;stroke-width:0.3157" />
       <rect
-         y="53.7"
-         x="22.1"
+         y="60.7"
+         x="19.95"
          height="6.971"
          width="11.63"
          id="rect4058"
          style="fill:#a05a2c;stroke-width:0.2915" />
       <rect
-         y="53.8"
-         x="43.9"
+         y="60.8"
+         x="41.75"
          height="6.971"
          width="11.63"
          id="rect4058-4"
          style="fill:#a05a2c;stroke-width:0.2915" />
       <rect
          inkscape:label="#rect4092-4"
-         y="39"
-         x="44.6"
+         y="46"
+         x="42.45"
          height="4.408"
          width="9.273"
          id="swordHand"
@@ -999,11 +256,11 @@
          sodipodi:nodetypes="cccccc"
          inkscape:connector-curvature="0"
          id="rect4929"
-         d="M 52.5,21.8 H 56.4 L 60.4,22.6 61.7,27.4 H 52.5 Z"
+         d="M 50.35,28.8 H 54.25 L 58.25,29.6 59.55,34.4 H 50.35 Z"
          style="fill:#447821;stroke-width:0.2892" />
       <rect
-         y="39.1"
-         x="24.5"
+         y="46.1"
+         x="22.35"
          height="4.408"
          width="9.273"
          id="rect4092-4-3"
@@ -1012,11 +269,11 @@
          sodipodi:nodetypes="cccccc"
          inkscape:connector-curvature="0"
          id="rect4929-7"
-         d="M 24.3,22.1 H 20.4 L 16.4,22.9 15.1,27.7 H 24.3 Z"
+         d="M 22.15,29.1 H 18.25 L 14.25,29.9 12.95,34.7 H 22.15 Z"
          style="fill:#447821;stroke-width:0.2892" />
       <rect
-         y="18.8"
-         x="33.9"
+         y="25.8"
+         x="31.75"
          height="2.87"
          width="11.2"
          id="rect4062-5-5"
@@ -1024,58 +281,58 @@
       <ellipse
          ry="11.67"
          rx="15.17"
-         cy="9.76"
-         cx="39.6"
+         cy="16.76"
+         cx="37.45"
          id="path4081-4-4"
          style="fill:#deaa87;stroke-width:0.3273" />
       <ellipse
          ry="1.543"
          rx="2.006"
-         cy="6.06"
-         cx="33.6"
+         cy="13.06"
+         cx="31.45"
          id="path4964-1-8"
          style="fill:#ffffff;stroke-width:0.3273" />
       <ellipse
          ry="0.7817"
          rx="1.016"
-         cy="6.12"
-         cx="33.8"
+         cy="13.12"
+         cx="31.65"
          id="path4964-6-4-8"
          style="fill:#aaccff;stroke-width:0.1658" />
       <ellipse
          ry="1.543"
          rx="2.006"
-         cy="6.02"
-         cx="45"
+         cy="13.02"
+         cx="42.85"
          id="path4964-9-8-6"
          style="fill:#ffffff;stroke-width:0.3273" />
       <ellipse
          ry="0.7817"
          rx="1.016"
-         cy="6.08"
-         cx="44.8"
+         cy="13.08"
+         cx="42.65"
          id="path4964-6-1-8-9"
          style="fill:#aaccff;stroke-width:0.1658" />
       <path
          inkscape:connector-curvature="0"
          id="path4999-5-4"
-         d="M 39.6,9.39 41.3,11.9 H 38.5"
+         d="M 37.45,16.39 39.15,18.9 H 36.35"
          style="fill:#a05a2c;fill-opacity:0;stroke:#8d5228;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.9883" />
       <path
          sodipodi:nodetypes="cscsc"
          inkscape:connector-curvature="0"
          id="path5009-5-0"
-         d="M 44.8,14.9 C 44.8,14.9 42.4,16.4 39.5,16.4 36.5,16.4 34.1,14.9 34.1,14.9 34.1,14.9 36.3,16.4 39.3,16.4 42.2,16.4 44.8,14.9 44.8,14.9 Z"
+         d="M 42.65,21.9 C 42.65,21.9 40.25,23.4 37.35,23.4 34.35,23.4 31.95,21.9 31.95,21.9 31.95,21.9 34.15,23.4 37.15,23.4 40.05,23.4 42.65,21.9 42.65,21.9 Z"
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3278;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path5020-6-2"
-         d="M 25.1,1.73 25.3,6.6 31.2,3.3 35.9,3.51 39.6,1.88 43.6,3.56 47.5,2.75 52.2,3.51 51.7,0.11 46.5,-2.53 40.6,-3.04 H 34 C 34,-3.04 28.4,-1.42 28.1,-1.26 27.9,-1.11 25.1,1.78 25.1,1.78 Z"
+         d="M 22.95,8.734 23.15,13.6 29.05,10.3 33.75,10.51 37.45,8.884 41.45,10.56 45.35,9.754 50.05,10.51 49.55,7.114 44.35,4.474 38.45,3.964 H 31.85 C 31.85,3.964 26.25,5.584 25.95,5.744 25.75,5.894 22.95,8.784 22.95,8.784 Z"
          style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <rect
          inkscape:label="#rect4194"
-         y="-4.4"
-         x="7.4"
+         y="2.604"
+         x="5.248"
          height="1.239"
          width="0.6193"
          id="Base"
@@ -1083,31 +340,30 @@
     </g>
     <g
        id="back1"
-       inkscape:label="#g229"
-       transform="translate(-39.23,-90)">
+       inkscape:label="#g359">
       <path
          sodipodi:nodetypes="ccccccccc"
          inkscape:connector-curvature="0"
          id="rect4054-0"
-         d="M 53.09,192.2 58.42,191.1 H 91.61 L 96.85,191.9 108.2,224.3 104,223.5 47.04,223.4 44.18,224.2 Z"
+         d="M 13.86,102.2 19.19,101.1 H 52.38 L 57.62,101.9 68.97,134.3 64.77,133.5 7.81,133.4 4.95,134.2 Z"
          style="fill:#165016;stroke-width:0.3273" />
       <rect
-         y="223.1"
-         x="58.83"
+         y="133.1"
+         x="19.6"
          height="6.971"
          width="11.63"
          id="rect4058-6"
          style="fill:#a05a2c;stroke-width:0.2915" />
       <rect
-         y="188.2"
-         x="68.55"
+         y="98.2"
+         x="29.32"
          height="2.87"
          width="11.2"
          id="rect4062-3"
          style="fill:#deaa87;stroke-width:0.3273" />
       <rect
-         y="223.2"
-         x="80.62"
+         y="133.2"
+         x="41.39"
          height="6.971"
          width="11.63"
          id="rect4058-4-4"
@@ -1115,35 +371,834 @@
       <ellipse
          ry="11.67"
          rx="15.17"
-         cy="179.1"
-         cx="74.22"
+         cy="89.1"
+         cx="34.99"
          id="path4081-9"
          style="fill:#deaa87;stroke-width:0.3273" />
       <path
          sodipodi:nodetypes="cccccc"
          inkscape:connector-curvature="0"
          id="rect4929-3"
-         d="M 89.27,191.1 H 93.11 L 97.2,191.9 98.44,196.7 H 89.27 Z"
+         d="M 50.04,101.1 H 53.88 L 57.97,101.9 59.21,106.7 H 50.04 Z"
          style="fill:#447821;stroke-width:0.2892" />
       <path
          sodipodi:nodetypes="cccccc"
          inkscape:connector-curvature="0"
          id="rect4929-7-6"
-         d="M 61.02,191.4 H 57.18 L 53.09,192.2 51.85,197 H 61.02 Z"
+         d="M 21.79,101.4 H 17.95 L 13.86,102.2 12.62,107 H 21.79 Z"
          style="fill:#447821;stroke-width:0.2892" />
       <path
          inkscape:connector-curvature="0"
          id="path1079"
-         d="M 57.95,180.1 63.84,183.7 H 73.61 L 76.55,184.7 81.98,181.3 90.04,180.3 87.56,172.3 81.05,167.8 69.89,167.2 62.6,170.3 59.04,175.1 Z"
+         d="M 18.72,90.1 24.61,93.7 H 34.38 L 37.32,94.7 42.75,91.3 50.81,90.3 48.33,82.3 41.82,77.8 30.66,77.2 23.37,80.3 19.81,85.1 Z"
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.281;stroke-opacity:1" />
+    </g>
+    <g
+       id="right1"
+       inkscape:label="#g384"
+       transform="translate(10.21,1.459)">
       <rect
-         inkscape:label="#rect4194"
-         y="228.9"
-         x="44.18"
-         height="1.239"
-         width="0.6194"
-         id="Base-4"
+         ry="2.124"
+         y="168.5"
+         x="13.9"
+         height="44.72"
+         width="22.72"
+         id="rect1194"
+         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4358" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0-3"
+         d="M 11.9,170.2 15.9,168.6 37.2,168.8 V 168.8 L 16.5,213.2 9.6,213.4 4.5,213.6 1,214.8 Z"
+         style="fill:#165016;stroke-width:0.4384" />
+      <rect
+         ry="0.675"
+         y="213.3"
+         x="21.3"
+         height="4.616"
+         width="10.14"
+         id="rect4058-6-6"
+         style="fill:#a05a2c;stroke-width:0.2214" />
+      <rect
+         ry="0"
+         y="167.7"
+         x="29.1"
+         height="0.9319"
+         width="4.785"
+         id="rect1196"
+         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4262" />
+      <ellipse
+         ry="7.005"
+         rx="9.381"
+         cy="161.2"
+         cx="31.7"
+         id="path1198"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect1200"
+         ry="0"
+         y="184.1"
+         x="32.9"
+         height="3.377"
+         width="7.317"
+         id="swordHand_2"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <ellipse
+         ry="1.15"
+         rx="1.539"
+         cy="159.7"
+         cx="36.5"
+         id="path1206"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1208"
+         d="M 22,161.4 C 23,161.3 31.2,156.4 31.2,156.4 L 34.6,157.1 C 34.6,157.1 36,156.5 36.3,156.5 36.5,156.5 38.8,157 38.8,157 L 39.2,156.5 34.2,153.9 H 29.6 L 24.1,156.1 22.1,159.3 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <ellipse
+         ry="0.4311"
+         rx="0.5773"
+         cy="159.7"
+         cx="37"
+         id="path1210"
+         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path1214"
+         d="M 40.1,164.2 V 164.3 C 40.1,164.8 38.8,163.8 38.8,163.8 L 40,164.3 Z"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect361"
+         y="152.5"
+         x="1"
+         height="1.459"
+         width="0.8756"
+         id="Base_3"
          style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.2646;stroke-opacity:1" />
+    </g>
+    <g
+       id="left1"
+       inkscape:label="#g217">
+      <rect
+         transform="scale(-1,1)"
+         ry="1.482"
+         y="285.8"
+         x="-39.27"
+         height="4.646"
+         width="10.23"
+         id="rect4058-6-6-0-3-6-4"
+         style="fill:#784421;stroke-width:0.2232" />
+      <rect
+         transform="scale(-1,1)"
+         ry="0.8482"
+         y="287.9"
+         x="-48.77"
+         height="4.908"
+         width="10.81"
+         id="rect4058-6-6-0-2-7"
+         style="fill:#a05a2c;stroke-width:0.2358" />
+      <rect
+         transform="scale(-1,1)"
+         ry="2.118"
+         y="243.4"
+         x="-51.37"
+         height="44.59"
+         width="22.72"
+         id="rect1194-6-3-5"
+         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4352" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0-3-6-7-4"
+         d="M 53.37,245.1 49.47,243.5 28.07,243.7 V 243.7 L 48.77,287.9 55.77,288.1 60.77,288.3 64.27,289.6 Z"
+         style="fill:#165016;stroke-width:0.4377" />
+      <rect
+         transform="scale(-1,1)"
+         ry="0"
+         y="242.6"
+         x="-36.17"
+         height="0.9291"
+         width="4.785"
+         id="rect1196-0-8-6"
+         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4256" />
+      <ellipse
+         ry="6.985"
+         rx="9.381"
+         transform="scale(-1,1)"
+         cy="236.2"
+         cx="-33.67"
+         id="path1198-2-0-9"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect1200-8-9-6"
+         transform="scale(-1,1)"
+         ry="0"
+         y="261.6"
+         x="-32.57"
+         height="3.367"
+         width="7.317"
+         id="swordHand_1"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <ellipse
+         ry="1.146"
+         rx="1.539"
+         transform="scale(-1,1)"
+         cy="234.7"
+         cx="-28.87"
+         id="path1206-1-8-0"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1208-7-5-3"
+         d="M 43.27,236.4 C 42.27,236.2 34.07,231.4 34.07,231.4 L 30.67,232 C 30.67,232 29.27,231.5 29.07,231.5 28.77,231.5 26.57,231.9 26.57,231.9 L 26.17,231.4 31.07,228.9 35.67,228.8 41.27,231 43.17,234.3 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <ellipse
+         ry="0.4298"
+         rx="0.5773"
+         transform="scale(-1,1)"
+         cy="234.6"
+         cx="-28.37"
+         id="path1210-4-6-1"
+         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path1214-3-1-7"
+         d="M 25.17,239.2 V 239.2 C 25.17,239.7 26.47,238.7 26.47,238.7 L 25.27,239.2 Z"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect162-5"
+         style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.107;stroke-opacity:1"
+         id="Base_1"
+         width="1.167"
+         height="0.5848"
+         x="24.29"
+         y="228.2" />
+    </g>
+    <g
+       id="left2"
+       inkscape:label="#g243">
+      <rect
+         transform="scale(-1,1)"
+         ry="0.9384"
+         y="289.6"
+         x="-96.13"
+         height="4.706"
+         width="10.33"
+         id="rect4058-6-6-0-3-0"
+         style="fill:#784421;stroke-width:0.2257" />
+      <rect
+         transform="scale(-1,1)"
+         ry="1.147"
+         y="287.6"
+         x="-87.11"
+         height="4.793"
+         width="10.52"
+         id="rect4058-6-6-0-9"
+         style="fill:#a05a2c;stroke-width:0.2299" />
+      <rect
+         transform="scale(-1,1)"
+         ry="2.125"
+         y="244.9"
+         x="-98.71"
+         height="44.74"
+         width="22.72"
+         id="rect1194-6-0"
+         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4359" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0-3-6-6"
+         d="M 100.7,246.6 96.75,244.9 75.41,245.2 V 245.2 L 96.13,289.6 103,289.8 108.1,289.9 111.6,291.2 Z"
+         style="fill:#165016;stroke-width:0.4385" />
+      <rect
+         transform="scale(-1,1)"
+         ry="0"
+         y="244.1"
+         x="-83.48"
+         height="0.9323"
+         width="4.785"
+         id="rect1196-0-0"
+         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4263" />
+      <ellipse
+         ry="7.008"
+         rx="9.381"
+         transform="scale(-1,1)"
+         cy="237.6"
+         cx="-80.95"
+         id="path1198-2-2"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect1200-8-7"
+         transform="scale(-1,1)"
+         ry="0"
+         y="258.9"
+         x="-79.89"
+         height="3.378"
+         width="7.317"
+         id="swordHand_8"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <ellipse
+         ry="1.15"
+         rx="1.539"
+         transform="scale(-1,1)"
+         cy="236.1"
+         cx="-76.14"
+         id="path1206-1-0"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1208-7-8"
+         d="M 90.62,237.8 C 89.56,237.6 81.39,232.8 81.39,232.8 L 78.02,233.4 C 78.02,233.4 76.57,232.9 76.33,232.9 76.09,232.9 73.83,233.4 73.83,233.4 L 73.45,232.9 78.4,230.3 H 83.02 L 88.55,232.5 90.53,235.7 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <ellipse
+         ry="0.4313"
+         rx="0.5773"
+         transform="scale(-1,1)"
+         cy="236.1"
+         cx="-75.64"
+         id="path1210-4-5"
+         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path1214-3-7"
+         d="M 72.5,240.6 V 240.6 C 72.5,241.2 73.83,240.1 73.83,240.1 L 72.57,240.7 Z"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect160-2"
+         y="229.1"
+         x="71.57"
+         height="1.218"
+         width="1.218"
+         id="Base_2"
+         style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.1577;stroke-opacity:1" />
+    </g>
+    <g
+       id="left3"
+       inkscape:label="#g267">
+      <rect
+         transform="scale(-1,1)"
+         ry="2.124"
+         y="242.6"
+         x="-162.8"
+         height="44.72"
+         width="22.72"
+         id="rect1194-1"
+         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4358" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0-3-3"
+         d="M 164.8,244.3 160.9,242.7 139.5,242.9 V 242.9 L 160.2,287.3 167.2,287.5 172.2,287.7 175.7,288.9 Z"
+         style="fill:#165016;stroke-width:0.4384" />
+      <rect
+         transform="scale(-1,1)"
+         ry="0.675"
+         y="287.4"
+         x="-155.4"
+         height="4.616"
+         width="10.14"
+         id="rect4058-6-6-9"
+         style="fill:#a05a2c;stroke-width:0.2214" />
+      <rect
+         transform="scale(-1,1)"
+         ry="0"
+         y="241.8"
+         x="-147.6"
+         height="0.9319"
+         width="4.785"
+         id="rect1196-4"
+         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4262" />
+      <ellipse
+         ry="7.005"
+         rx="9.381"
+         transform="scale(-1,1)"
+         cy="235.3"
+         cx="-145.1"
+         id="path1198-5"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect1200-6"
+         transform="scale(-1,1)"
+         ry="0"
+         y="258.3"
+         x="-143.9"
+         height="3.377"
+         width="7.317"
+         id="swordHand_9"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <ellipse
+         ry="1.15"
+         rx="1.539"
+         transform="scale(-1,1)"
+         cy="233.8"
+         cx="-140.3"
+         id="path1206-6"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1208-5"
+         d="M 154.7,235.5 C 153.7,235.4 145.5,230.6 145.5,230.6 L 142.1,231.2 C 142.1,231.2 140.7,230.6 140.5,230.6 140.2,230.6 138,231.1 138,231.1 L 137.6,230.6 142.5,228 H 147.1 L 152.7,230.2 154.6,233.4 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <ellipse
+         ry="0.4311"
+         rx="0.5773"
+         transform="scale(-1,1)"
+         cy="233.8"
+         cx="-139.8"
+         id="path1210-6"
+         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path1214-7"
+         d="M 136.6,238.4 V 238.4 C 136.6,238.9 138,237.9 138,237.9 L 136.7,238.4 Z"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4262;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect160-2"
+         y="226.8"
+         x="135.7"
+         height="1.218"
+         width="1.218"
+         id="Base_4"
+         style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.1577;stroke-opacity:1" />
+    </g>
+    <g
+       id="right2"
+       inkscape:label="#g191">
+      <rect
+         ry="0.9384"
+         y="214.6"
+         x="75.4"
+         height="4.706"
+         width="10.33"
+         id="rect4058-6-6-0-3"
+         style="fill:#784421;stroke-width:0.2257" />
+      <rect
+         ry="1.147"
+         y="212.7"
+         x="84.41"
+         height="4.793"
+         width="10.52"
+         id="rect4058-6-6-0"
+         style="fill:#a05a2c;stroke-width:0.2299" />
+      <rect
+         ry="2.125"
+         y="170"
+         x="72.81"
+         height="44.74"
+         width="22.72"
+         id="rect1194-6"
+         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4359" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0-3-6"
+         d="M 70.84,171.7 74.78,170 96.11,170.3 V 170.3 L 75.4,214.6 68.49,214.9 63.45,215 59.95,216.3 Z"
+         style="fill:#165016;stroke-width:0.4385" />
+      <rect
+         ry="0"
+         y="169.2"
+         x="88.05"
+         height="0.9323"
+         width="4.785"
+         id="rect1196-0"
+         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4263" />
+      <ellipse
+         ry="7.008"
+         rx="9.381"
+         cy="162.7"
+         cx="90.57"
+         id="path1198-2"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect1200-8"
+         ry="0"
+         y="184"
+         x="91.64"
+         height="3.378"
+         width="7.317"
+         id="swordHand_5"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <ellipse
+         ry="1.15"
+         rx="1.539"
+         cy="161.2"
+         cx="95.38"
+         id="path1206-1"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1208-7"
+         d="M 80.9,162.9 C 81.96,162.7 90.14,157.9 90.14,157.9 L 93.5,158.5 C 93.5,158.5 94.95,158 95.19,158 95.43,158 97.69,158.4 97.69,158.4 L 98.08,157.9 93.12,155.4 H 88.5 L 82.97,157.5 81,160.8 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <ellipse
+         ry="0.4313"
+         rx="0.5773"
+         cy="161.2"
+         cx="95.89"
+         id="path1210-4"
+         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path1214-3"
+         d="M 99.02,165.7 V 165.7 C 99.02,166.3 97.69,165.2 97.69,165.2 L 98.95,165.8 Z"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4263;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect160-8"
+         y="154.1"
+         x="59.95"
+         height="1.218"
+         width="1.218"
+         id="Base_5"
+         style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.1577;stroke-opacity:1" />
+    </g>
+    <g
+       id="right3"
+       inkscape:label="#g217">
+      <rect
+         ry="1.482"
+         y="215.4"
+         x="139.1"
+         height="4.646"
+         width="10.23"
+         id="rect4058-6-6-0-3-6"
+         style="fill:#784421;stroke-width:0.2232" />
+      <rect
+         ry="0.8482"
+         y="217.5"
+         x="129.5"
+         height="4.908"
+         width="10.81"
+         id="rect4058-6-6-0-2"
+         style="fill:#a05a2c;stroke-width:0.2358" />
+      <rect
+         ry="2.118"
+         y="173"
+         x="126.9"
+         height="44.59"
+         width="22.72"
+         id="rect1194-6-3"
+         style="fill:#217821;fill-rule:evenodd;stroke-width:0.4352" />
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0-3-6-7"
+         d="M 125,174.7 128.9,173.1 150.2,173.4 V 173.4 L 129.5,217.5 122.6,217.8 117.6,217.9 114.1,219.2 Z"
+         style="fill:#165016;stroke-width:0.4377" />
+      <rect
+         ry="0"
+         y="172.2"
+         x="142.2"
+         height="0.9291"
+         width="4.785"
+         id="rect1196-0-8"
+         style="fill:#deaa87;fill-opacity:1;fill-rule:evenodd;stroke-width:0.4256" />
+      <ellipse
+         ry="6.985"
+         rx="9.381"
+         cy="165.8"
+         cx="144.7"
+         id="path1198-2-0"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect1200-8-9"
+         ry="0"
+         y="191.2"
+         x="145.8"
+         height="3.367"
+         width="7.317"
+         id="swordHand_6"
+         style="fill:#deaa87;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <ellipse
+         ry="1.146"
+         rx="1.539"
+         cy="164.3"
+         cx="149.5"
+         id="path1206-1-8"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1208-7-5"
+         d="M 135,166 C 136.1,165.8 144.3,161 144.3,161 L 147.6,161.6 C 147.6,161.6 149.1,161.1 149.3,161.1 149.6,161.1 151.8,161.5 151.8,161.5 L 152.2,161 147.3,158.5 H 142.6 L 137.1,160.6 135.1,163.9 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <ellipse
+         ry="0.4298"
+         rx="0.5773"
+         cy="164.2"
+         cx="150"
+         id="path1210-4-6"
+         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path1214-3-1"
+         d="M 153.2,168.8 V 168.8 C 153.2,169.3 151.8,168.3 151.8,168.3 L 153.1,168.9 Z"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.4256;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect160-3"
+         y="157.2"
+         x="114.1"
+         height="1.218"
+         width="1.218"
+         id="Base_6"
+         style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.1577;stroke-opacity:1" />
+    </g>
+    <g
+       id="front2"
+       inkscape:label="#g412">
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-6"
+         d="M 99.96,29.6 105.3,28.5 H 138.5 L 143.7,29.3 155.1,61.7 150.9,60.9 93.86,60.8 91.06,61.7 Z"
+         style="fill:#165016;stroke-width:0.3273" />
+      <rect
+         y="58.5"
+         x="106"
+         height="6.971"
+         width="11.63"
+         id="rect4058-5"
+         style="fill:#a05a2c;stroke-width:0.2915" />
+      <rect
+         y="60.5"
+         x="126.9"
+         height="6.971"
+         width="11.63"
+         id="rect4058-4-6"
+         style="fill:#a05a2c;stroke-width:0.2915" />
+      <rect
+         ry="2.03"
+         y="28.5"
+         x="103.1"
+         height="32.09"
+         width="38.97"
+         id="rect4932-0"
+         style="fill:#338000;stroke-width:0.3157" />
+      <rect
+         y="25.6"
+         x="115.4"
+         height="2.87"
+         width="11.2"
+         id="rect4062-5"
+         style="fill:#deaa87;stroke-width:0.3273" />
+      <ellipse
+         ry="11.67"
+         rx="15.17"
+         cy="16.53"
+         cx="121.1"
+         id="path4081-4"
+         style="fill:#deaa87;stroke-width:0.3273" />
+      <rect
+         inkscape:label="#rect4092-4-39"
+         y="44.2"
+         x="127.5"
+         height="4.408"
+         width="9.273"
+         id="swordHand_3"
+         style="fill:#ffb380;stroke-width:0.3273" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-4"
+         d="M 136.2,28.5 H 140 L 144.1,29.3 145.3,34.1 H 136.2 Z"
+         style="fill:#447821;stroke-width:0.2892" />
+      <rect
+         y="42.1"
+         x="108.1"
+         height="4.408"
+         width="9.273"
+         id="rect4092-4-3-5"
+         style="fill:#ffb380;stroke-width:0.3273" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-7-2"
+         d="M 107.9,28.9 104.1,28.8 99.96,29.6 98.66,34.4 H 107.9 Z"
+         style="fill:#447821;stroke-width:0.2892" />
+      <ellipse
+         ry="1.543"
+         rx="2.006"
+         cy="12.83"
+         cx="115.1"
+         id="path4964-1"
+         style="fill:#ffffff;stroke-width:0.3273" />
+      <ellipse
+         ry="0.7817"
+         rx="1.016"
+         cy="12.89"
+         cx="115.3"
+         id="path4964-6-4"
+         style="fill:#aaccff;stroke-width:0.1658" />
+      <ellipse
+         ry="1.543"
+         rx="2.006"
+         cy="12.79"
+         cx="126.6"
+         id="path4964-9-8"
+         style="fill:#ffffff;stroke-width:0.3273" />
+      <ellipse
+         ry="0.7817"
+         rx="1.016"
+         cy="12.86"
+         cx="126.3"
+         id="path4964-6-1-8"
+         style="fill:#aaccff;stroke-width:0.1658" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4999-5"
+         d="M 121.1,16.17 122.8,18.7 H 120.1"
+         style="fill:#a05a2c;fill-opacity:0;stroke:#8d5228;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.9883" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path5009-5"
+         d="M 126.3,21.7 C 126.3,21.7 123.9,23.2 121,23.2 118,23.2 115.6,21.7 115.6,21.7 115.6,21.7 117.8,23.2 120.8,23.2 123.7,23.2 126.3,21.7 126.3,21.7 Z"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3278;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5020-6"
+         d="M 106.6,8.51 106.8,13.38 112.7,10.08 117.4,10.28 121.1,8.66 125.1,10.33 129,9.52 133.7,10.28 133.3,6.88 128,4.24 122.1,3.74 115.5,3.64 C 115.5,3.64 109.9,5.27 109.6,5.42 109.4,5.57 106.6,8.47 106.6,8.47 Z"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect160-8"
+         y="2.25"
+         x="91.06"
+         height="1.218"
+         width="1.218"
+         id="Base_7"
+         style="fill:#000229;fill-opacity:1;stroke:none;stroke-width:0.1577;stroke-opacity:1" />
+    </g>
+    <g
+       id="front3"
+       inkscape:label="#g464">
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\front3.png"
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-6-2"
+         d="M 176.7,29.8 182,28.6 H 215.2 L 220.4,29.5 231.8,61.9 227.6,61 H 170.6 L 167.8,61.8 Z"
+         style="fill:#165016;stroke-width:0.3273" />
+      <rect
+         y="60.9"
+         x="182.5"
+         height="6.971"
+         width="11.63"
+         id="rect4058-5-1"
+         style="fill:#a05a2c;stroke-width:0.2915" />
+      <rect
+         y="58.2"
+         x="203.6"
+         height="6.971"
+         width="11.63"
+         id="rect4058-4-6-3"
+         style="fill:#a05a2c;stroke-width:0.2915" />
+      <rect
+         ry="2.03"
+         y="28.6"
+         x="179.8"
+         height="32.09"
+         width="38.97"
+         id="rect4932-0-1"
+         style="fill:#338000;stroke-width:0.3157" />
+      <rect
+         y="25.8"
+         x="192.1"
+         height="2.87"
+         width="11.2"
+         id="rect4062-5-3"
+         style="fill:#deaa87;stroke-width:0.3273" />
+      <ellipse
+         ry="11.67"
+         rx="15.17"
+         cy="16.69"
+         cx="197.8"
+         id="path4081-4-0"
+         style="fill:#deaa87;stroke-width:0.3273" />
+      <rect
+         inkscape:label="#rect4092-4-39-4"
+         y="44"
+         x="204.9"
+         height="4.408"
+         width="9.273"
+         id="swordHand_4"
+         style="fill:#ffb380;stroke-width:0.3273" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-4-3"
+         d="M 212.8,28.7 216.7,28.6 220.8,29.5 222,34.3 H 212.8 Z"
+         style="fill:#447821;stroke-width:0.2892" />
+      <rect
+         y="46.4"
+         x="184.8"
+         height="4.408"
+         width="9.273"
+         id="rect4092-4-3-5-1"
+         style="fill:#ffb380;stroke-width:0.3273" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-7-2-4"
+         d="M 184.6,29 H 180.8 L 176.7,29.8 175.4,34.6 H 184.6 Z"
+         style="fill:#447821;stroke-width:0.2892" />
+      <ellipse
+         ry="1.543"
+         rx="2.006"
+         cy="12.99"
+         cx="191.8"
+         id="path4964-1-2"
+         style="fill:#ffffff;stroke-width:0.3273" />
+      <ellipse
+         ry="0.7817"
+         rx="1.016"
+         cy="13.05"
+         cx="192"
+         id="path4964-6-4-5"
+         style="fill:#aaccff;stroke-width:0.1658" />
+      <ellipse
+         ry="1.543"
+         rx="2.006"
+         cy="12.95"
+         cx="203.2"
+         id="path4964-9-8-0"
+         style="fill:#ffffff;stroke-width:0.3273" />
+      <ellipse
+         ry="0.7817"
+         rx="1.016"
+         cy="13.01"
+         cx="203"
+         id="path4964-6-1-8-0"
+         style="fill:#aaccff;stroke-width:0.1658" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4999-5-7"
+         d="M 197.8,16.32 199.5,18.8 H 196.7"
+         style="fill:#a05a2c;fill-opacity:0;stroke:#8d5228;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.9883" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path5009-5-2"
+         d="M 203,21.9 C 203,21.9 200.6,23.3 197.7,23.3 194.7,23.3 192.3,21.9 192.3,21.9 192.3,21.9 194.5,23.3 197.5,23.3 200.4,23.3 203,21.9 203,21.9 Z"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3278;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5020-6-9"
+         d="M 183.3,8.66 183.5,13.53 189.4,10.23 194.1,10.44 197.8,8.81 201.8,10.49 205.7,9.67 210.4,10.44 209.9,7.04 204.7,4.4 198.8,3.89 H 192.2 C 192.2,3.89 186.6,5.51 186.3,5.67 186.1,5.82 183.3,8.71 183.3,8.71 Z"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3273px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect160-5"
+         y="2.65"
+         x="167.8"
+         height="1.218"
+         width="1.218"
+         id="Base_8"
+         style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.1577;stroke-opacity:1" />
     </g>
   </g>
 </svg>

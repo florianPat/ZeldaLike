@@ -11,11 +11,12 @@ Animation::Animation(std::vector<TextureRegion>& keyFrames, sf::Int64 frameDurat
 		this->keyFrames.push_back(it->getRegion());
 	}
 
-	keyFrameIt = this->keyFrames.begin();
-	keyFrameItReverse = this->keyFrames.rbegin();
+	keyFrameIt = 0;
+	keyFrameItReverse = this->keyFrames.size() - 1;
 }
 
 Animation::Animation(const std::vector<std::string>& regionNames, const TextureAtlas & atlas, sf::Int64 frameDuration, PlayMode type)
+	: keyFrames(), frameDuration(frameDuration), playMode(type), clock(), keyFrameIt(), keyFrameItReverse()
 {
 	std::vector<TextureRegion> keyFrames;
 	for (auto it = regionNames.begin(); it != regionNames.end(); ++it)
@@ -34,8 +35,8 @@ Animation::Animation(const std::vector<std::string>& regionNames, const TextureA
 		this->keyFrames.push_back(it->getRegion());
 	}
 
-	keyFrameIt = this->keyFrames.begin();
-	keyFrameItReverse = this->keyFrames.rbegin();
+	keyFrameIt = 0;
+	keyFrameItReverse = this->keyFrames.size() - 1;
 }
 
 Animation::PlayMode Animation::getPlayMode()
@@ -78,9 +79,9 @@ bool Animation::isAnimationFinished()
 			while (currentTime >= frameDuration)
 			{
 				currentTime -= frameDuration;
-				if (++keyFrameIt == keyFrames.end())
+				if (++keyFrameIt == keyFrames.size())
 				{
-					keyFrameIt = --keyFrames.end();
+					keyFrameIt = keyFrames.size() - 1;
 					return true;
 				}
 			}
@@ -92,9 +93,9 @@ bool Animation::isAnimationFinished()
 			while (currentTime >= frameDuration)
 			{
 				currentTime -= frameDuration;
-				if (++keyFrameItReverse == keyFrames.rend())
+				if (--keyFrameItReverse == 0)
 				{
-					--keyFrameItReverse;
+					keyFrameItReverse = 0;
 					return true;
 				}
 			}
@@ -111,9 +112,9 @@ bool Animation::isAnimationFinished()
 	{
 		if (playMode == Animation::PlayMode::NORMAL)
 		{
-			if (++keyFrameIt == keyFrames.end())
+			if (++keyFrameIt == keyFrames.size())
 			{
-				--keyFrameIt;
+				keyFrameIt = keyFrames.size() - 1;
 				return true;
 			}
 			else
@@ -121,9 +122,9 @@ bool Animation::isAnimationFinished()
 		}
 		else if (playMode == Animation::PlayMode::REVERSED)
 		{
-			if (++keyFrameItReverse == keyFrames.rend())
+			if (--keyFrameItReverse == -1)
 			{
-				--keyFrameItReverse;
+				keyFrameItReverse = 0;
 				return true;
 			}
 			else
@@ -148,56 +149,56 @@ sf::Sprite Animation::getKeyFrame()
 			while (currentTime >= frameDuration)
 			{
 				currentTime -= frameDuration;
-				if (++keyFrameIt == keyFrames.end())
+				if (++keyFrameIt == keyFrames.size())
 				{
-					keyFrameIt = --keyFrames.end();
+					keyFrameIt = keyFrames.size() - 1;
 				}
 			}
 
-			return *keyFrameIt;
+			return keyFrames[keyFrameIt];
 		}
 		else if (playMode == Animation::PlayMode::LOOPED)
 		{
 			while (currentTime >= frameDuration)
 			{
 				currentTime -= frameDuration;
-				if (++keyFrameIt == keyFrames.end())
-					keyFrameIt = keyFrames.begin();
+				if (++keyFrameIt == keyFrames.size())
+					keyFrameIt = 0;
 			}
 
-			return *keyFrameIt;
+			return keyFrames[keyFrameIt];
 		}
 		else if (playMode == Animation::PlayMode::REVERSED)
 		{
 			while (currentTime >= frameDuration)
 			{
 				currentTime -= frameDuration;
-				if (++keyFrameItReverse == keyFrames.rend())
+				if (--keyFrameItReverse == -1)
 				{
-					--keyFrameItReverse;
+					++keyFrameItReverse;
 					break;
 				}
 			}
 
-			return *keyFrameItReverse;
+			return keyFrames[keyFrameItReverse];
 		}
 		else if (playMode == Animation::PlayMode::LOOP_REVERSED)
 		{
 			while (currentTime >= frameDuration)
 			{
 				currentTime -= frameDuration;
-				if (++keyFrameItReverse == keyFrames.rend())
-					keyFrameItReverse = keyFrames.rbegin();
+				if (--keyFrameItReverse == -1)
+					keyFrameItReverse = keyFrames.size() - 1;
 			}
 
-			return *keyFrameItReverse;
+			return keyFrames[keyFrameItReverse];
 		}
 		else
 		{
 			if (playMode == Animation::PlayMode::NORMAL || playMode == Animation::PlayMode::LOOPED)
-				return *keyFrameIt;
+				return keyFrames[keyFrameIt];
 			else if (playMode == Animation::PlayMode::REVERSED || playMode == Animation::PlayMode::LOOP_REVERSED)
-				return *keyFrameItReverse;
+				return keyFrames[keyFrameItReverse];
 			else
 				return keyFrames[0];
 		}
@@ -205,9 +206,9 @@ sf::Sprite Animation::getKeyFrame()
 	else
 	{
 		if (playMode == Animation::PlayMode::NORMAL || playMode == Animation::PlayMode::LOOPED)
-			return *keyFrameIt;
+			return keyFrames[keyFrameIt];
 		else if (playMode == Animation::PlayMode::REVERSED || playMode == Animation::PlayMode::LOOP_REVERSED)
-			return *keyFrameItReverse;
+			return keyFrames[keyFrameItReverse];
 		else
 		{
 			InvalidCodePath;
@@ -219,8 +220,8 @@ sf::Sprite Animation::getKeyFrame()
 void Animation::setPlayMode(PlayMode & newPlayMode)
 {
 	playMode = newPlayMode;
-	keyFrameIt = keyFrames.begin();
-	keyFrameItReverse = keyFrames.rbegin();
+	keyFrameIt = 0;
+	keyFrameItReverse = keyFrames.size() - 1;
 }
 
 void Animation::restartFrameTimer()
@@ -241,7 +242,7 @@ void Animation::resume()
 
 void Animation::restart()
 {
-	keyFrameIt = keyFrames.begin();
-	keyFrameItReverse = keyFrames.rbegin();
+	keyFrameIt = 0;
+	keyFrameItReverse = keyFrames.size() - 1;
 	restartFrameTimer();
 }

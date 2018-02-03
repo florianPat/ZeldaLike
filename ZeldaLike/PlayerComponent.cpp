@@ -8,14 +8,18 @@ PlayerComponent::PlayerComponent(sf::Vector2f & startingPos, TextureAtlas & text
 	std::unique_ptr<Physics::Body> bodyUni = std::make_unique<Physics::Body>(startingPos, "Player", &boundingBox, false, false, std::vector<std::string>{"Blocked"});
 	body = physics.addElementPointer(std::move(bodyUni));
 
-	animations.emplace("frontIdel", Animation{ { "front1" }, atlas });
-	animations.emplace("backIdel", Animation{ { "back1" }, atlas});
-	animations.emplace("leftIdel", Animation{ { "left1" }, atlas });
-	animations.emplace("rightIdel", Animation{ { "right1" }, atlas });
-	animations.emplace("frontWalk", Animation{ { "front1", "front2", "front3" }, atlas });
-	animations.emplace("backWalk", Animation{ { "back1", "back2", "back3" }, atlas });
-	animations.emplace("leftWalk", Animation{ { "left1", "left2", "left3" }, atlas });
-	animations.emplace("rightWalk", Animation{ { "right1", "right2", "right3" }, atlas });
+	InkscapeAnimationElement iae("dataRaw/Player.svg");
+
+	animations.emplace("frontIdel", InkscapeAnimation{ { "front1" }, atlas, iae });
+	animations.emplace("backIdel", InkscapeAnimation{ { "back1" }, atlas, iae });
+	animations.emplace("leftIdel", InkscapeAnimation{ { "left1" }, atlas, iae });
+	animations.emplace("rightIdel", InkscapeAnimation{ { "right1" }, atlas, iae });
+	animations.emplace("frontWalk", InkscapeAnimation{ { "front1", "front2", "front3" }, atlas, iae });
+	animations.emplace("backWalk", InkscapeAnimation{ { "back1", "back2", "back3" }, atlas, iae });
+	animations.emplace("leftWalk", InkscapeAnimation{ { "left1", "left2", "left3" }, atlas, iae });
+	animations.emplace("rightWalk", InkscapeAnimation{ { "right1", "right2", "right3" }, atlas, iae });
+
+	swordTest.setFillColor(sf::Color::Black);
 }
 
 void PlayerComponent::update(float dt)
@@ -32,15 +36,45 @@ void PlayerComponent::update(float dt)
 		body->vel.x = speed;
 
 	if (body->vel.x > 0)
-		currentFrame = animations.find("rightWalk")->second.getKeyFrame();
+	{
+		auto anim = animations.find("rightWalk")->second;
+
+		currentFrame = anim.getKeyFrame();
+		auto rect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
+		swordTest.setPosition({ (float)rect.left + body->getPos().x, (float)rect.top + body->getPos().y });
+		swordTest.setSize({ (float)rect.width, (float)rect.height });
+	}
 	else if (body->vel.x < 0)
-		currentFrame = animations.find("leftWalk")->second.getKeyFrame();
+	{
+		auto anim = animations.find("leftWalk")->second;
+
+		currentFrame = anim.getKeyFrame();
+		auto rect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
+		swordTest.setPosition({ (float)rect.left + body->getPos().x, (float)rect.top + body->getPos().y });
+		swordTest.setSize({ (float)rect.width, (float)rect.height });
+	}
 	else if (body->vel.y > 0)
-		currentFrame = animations.find("frontWalk")->second.getKeyFrame();
+	{
+		auto anim = animations.find("frontWalk")->second;
+
+		currentFrame = anim.getKeyFrame();
+		auto rect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
+		swordTest.setPosition({ (float)rect.left + body->getPos().x, (float)rect.top + body->getPos().y });
+		swordTest.setSize({ (float)rect.width, (float)rect.height });
+	}
 	else if (body->vel.y < 0)
+	{
 		currentFrame = animations.find("backWalk")->second.getKeyFrame();
+	}
 	else
-		currentFrame = animations.find("frontIdel")->second.getKeyFrame();
+	{
+		auto anim = animations.find("frontIdel")->second;
+		
+		currentFrame = anim.getKeyFrame();
+		auto rect = anim.getInkscapeAnimationElementKeyFrame("swordHand");
+		swordTest.setPosition({ (float)rect.left + body->getPos().x, (float)rect.top + body->getPos().y });
+		swordTest.setSize({ (float)rect.width, (float)rect.height });
+	}
 
 	currentFrame.setPosition(body->getPos() + body->vel * dt);
 
@@ -54,6 +88,8 @@ void PlayerComponent::draw()
 {
 	currentFrame.setPosition(body->getPos());
 	renderTarget.draw(currentFrame);
+	
+	renderTarget.draw(swordTest);
 
 	view.setCenter(body->getPos());
 	renderTarget.setView(view);

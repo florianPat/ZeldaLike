@@ -5,6 +5,7 @@
 #include <map>
 #include "TextureAtlas.h"
 #include "SFML\Graphics.hpp"
+#include "InkscapeAnimation.h"
 
 class PlayerComponent : public Component
 {
@@ -12,12 +13,13 @@ class PlayerComponent : public Component
 	sf::RenderWindow& renderTarget;
 	Physics& physics;
 	TextureAtlas atlas;
-	std::map<std::string, Animation> animations;
+	std::map<std::string, InkscapeAnimation> animations;
 	sf::Sprite currentFrame;
 	sf::Vector2f startingPos;
 	Physics::Collider boundingBox;
 	Physics::Body* body = nullptr;
 	sf::View view;
+	sf::RectangleShape swordTest;
 public:
 	PlayerComponent(sf::Vector2f& startingPos, TextureAtlas& textureAtlas, Physics& physics, sf::RenderWindow& renderTarget, EventManager* eventManager, Actor* owner);
 	void update(float dt) override;
