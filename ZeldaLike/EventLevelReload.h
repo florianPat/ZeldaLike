@@ -5,6 +5,6 @@
 
 struct EventLevelReload : public EventData
 {
-	static constexpr unsigned int eventId = getGUID();
+	static constexpr unsigned int eventId = getGUIDConst();
 	EventLevelReload() : EventData(eventId) {};
 };

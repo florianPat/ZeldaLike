@@ -13,10 +13,10 @@ class SwordComponent : public Component
 	Physics::Body* body = nullptr;
 	const sf::IntRect* pos;
 public:
-	static constexpr int id = getGUID();
+	static constexpr int id = getGUIDConst();
 public:
 	SwordComponent(TextureAtlas& textureAtlas, Physics& physics, sf::RenderWindow& renderTarget, EventManager* eventManager, Actor* owner);
 	void update(float dt) override;
 	void draw() override;
-	gomSort::SortKey sort() override { return gomSort::SortKey{ 0, body->getPos().y }; }
+	gomSort::SortKey sort() override { return gomSort::SortKey{ 0, currentFrame.getPosition().y }; }
 };

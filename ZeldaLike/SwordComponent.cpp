@@ -21,10 +21,7 @@ void SwordComponent::update(float dt)
 	assert(pos != nullptr);
 	currentFrame.setPosition((float)pos->left, (float)pos->top);
 
-	boundingBox.collider.rect.left = currentFrame.getPosition().x;
-	boundingBox.collider.rect.top = currentFrame.getPosition().y;
-	boundingBox.collider.rect.width = (float)currentFrame.getTextureRect().width;
-	boundingBox.collider.rect.height = (float)currentFrame.getTextureRect().height;
+	Physics::applySpriteToBoundingBox(currentFrame, boundingBox);
 }
 
 void SwordComponent::draw()

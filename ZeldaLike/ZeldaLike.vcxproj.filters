@@ -75,6 +75,9 @@
     <ClInclude Include="SwordComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TiledMapRenderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Level.cpp">

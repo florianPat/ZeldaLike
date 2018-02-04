@@ -37,7 +37,7 @@ void Level::composeFrame()
 }
 
 Level::Level(sf::RenderWindow & window, std::string tiledMapName) : window(window), physics(), levelName(tiledMapName),
-map(tiledMapName), clock(), gom(), eventManager()
+clock(), gom(), eventManager(), map(tiledMapName, std::vector<std::string>{"OnGround"}, gom, eventManager, window)
 {
 	auto objectGroups = map.getObjectGroups();
 	for (auto it = objectGroups.begin(); it != objectGroups.end(); ++it)

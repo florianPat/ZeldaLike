@@ -22,7 +22,7 @@ class PlayerComponent : public Component
 	sf::View view;
 	sf::IntRect swordPosRect;
 public:
-	static constexpr int id = getGUID();
+	static constexpr int id = getGUIDConst();
 public:
 	PlayerComponent(sf::Vector2f& startingPos, TextureAtlas& textureAtlas, Physics& physics, sf::RenderWindow& renderTarget, EventManager* eventManager, Actor* owner);
 	void update(float dt) override;

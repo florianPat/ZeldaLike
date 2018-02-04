@@ -3,9 +3,10 @@
 #include <stdlib.h>
 #include "Assets.h"
 #include "Utils.h"
+#include "TiledMapRenderComponent.h"
 
-TiledMap::TiledMap(const std::string & filepath) : tiles(), layers(), objectGroups(), 
-												   textureSprite(), texture()
+TiledMap::TiledMap(const std::string & filepath, std::vector<std::string>& toGameObjects, GameObjectManager& gom, EventManager& em, sf::RenderWindow& window)
+	: tiles(), layers(), objectGroups(), textureSprite(), texture()
 {
 	std::ifstream file;
 	file.open(filepath);
@@ -48,7 +49,7 @@ TiledMap::TiledMap(const std::string & filepath) : tiles(), layers(), objectGrou
 			utilsLog("We should be at the end of the file!");
 		}
 
-		MakeRenderTexture();
+		MakeRenderTexture(toGameObjects, gom, em, window);
 	}
 }
 
@@ -196,7 +197,7 @@ void TiledMap::ParseObjectGroups(std::ifstream & file, std::string & lineContent
 	}
 }
 
-void TiledMap::MakeRenderTexture()
+void TiledMap::MakeRenderTexture(std::vector<std::string>& toGameObjects, GameObjectManager& gom, EventManager& em, sf::RenderWindow& window)
 {
 	if (texture.create(mapWidth*tileWidth, mapHeight*tileHeight))
 	{
@@ -214,7 +215,25 @@ void TiledMap::MakeRenderTexture()
 						continue;
 					sf::Sprite sprite(*source);
 					sprite.setPosition((float)x * tileWidth, (float)y * tileHeight);
-					texture.draw(sprite);
+
+					if(toGameObjects.empty())
+						texture.draw(sprite);
+					else
+					{
+						bool toGO = false;
+						for (auto toGOIt = toGameObjects.begin(); toGOIt != toGameObjects.end(); ++toGOIt)
+						{
+							if ((*toGOIt) == it->second.name)
+							{
+								Actor* actorP = gom.addActor();
+								actorP->addComponent(std::make_unique<TiledMapRenderComponent>(sprite, window, em, actorP));
+								toGO = true;
+								break;
+							}
+						}
+						if(!toGO)
+							texture.draw(sprite);
+					}
 				}
 			}
 		}

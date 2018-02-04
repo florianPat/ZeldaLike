@@ -4,6 +4,7 @@
 #include "SFML\Graphics.hpp"
 #include <memory>
 #include "Physics.h"
+#include "GameObjectManager.h"
 
 class TiledMap
 {
@@ -32,7 +33,7 @@ class TiledMap
 	sf::RenderTexture texture;
 	sf::Sprite textureSprite;
 public:
-	TiledMap(const std::string& filepath);
+	TiledMap(const std::string& filepath, std::vector<std::string>& toGameObjects = std::vector<std::string>{}, GameObjectManager& gom = GameObjectManager{}, EventManager& em = EventManager(), sf::RenderWindow& window = sf::RenderWindow());
 	std::vector<Physics::Collider> getObjectGroup(const std::string& objectGroupName);
 	std::vector<ObjectGroup> getObjectGroups();
 	void draw(sf::RenderWindow& renderWindow);
@@ -43,5 +44,5 @@ private:
 	std::string ParseTiles(std::ifstream& file);
 	void ParseLayer(std::ifstream& file, std::string& lineContent);
 	void ParseObjectGroups(std::ifstream& file, std::string& lineContent);
-	void MakeRenderTexture();
+	void MakeRenderTexture(std::vector<std::string>& toGameObjects, GameObjectManager& gom, EventManager& em, sf::RenderWindow& window);
 };

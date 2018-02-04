@@ -17,10 +17,11 @@
 #define Megabyte(x) Kilobyte(x) * 1024ll
 #define Gigabyte(x) Megabyte(x) * 1024ll
 
-#define getGUID() __COUNTER__
+#define getGUIDConst() __COUNTER__
 
 namespace utils
 {
+	unsigned int getGUID();
 	bool isWordInLine(const std::string & word, const std::string & lineContent);
 	DelegateFunction getDelegateFromFunction(std::function<void(EventData*)>& function);
 	std::string getWordBetweenChars(const std::string& lineContent, char first, char last);

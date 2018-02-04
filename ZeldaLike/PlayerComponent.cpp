@@ -77,9 +77,9 @@ void PlayerComponent::update(float dt)
 	currentFrame.setPosition(body->getPos() + body->vel * dt);
 
 	boundingBox.collider.rect.left = currentFrame.getPosition().x;
-	boundingBox.collider.rect.top = currentFrame.getPosition().y;
+	boundingBox.collider.rect.top = currentFrame.getPosition().y + currentFrame.getTextureRect().height / 2.0f;
 	boundingBox.collider.rect.width = (float)currentFrame.getTextureRect().width;
-	boundingBox.collider.rect.height = (float)currentFrame.getTextureRect().height;
+	boundingBox.collider.rect.height = (float)currentFrame.getTextureRect().height / 2.0f;
 }
 
 void PlayerComponent::draw()

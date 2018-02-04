@@ -1,4 +1,14 @@
 #include "Utils.h"
+#include <Windows.h>
+
+#pragma comment(lib, "rpcrt4.lib")  // UuidCreate - Minimum supported OS Win 2000
+
+unsigned int utils::getGUID()
+{
+	UUID uuid;
+	UuidCreate(&uuid);
+	return uuid.Data1;
+}
 
 bool utils::isWordInLine(const std::string & word, const std::string & lineContent)
 {

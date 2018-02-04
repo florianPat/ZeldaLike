@@ -14,10 +14,10 @@ class Level
 private:
 	sf::RenderWindow& window;
 	Physics physics;
-	TiledMap map;
+	GameObjectManager gom;
 	sf::Clock clock;
 	EventManager eventManager;
-	GameObjectManager gom;
+	TiledMap map;
 
 	std::string levelName;
 

@@ -293,6 +293,16 @@ bool Physics::removeElementById(std::string & id)
 	return bodies.erase(id);
 }
 
+void Physics::applySpriteToBoundingBox(const sf::Sprite & sprite, Collider & boundingBox)
+{
+	assert(boundingBox.type == Collider::Type::rect);
+
+	boundingBox.collider.rect.left = sprite.getGlobalBounds().left;
+	boundingBox.collider.rect.top = sprite.getGlobalBounds().top;
+	boundingBox.collider.rect.width = (float)sprite.getGlobalBounds().width;
+	boundingBox.collider.rect.height = (float)sprite.getGlobalBounds().height;
+}
+
 Physics::Body::Body(sf::Vector2f& pos, std::string name, Collider* collider, std::vector<std::string>* collisionId, bool isTrigger, bool isStatic)
 	: isStatic(isStatic), isTrigger(isTrigger), pos(pos), id(name), physicsElements{}
 {
