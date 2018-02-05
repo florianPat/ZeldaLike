@@ -117,6 +117,7 @@
     <ClInclude Include="Assets.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="EventData.h" />
+    <ClInclude Include="EventGetPlayerPos.h" />
     <ClInclude Include="EventLevelReload.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
@@ -124,6 +125,7 @@
     <ClInclude Include="InkscapeAnimation.h" />
     <ClInclude Include="InscapeAnimationElement.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="OrgEnemyComponent.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="gomSort.h" />
     <ClInclude Include="PlayerComponent.h" />
@@ -145,6 +147,7 @@
     <ClCompile Include="InscapeAnimationElement.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OrgEnemyComponent.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerComponent.cpp" />
     <ClCompile Include="SwordComponent.cpp" />

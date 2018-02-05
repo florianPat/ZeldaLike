@@ -41,7 +41,7 @@ bool utils::isWordInLine(const std::string & word, const std::string & lineConte
 
 DelegateFunction utils::getDelegateFromFunction(std::function<void(EventData*)>& function)
 {
-	return DelegateFunction(std::pair<int, std::function<void(EventData*)>>(getGUID(), function));
+	return DelegateFunction(std::pair<unsigned int, std::function<void(EventData*)>>(getGUID(), function));
 }
 
 std::string utils::getWordBetweenChars(const std::string& lineContent, char firstChar, char lastChar)

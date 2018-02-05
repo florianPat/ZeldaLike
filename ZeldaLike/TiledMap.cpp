@@ -11,10 +11,10 @@ TiledMap::TiledMap(const std::string & filepath, std::vector<std::string>& toGam
 	std::ifstream file;
 	file.open(filepath);
 
-	if (!file)
-		utilsLog("Cant open file!");
-	if (!file.is_open())
-		utilsLog("Cant open file!");
+	if (!file.good())
+	{
+		utilsLogBreak("Cant open file!");
+	}
 
 	std::string temp;
 	std::getline(file, temp);
@@ -26,10 +26,14 @@ TiledMap::TiledMap(const std::string & filepath, std::vector<std::string>& toGam
 
 
 		if (!utils::isWordInLine("orthogonal", lineContent))
-			utilsLog("Map has to be orthogonal!");
+		{
+			utilsLogBreak("Map has to be orthogonal!");
+		}
 
 		if (!utils::isWordInLine("right-down", lineContent))
-			utilsLog("Maps render-order has to be right-down!");
+		{
+			utilsLogBreak("Maps render-order has to be right-down!");
+		}
 
 
 		mapWidth = atoi(getLineContentBetween(lineContent, "width", '"').c_str());
@@ -46,7 +50,7 @@ TiledMap::TiledMap(const std::string & filepath, std::vector<std::string>& toGam
 
 		if (!utils::isWordInLine("</map>", lineContent))
 		{
-			utilsLog("We should be at the end of the file!");
+			utilsLogBreak("We should be at the end of the file!");
 		}
 
 		MakeRenderTexture(toGameObjects, gom, em, window);
@@ -147,7 +151,9 @@ void TiledMap::ParseLayer(std::ifstream & file, std::string& lineContent)
 
 		std::getline(file, lineContent); //  <data encoding="csv">
 		if (!utils::isWordInLine("csv", lineContent))
-			utilsLog("Maps encoding has to be \"csv\"");
+		{
+			utilsLogBreak("Maps encoding has to be \"csv\"");
+		}
 
 		std::getline(file, lineContent); //Begin of encoding
 
@@ -242,7 +248,9 @@ void TiledMap::MakeRenderTexture(std::vector<std::string>& toGameObjects, GameOb
 		textureSprite = sf::Sprite(texture.getTexture());
 	}
 	else
-		utilsLog("Could not create Render Texture");
+	{
+		utilsLogBreak("Could not create Render Texture");
+	}
 }
 
 std::string TiledMap::ParseTiles(std::ifstream & file)

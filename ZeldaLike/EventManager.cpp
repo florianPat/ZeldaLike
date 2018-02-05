@@ -4,7 +4,7 @@ EventManager::EventManager() : eventListenerMap()
 {
 }
 
-bool EventManager::addListener(int eventType, DelegateFunction & delegateFunction)
+bool EventManager::addListener(unsigned int eventType, DelegateFunction & delegateFunction)
 {
 	auto eventListenerList = eventListenerMap.find(eventType);
 
@@ -28,7 +28,7 @@ bool EventManager::addListener(int eventType, DelegateFunction & delegateFunctio
 	return true;
 }
 
-bool EventManager::removeListener(int eventType, DelegateFunction & delegateFunction)
+bool EventManager::removeListener(unsigned int eventType, DelegateFunction & delegateFunction)
 {
 	bool success = false;
 	auto findIt = eventListenerMap.find(eventType);

@@ -9,7 +9,7 @@
 #include "EventManager.h"
 
 #define utilsLog(string) std::cerr << "Log: Function: " << __FUNCTION__ << ", Line: " << __LINE__ << ", Message: " << string << std::endl
-#define utilsLogBreak(string) utilsLog(string); __debugbreak()
+#define utilsLogBreak(string) { utilsLog(string); __debugbreak(); }
 
 #define InvalidCodePath assert(!"InvalidCodePath")
 

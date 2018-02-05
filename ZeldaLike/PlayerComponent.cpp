@@ -1,5 +1,6 @@
 #include "PlayerComponent.h"
 #include "Utils.h"
+#include "EventGetPlayerPos.h"
 
 PlayerComponent::PlayerComponent(sf::Vector2f & startingPos, TextureAtlas & textureAtlas, Physics & physics, sf::RenderWindow & renderTarget, EventManager * eventManager, Actor * owner)
 	: startingPos(startingPos), atlas(textureAtlas), physics(physics), renderTarget(renderTarget), view(renderTarget.getDefaultView()),
@@ -18,6 +19,9 @@ PlayerComponent::PlayerComponent(sf::Vector2f & startingPos, TextureAtlas & text
 	animations.emplace("backWalk", InkscapeAnimation{ { "back1", "back2", "back3" }, atlas, iae });
 	animations.emplace("leftWalk", InkscapeAnimation{ { "left1", "left2", "left3" }, atlas, iae });
 	animations.emplace("rightWalk", InkscapeAnimation{ { "right1", "right2", "right3" }, atlas, iae });
+
+	//TODO: assert that OrgEnemy-actor is added, so that the event-handler is added
+	eventManager->TriggerEvent(std::make_unique<EventGetPlayerPos>(&body->getPos()));
 }
 
 void PlayerComponent::update(float dt)

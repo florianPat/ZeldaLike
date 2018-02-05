@@ -18,5 +18,5 @@ public:
 	SwordComponent(TextureAtlas& textureAtlas, Physics& physics, sf::RenderWindow& renderTarget, EventManager* eventManager, Actor* owner);
 	void update(float dt) override;
 	void draw() override;
-	gomSort::SortKey sort() override { return gomSort::SortKey{ 0, currentFrame.getPosition().y }; }
+	gomSort::SortKey sort() override { return gomSort::SortKey{ 0, currentFrame.getGlobalBounds().top + currentFrame.getGlobalBounds().height / 2.0f }; }
 };

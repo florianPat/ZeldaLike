@@ -11,10 +11,10 @@ TextureAtlas::TextureAtlas(const std::string& filepath) : textureAtlas(), fileHe
 	std::ifstream file;
 	file.open(filepath);
 
-	if (!file)
-		utilsLog("Cant open file!");
-	if(!file.is_open())
-		utilsLog("Cant open file!");
+	if (!file.good())
+	{
+		utilsLogBreak("Cant open file!");
+	}
 
 	std::string tempString;
 

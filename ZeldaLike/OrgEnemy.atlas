@@ -1,0 +1,69 @@
+
+OrgEnemy.png
+size: 512,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+back1
+  rotate: false
+  xy: 200, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+back2
+  rotate: false
+  xy: 266, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+back3
+  rotate: false
+  xy: 332, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+front1
+  rotate: false
+  xy: 2, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+front2
+  rotate: false
+  xy: 68, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+front3
+  rotate: false
+  xy: 134, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+left1
+  rotate: false
+  xy: 398, 2
+  size: 30, 64
+  orig: 30, 64
+  offset: 0, 0
+  index: -1
+left2
+  rotate: false
+  xy: 430, 2
+  size: 30, 64
+  orig: 30, 64
+  offset: 0, 0
+  index: -1
+left3
+  rotate: false
+  xy: 462, 2
+  size: 30, 64
+  orig: 30, 64
+  offset: 0, 0
+  index: -1

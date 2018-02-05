@@ -2,6 +2,7 @@
 #include "EventLevelReload.h"
 #include "PlayerComponent.h"
 #include "SwordComponent.h"
+#include "OrgEnemyComponent.h"
 
 void Level::eventLevelReloadHandler(EventData* eventData)
 {
@@ -51,6 +52,12 @@ clock(), gom(), eventManager(), map(tiledMapName, std::vector<std::string>{"OnGr
 			Actor* playerP = gom.addActor();
 			playerP->addComponent(std::make_unique<PlayerComponent>(sf::Vector2f(it->objects[0].collider.rect.left, it->objects[0].collider.rect.top), TextureAtlas("Player.atlas"), physics, window, &eventManager, playerP));
 			playerP->addComponent(std::make_unique<SwordComponent>(TextureAtlas("Items.atlas"), physics, window, &eventManager, playerP));
+		}
+		else if (it->name == "OrgEnemyStart")
+		{
+			Actor* orgP = gom.addActor();
+			//TODO: Think about how to add more than one Org!
+			orgP->addComponent(std::make_unique<OrgEnemyComponent>(sf::Vector2f{ it->objects[0].collider.rect.left, it->objects[0].collider.rect.top }, TextureAtlas("OrgEnemy.atlas"), physics, window, &eventManager, orgP));
 		}
 	}
 
