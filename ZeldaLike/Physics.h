@@ -161,4 +161,5 @@ public:
 	void addElementValue(Body body);
 	bool removeElementById(std::string& id);
 	static void applySpriteToBoundingBox(const sf::Sprite& sprite, Collider& boundingBox);
+	std::vector<std::string> getAllCollisionIdsWhichContain(const std::string& string);
 };

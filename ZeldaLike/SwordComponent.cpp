@@ -7,7 +7,7 @@ const unsigned int SwordComponent::id = utils::getGUID();
 
 SwordComponent::SwordComponent(TextureAtlas & textureAtlas, Physics & physics, sf::RenderWindow & renderTarget, EventManager * eventManager, Actor * owner)
 	: atlas(textureAtlas), physics(physics), renderTarget(renderTarget), currentFrame(), hitClock(), pos(nullptr), boundingBox(Physics::OBB()), 
-	isHitting(nullptr), Component(id, eventManager, owner)
+	isHitting(nullptr), collisionIdsToAdd(physics.getAllCollisionIdsWhichContain("EnemyOrg")), Component(id, eventManager, owner)
 {
 	std::unique_ptr<Physics::Body> bodyUni = std::make_unique<Physics::Body>(sf::Vector2f{ 0.0f, 0.0f }, "PlayerSword", &boundingBox, &collisionId, true);
 	body = physics.addElementPointer(std::move(bodyUni));
@@ -38,7 +38,7 @@ void SwordComponent::update(float dt)
 		{
 			boundingBox.collider.obb.setAngle(0.0f);
 			*isHitting = false;
-			collisionId.erase(collisionId.begin());
+			collisionId.clear();
 		}
 		else
 		{
@@ -48,7 +48,7 @@ void SwordComponent::update(float dt)
 
 	if (body->getIsTriggerd())
 	{
-		eventManager->TriggerEvent(std::make_unique<EventIsHitByPlayer>(7.0f));
+		eventManager->TriggerEvent(std::make_unique<EventIsHitByPlayer>(7.0f, body->getTriggerInformation().triggerElementCollision));
 	}
 
 	boundingBox.collider.obb.pos = currentFrame.getPosition();
@@ -80,8 +80,8 @@ void SwordComponent::hit()
 	hitClock.restart();
 	elapsedTime = sf::Time::Zero;
 	*isHitting = true;
-	if(collisionId.empty())
-		collisionId.push_back("EnemyOrg");
+	if (collisionId.empty())
+		collisionId = collisionIdsToAdd;
 
 	switch (*viewDir)
 	{

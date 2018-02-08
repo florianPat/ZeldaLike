@@ -39,7 +39,7 @@ PlayerComponent::PlayerComponent(sf::Vector2f & startingPos, TextureAtlas & text
 	animations.emplace("rightWalk", InkscapeAnimation{ { "right1", "right2", "right3" }, atlas, iae });
 
 	eventManager->addListener(EventHitPlayer::eventId, delegateHitPlayer);
-	//NOTE: OrgEnemy-actor has to be added, so that the event-handler is added
+	//TODO: assert that OrgEnemy-actor has to be added, so that the event-handler is added and all the bodies are there of the method call in bodyUni
 	eventManager->TriggerEvent(std::make_unique<EventGetPlayerPos>(&body->getPos()));
 }
 

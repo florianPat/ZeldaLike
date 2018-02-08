@@ -7,5 +7,6 @@ struct EventIsHitByPlayer : public EventData
 {
 	static const unsigned int eventId;
 	float health;
-	EventIsHitByPlayer(float health);
+	std::string bodyId;
+	EventIsHitByPlayer(float health, const std::string& bodyId);
 };

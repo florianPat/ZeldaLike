@@ -160,7 +160,7 @@ void Physics::update(float dt)
 {
 	for (auto it = bodies.begin(); it != bodies.end(); ++it)
 	{
-		if (!it->second->isStatic || it->second->isTrigger)
+		if ((!it->second->isStatic || it->second->isTrigger))
 		{
 			it->second->triggered = false;
 			it->second->triggerInformation.triggerElementCollision = "";
@@ -301,6 +301,38 @@ void Physics::applySpriteToBoundingBox(const sf::Sprite & sprite, Collider & bou
 	boundingBox.collider.rect.top = sprite.getGlobalBounds().top;
 	boundingBox.collider.rect.width = (float)sprite.getGlobalBounds().width;
 	boundingBox.collider.rect.height = (float)sprite.getGlobalBounds().height;
+}
+
+std::vector<std::string> Physics::getAllCollisionIdsWhichContain(const std::string & string)
+{
+	std::vector<std::string> result;
+
+	for (auto it = bodies.begin(); it != bodies.end(); ++it)
+	{
+		size_t match = it->first.find(string, 0);
+		if (match != std::string::npos)
+		{
+			bool onlyNumbers = true;
+			std::string substr = it->first;
+			substr.erase(match, string.length());
+			for (auto it = substr.begin(); it != substr.end(); ++it)
+			{
+				char c = *it;
+				//NOTE: has to be ascii!
+				if (c >= 48 && c <= 57)
+					continue;
+				else
+				{
+					onlyNumbers = false;
+					break;
+				}
+			}
+			if (onlyNumbers)
+				result.push_back(it->first);
+		}
+	}
+
+	return result;
 }
 
 Physics::Body::Body(sf::Vector2f& pos, std::string name, Collider* collider, std::vector<std::string>* collisionId, bool isTrigger, bool isStatic)
@@ -532,6 +564,7 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 		float o = std::numeric_limits<float>::max();
 		sf::Vector2f minAxis = { 0.0f, 0.0f };
 
+		//Get x and y axis, and the points of the collider
 		getPointsAxis(s1Points, axis);
 		other.getPointsAxis(s2Points, axis + 2);
 
@@ -540,9 +573,11 @@ bool Physics::Collider::collide(const Collider & other, sf::Vector2f *minTransVe
 			if (axis[i].x == 0.0f && axis[i].y == 0.0f)
 				continue;
 
+			//Project points on axis with dot-product
 			sf::Vector2f s1MinMax = getProjectionMinMax(s1Points, axis[i], i % 2 == 0);
 			sf::Vector2f s2MinMax = other.getProjectionMinMax(s2Points, axis[i], i % 2 == 0);
 
+			//Check for 1d-intersection (all axis have to intersect if the colliders collide)
 			if ((s2MinMax.x > s1MinMax.y || s2MinMax.y < s1MinMax.x))
 				return false;
 			else

@@ -26,7 +26,6 @@ class OrgEnemyComponent : public Component
 	sf::Vector2f force;
 	Physics::Body* bodyPlayerHit = nullptr;
 	float health = 100.0f;
-	bool isDead = false;
 	GameObjectManager& gom;
 private:
 	std::function<void(EventData*)> eventGetPlayerPosFunction = std::bind(&OrgEnemyComponent::eventGetPlayerPosHandler, this, std::placeholders::_1);
@@ -39,7 +38,7 @@ private:
 public:
 	static const unsigned int id;
 public:
-	OrgEnemyComponent(sf::Vector2f& startingPos, TextureAtlas& textureAtlas, Physics& physics, sf::RenderWindow& renderTarget, EventManager* eventManager, Actor* owner, GameObjectManager& gom);
+	OrgEnemyComponent(sf::Vector2f& startingPos, TextureAtlas& textureAtlas, Physics& physics, sf::RenderWindow& renderTarget, EventManager* eventManager, Actor* owner, GameObjectManager& gom, int i);
 	void update(float dt) override;
 	void draw() override;
 	gomSort::SortKey sort() override { return gomSort::SortKey{ 0, body->getPos().y }; }

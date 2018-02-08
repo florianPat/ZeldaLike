@@ -56,9 +56,12 @@ clock(), gom(), eventManager(), map(tiledMapName, std::vector<std::string>{"OnGr
 		}
 		else if (it->name == "OrgEnemyStart")
 		{
-			Actor* orgP = gom.addActor();
-			//TODO: Think about how to add more than one Org!
-			orgP->addComponent(std::make_unique<OrgEnemyComponent>(sf::Vector2f{ it->objects[0].collider.rect.left, it->objects[0].collider.rect.top }, TextureAtlas("OrgEnemy.atlas"), physics, window, &eventManager, orgP, gom));
+			int i = 0;
+			for (auto objects = it->objects.begin(); objects != it->objects.end(); ++objects, ++i)
+			{
+				Actor* orgP = gom.addActor();
+				orgP->addComponent(std::make_unique<OrgEnemyComponent>(sf::Vector2f{ objects->collider.rect.left, objects->collider.rect.top }, TextureAtlas("OrgEnemy.atlas"), physics, window, &eventManager, orgP, gom, i));
+			}
 		}
 	}
 

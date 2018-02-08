@@ -17,6 +17,7 @@ class SwordComponent : public Component
 	bool* isHitting;
 	float destAngle = 0.0f;
 	std::vector<std::string> collisionId;
+	std::vector<std::string> collisionIdsToAdd;
 	const PlayerComponent::ViewDir* viewDir;
 public:
 	static const unsigned int id;
