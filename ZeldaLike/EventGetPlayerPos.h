@@ -6,7 +6,7 @@
 
 struct EventGetPlayerPos : public EventData
 {
-	static constexpr unsigned int eventId = getGUIDConst();
+	static const unsigned int eventId;
 	const sf::Vector2f* pos = nullptr;
-	EventGetPlayerPos(const sf::Vector2f* pos) : pos(pos), EventData(eventId) {};
+	EventGetPlayerPos(const sf::Vector2f* pos);
 };

@@ -118,6 +118,8 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="EventData.h" />
     <ClInclude Include="EventGetPlayerPos.h" />
+    <ClInclude Include="EventHitPlayer.h" />
+    <ClInclude Include="EventIsHitByPlayer.h" />
     <ClInclude Include="EventLevelReload.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
@@ -140,6 +142,10 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Assets.cpp" />
+    <ClCompile Include="EventGetPlayerPos.cpp" />
+    <ClCompile Include="EventHitPlayer.cpp" />
+    <ClCompile Include="EventIsHitByPlayer.cpp" />
+    <ClCompile Include="EventLevelReload.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />

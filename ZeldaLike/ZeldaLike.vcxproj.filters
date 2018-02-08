@@ -84,6 +84,12 @@
     <ClInclude Include="EventGetPlayerPos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EventIsHitByPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHitPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Level.cpp">
@@ -138,6 +144,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OrgEnemyComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventLevelReload.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventGetPlayerPos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventIsHitByPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHitPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

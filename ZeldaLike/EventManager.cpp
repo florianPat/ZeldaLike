@@ -28,24 +28,9 @@ bool EventManager::addListener(unsigned int eventType, DelegateFunction & delega
 	return true;
 }
 
-bool EventManager::removeListener(unsigned int eventType, DelegateFunction & delegateFunction)
+void EventManager::removeListener(unsigned int eventType, DelegateFunction & delegateFunction)
 {
-	bool success = false;
-	auto findIt = eventListenerMap.find(eventType);
-	if (findIt != eventListenerMap.end())
-	{
-		for (auto it = findIt->second.begin(); it != findIt->second.end(); ++it)
-		{
-			if (delegateFunction.first == it->first)
-			{
-				findIt->second.erase(it);
-				success = true;
-				break;
-			}
-		}
-	}
-
-	return success;
+	eventDeleterMap.push_back(std::make_pair(eventType, delegateFunction));
 }
 
 bool EventManager::TriggerEvent(std::unique_ptr<EventData> eventData)
@@ -61,4 +46,32 @@ bool EventManager::TriggerEvent(std::unique_ptr<EventData> eventData)
 		}
 	}
 	return processed;
+}
+
+void EventManager::removeListeners()
+{
+	if (!eventDeleterMap.empty())
+	{
+		for (auto it = eventDeleterMap.begin(); it != eventDeleterMap.end(); ++it)
+		{
+			auto eventType = it->first;
+			auto delegateFunction = it->second;
+
+			auto findIt = eventListenerMap.find(eventType);
+			if (findIt != eventListenerMap.end())
+			{
+				for (auto it = findIt->second.begin(); it != findIt->second.end(); ++it)
+				{
+					if (delegateFunction.first == it->first)
+					{
+						findIt->second.erase(it);
+						break;
+					}
+				}
+				if (findIt->second.empty())
+					eventListenerMap.erase(findIt);
+			}
+		}
+		eventDeleterMap.clear();
+	}
 }

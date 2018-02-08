@@ -20,6 +20,7 @@ void Level::updateModel()
 	float dt = clock.restart().asSeconds();
 
 	gom.updateActors(dt);
+	eventManager.removeListeners();
 
 	physics.update(dt);
 }
@@ -57,7 +58,7 @@ clock(), gom(), eventManager(), map(tiledMapName, std::vector<std::string>{"OnGr
 		{
 			Actor* orgP = gom.addActor();
 			//TODO: Think about how to add more than one Org!
-			orgP->addComponent(std::make_unique<OrgEnemyComponent>(sf::Vector2f{ it->objects[0].collider.rect.left, it->objects[0].collider.rect.top }, TextureAtlas("OrgEnemy.atlas"), physics, window, &eventManager, orgP));
+			orgP->addComponent(std::make_unique<OrgEnemyComponent>(sf::Vector2f{ it->objects[0].collider.rect.left, it->objects[0].collider.rect.top }, TextureAtlas("OrgEnemy.atlas"), physics, window, &eventManager, orgP, gom));
 		}
 	}
 

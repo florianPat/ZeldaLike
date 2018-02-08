@@ -3,8 +3,9 @@
 #include "EventData.h"
 #include "Utils.h"
 
-struct EventLevelReload : public EventData
+struct EventIsHitByPlayer : public EventData
 {
 	static const unsigned int eventId;
-	EventLevelReload();
+	float health;
+	EventIsHitByPlayer(float health);
 };

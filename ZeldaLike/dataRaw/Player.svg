@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.9066"
-     inkscape:cx="329"
-     inkscape:cy="251.2"
+     inkscape:zoom="1.282"
+     inkscape:cx="613.2"
+     inkscape:cy="786.6"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -54,168 +54,8 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="back2"
-       inkscape:label="#g345"
-       transform="translate(-39.23,-90)">
-      <rect
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
-         y="219.3"
-         x="143.7"
-         height="7.093"
-         width="11.63"
-         id="rect4058-6-4"
-         style="fill:#a05a2c;stroke-width:0.294" />
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0-5"
-         d="M 137.9,190.2 143.3,189 H 176.4 L 181.7,189.8 193,222.8 188.8,222 131.9,221.9 129,222.8 Z"
-         style="fill:#165016;stroke-width:0.3301" />
-      <rect
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
-         y="186.1"
-         x="153.4"
-         height="2.921"
-         width="11.2"
-         id="rect4062-3-1"
-         style="fill:#deaa87;stroke-width:0.3301" />
-      <rect
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
-         y="221.7"
-         x="165.5"
-         height="7.093"
-         width="11.63"
-         id="rect4058-4-4-2"
-         style="fill:#a05a2c;stroke-width:0.294" />
-      <ellipse
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
-         ry="11.87"
-         rx="15.17"
-         cy="176.8"
-         cx="159.1"
-         id="path4081-9-2"
-         style="fill:#deaa87;stroke-width:0.3301" />
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-3-8"
-         d="M 174.1,189.1 177.9,189 182,189.8 183.3,194.7 H 174.1 Z"
-         style="fill:#447821;stroke-width:0.2917" />
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-7-6-1"
-         d="M 145.9,189.4 142,189.3 137.9,190.2 136.7,195.1 H 145.9 Z"
-         style="fill:#447821;stroke-width:0.2917" />
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
-         inkscape:connector-curvature="0"
-         id="path1079-6"
-         d="M 142.8,177.8 148.7,181.5 H 158.4 L 161.4,182.6 166.8,179.1 174.9,178 172.4,170 165.9,165.4 154.7,164.7 147.4,167.9 143.9,172.8 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.2834;stroke-opacity:1" />
-    </g>
-    <g
-       id="back3"
-       inkscape:label="#g355"
-       transform="translate(-39.23,-90)">
-      <rect
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
-         y="217.5"
-         x="247.2"
-         height="7.104"
-         width="11.63"
-         id="rect4058-4-4-8"
-         style="fill:#a05a2c;stroke-width:0.2942" />
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0-4"
-         d="M 220,188.1 225.3,186.9 H 258.5 L 263.7,187.7 275,220.8 270.9,219.9 213.9,219.8 211,220.7 Z"
-         style="fill:#165016;stroke-width:0.3304" />
-      <rect
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
-         y="219.5"
-         x="225.7"
-         height="7.104"
-         width="11.63"
-         id="rect4058-6-8"
-         style="fill:#a05a2c;stroke-width:0.2942" />
-      <rect
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
-         y="184"
-         x="235.4"
-         height="2.925"
-         width="11.2"
-         id="rect4062-3-6"
-         style="fill:#deaa87;stroke-width:0.3304" />
-      <ellipse
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
-         ry="11.89"
-         rx="15.17"
-         cy="174.7"
-         cx="241.1"
-         id="path4081-9-6"
-         style="fill:#deaa87;stroke-width:0.3304" />
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-3-1"
-         d="M 256.1,187 260,186.9 264.1,187.7 265.3,192.7 H 256.1 Z"
-         style="fill:#447821;stroke-width:0.292" />
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-7-6-0"
-         d="M 227.9,187.3 224.1,187.2 220,188.1 218.7,193 H 227.9 Z"
-         style="fill:#447821;stroke-width:0.292" />
-      <path
-         inkscape:export-ydpi="25.4"
-         inkscape:export-xdpi="25.4"
-         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
-         inkscape:connector-curvature="0"
-         id="path1079-4"
-         d="M 224.8,175.7 230.7,179.4 H 240.5 L 243.4,180.5 248.9,177 256.9,175.9 254.4,167.8 247.9,163.2 236.8,162.6 229.5,165.8 225.9,170.7 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.2836;stroke-opacity:1" />
-    </g>
-    <g
        id="front1"
-       inkscape:label="#g502">
+       inkscape:label="#g252">
       <path
          sodipodi:nodetypes="ccccccccc"
          inkscape:connector-curvature="0"
@@ -337,61 +177,6 @@
          width="0.6193"
          id="Base"
          style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.2646;stroke-opacity:1" />
-    </g>
-    <g
-       id="back1"
-       inkscape:label="#g359">
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         inkscape:connector-curvature="0"
-         id="rect4054-0"
-         d="M 13.86,102.2 19.19,101.1 H 52.38 L 57.62,101.9 68.97,134.3 64.77,133.5 7.81,133.4 4.95,134.2 Z"
-         style="fill:#165016;stroke-width:0.3273" />
-      <rect
-         y="133.1"
-         x="19.6"
-         height="6.971"
-         width="11.63"
-         id="rect4058-6"
-         style="fill:#a05a2c;stroke-width:0.2915" />
-      <rect
-         y="98.2"
-         x="29.32"
-         height="2.87"
-         width="11.2"
-         id="rect4062-3"
-         style="fill:#deaa87;stroke-width:0.3273" />
-      <rect
-         y="133.2"
-         x="41.39"
-         height="6.971"
-         width="11.63"
-         id="rect4058-4-4"
-         style="fill:#a05a2c;stroke-width:0.2915" />
-      <ellipse
-         ry="11.67"
-         rx="15.17"
-         cy="89.1"
-         cx="34.99"
-         id="path4081-9"
-         style="fill:#deaa87;stroke-width:0.3273" />
-      <path
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-3"
-         d="M 50.04,101.1 H 53.88 L 57.97,101.9 59.21,106.7 H 50.04 Z"
-         style="fill:#447821;stroke-width:0.2892" />
-      <path
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4929-7-6"
-         d="M 21.79,101.4 H 17.95 L 13.86,102.2 12.62,107 H 21.79 Z"
-         style="fill:#447821;stroke-width:0.2892" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path1079"
-         d="M 18.72,90.1 24.61,93.7 H 34.38 L 37.32,94.7 42.75,91.3 50.81,90.3 48.33,82.3 41.82,77.8 30.66,77.2 23.37,80.3 19.81,85.1 Z"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.281;stroke-opacity:1" />
     </g>
     <g
        id="right1"
@@ -1199,6 +984,267 @@
          width="1.218"
          id="Base_8"
          style="fill:#784421;fill-opacity:1;stroke:none;stroke-width:0.1577;stroke-opacity:1" />
+    </g>
+    <g
+       id="back1"
+       inkscape:label="#g272">
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0"
+         d="M 13.86,102.2 19.19,101.1 H 52.38 L 57.62,101.9 68.97,134.3 64.77,133.5 7.81,133.4 4.95,134.2 Z"
+         style="fill:#165016;stroke-width:0.3273" />
+      <rect
+         y="133.1"
+         x="19.6"
+         height="6.971"
+         width="11.63"
+         id="rect4058-6"
+         style="fill:#a05a2c;stroke-width:0.2915" />
+      <rect
+         y="98.2"
+         x="29.32"
+         height="2.87"
+         width="11.2"
+         id="rect4062-3"
+         style="fill:#deaa87;stroke-width:0.3273" />
+      <rect
+         y="133.2"
+         x="41.39"
+         height="6.971"
+         width="11.63"
+         id="rect4058-4-4"
+         style="fill:#a05a2c;stroke-width:0.2915" />
+      <ellipse
+         ry="11.67"
+         rx="15.17"
+         cy="89.1"
+         cx="34.99"
+         id="path4081-9"
+         style="fill:#deaa87;stroke-width:0.3273" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-3"
+         d="M 50.04,101.1 H 53.88 L 57.97,101.9 59.21,106.7 H 50.04 Z"
+         style="fill:#447821;stroke-width:0.2892" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-7-6"
+         d="M 21.79,101.4 H 17.95 L 13.86,102.2 12.62,107 H 21.79 Z"
+         style="fill:#447821;stroke-width:0.2892" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1079"
+         d="M 18.72,90.1 24.61,93.7 H 34.38 L 37.32,94.7 42.75,91.3 50.81,90.3 48.33,82.3 41.82,77.8 30.66,77.2 23.37,80.3 19.81,85.1 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.281;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect167"
+         y="75.5"
+         x="4.95"
+         height="0.6568"
+         width="0.5838"
+         id="Base_9"
+         style="fill:#7c916f;fill-opacity:1;stroke:none;stroke-width:0.0662;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect4092-4"
+         y="111.5"
+         x="40.77"
+         height="4.408"
+         width="9.274"
+         id="swordHand_10"
+         style="fill:#ffb380;stroke-width:0.3273" />
+    </g>
+    <g
+       id="back2"
+       inkscape:label="#g298">
+      <rect
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
+         y="129.3"
+         x="104.5"
+         height="7.093"
+         width="11.63"
+         id="rect4058-6-4"
+         style="fill:#a05a2c;stroke-width:0.294" />
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0-5"
+         d="M 98.67,100.2 104.1,99 H 137.2 L 142.5,99.8 153.8,132.8 149.6,132 92.67,131.9 89.77,132.8 Z"
+         style="fill:#165016;stroke-width:0.3301" />
+      <rect
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
+         y="96.1"
+         x="114.2"
+         height="2.921"
+         width="11.2"
+         id="rect4062-3-1"
+         style="fill:#deaa87;stroke-width:0.3301" />
+      <rect
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
+         y="131.7"
+         x="126.3"
+         height="7.093"
+         width="11.63"
+         id="rect4058-4-4-2"
+         style="fill:#a05a2c;stroke-width:0.294" />
+      <ellipse
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
+         ry="11.87"
+         rx="15.17"
+         cy="86.8"
+         cx="119.9"
+         id="path4081-9-2"
+         style="fill:#deaa87;stroke-width:0.3301" />
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-3-8"
+         d="M 134.9,99.1 138.7,99 142.8,99.8 144.1,104.7 H 134.9 Z"
+         style="fill:#447821;stroke-width:0.2917" />
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-7-6-1"
+         d="M 106.7,99.4 102.8,99.3 98.67,100.2 97.47,105.1 H 106.7 Z"
+         style="fill:#447821;stroke-width:0.2917" />
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back2.png"
+         inkscape:connector-curvature="0"
+         id="path1079-6"
+         d="M 103.6,87.8 109.5,91.5 H 119.2 L 122.2,92.6 127.6,89.1 135.7,88 133.2,80 126.7,75.4 115.5,74.7 108.2,77.9 104.7,82.8 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.2834;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect167-0"
+         y="74.1"
+         x="89.77"
+         height="0.657"
+         width="0.5839"
+         id="Base_10"
+         style="fill:#7c916f;fill-opacity:1;stroke:none;stroke-width:0.0662;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect4092-4"
+         y="109.3"
+         x="124.8"
+         height="4.408"
+         width="9.274"
+         id="swordHand_11"
+         style="fill:#ffb380;stroke-width:0.3273" />
+    </g>
+    <g
+       id="back3"
+       inkscape:label="#g324">
+      <rect
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
+         y="127.5"
+         x="208"
+         height="7.104"
+         width="11.63"
+         id="rect4058-4-4-8"
+         style="fill:#a05a2c;stroke-width:0.2942" />
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4054-0-4"
+         d="M 180.8,98.1 186.1,96.9 H 219.3 L 224.5,97.7 235.8,130.8 231.7,129.9 174.7,129.8 171.8,130.7 Z"
+         style="fill:#165016;stroke-width:0.3304" />
+      <rect
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
+         y="129.5"
+         x="186.5"
+         height="7.104"
+         width="11.63"
+         id="rect4058-6-8"
+         style="fill:#a05a2c;stroke-width:0.2942" />
+      <rect
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
+         y="94"
+         x="196.2"
+         height="2.925"
+         width="11.2"
+         id="rect4062-3-6"
+         style="fill:#deaa87;stroke-width:0.3304" />
+      <ellipse
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
+         ry="11.89"
+         rx="15.17"
+         cy="84.7"
+         cx="201.9"
+         id="path4081-9-6"
+         style="fill:#deaa87;stroke-width:0.3304" />
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-3-1"
+         d="M 216.9,97 220.8,96.9 224.9,97.7 226.1,102.7 H 216.9 Z"
+         style="fill:#447821;stroke-width:0.292" />
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4929-7-6-0"
+         d="M 188.7,97.3 184.9,97.2 180.8,98.1 179.5,103 H 188.7 Z"
+         style="fill:#447821;stroke-width:0.292" />
+      <path
+         inkscape:export-ydpi="25.4"
+         inkscape:export-xdpi="25.4"
+         inkscape:export-filename="E:\MeinProgrammierdingsbums\SFML\ZeldaLike\ZeldaLike\dataRaw\chars\Player\back3.png"
+         inkscape:connector-curvature="0"
+         id="path1079-4"
+         d="M 185.6,85.7 191.5,89.4 H 201.3 L 204.2,90.5 209.7,87 217.7,85.9 215.2,77.8 208.7,73.2 197.6,72.6 190.3,75.8 186.7,80.7 Z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.2836;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect167-0-7"
+         y="71.9"
+         x="171.8"
+         height="0.657"
+         width="0.5839"
+         id="Base_11"
+         style="fill:#7c916f;fill-opacity:1;stroke:none;stroke-width:0.0662;stroke-opacity:1" />
+      <rect
+         inkscape:label="#rect4092-4"
+         y="102.7"
+         x="207.6"
+         height="4.408"
+         width="9.274"
+         id="swordHand_12"
+         style="fill:#ffb380;stroke-width:0.3273" />
     </g>
   </g>
 </svg>

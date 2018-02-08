@@ -20,7 +20,6 @@ public:
 	public:
 		FloatCircle(const sf::Vector2f& center, float radius);
 		FloatCircle(float centerX, float centerY, float radius);
-	private:
 		FloatCircle() = default;
 	};
 
@@ -47,7 +46,6 @@ public:
 		//angle has to be in degrees!
 		void setAngle(float newAngle);
 		float getAngle() const;
-	private:
 		OBB() = default;
 	};
 
